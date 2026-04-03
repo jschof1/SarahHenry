@@ -1,0 +1,31 @@
+{
+  "sessionID": "ses_2d08a7b30ffecdws1BgVlq2nx1",
+  "slots": {
+    "error": [
+      {
+        "id": "wm_1774617878856_znb9iuo",
+        "type": "error",
+        "content": "\u001b[31m[nano-banana] Error:\u001b[0m {\"error\":{\"code\":500,\"message\":\"Internal error encountered.\",\"status\":\"INTERNAL\"}}",
+        "source": "tool:bash",
+        "timestamp": 1774622983244,
+        "relevanceScore": 0,
+        "mentions": 51
+      },
+      {
+        "id": "wm_1774618038484_xp3g4lu",
+        "type": "error",
+        "content": "\u001b[31m[nano-banana] Error:\u001b[0m {\"error\":{\"code\":503,\"message\":\"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\"status\":\"UNAVAILABLE\"}",
+        "source": "tool:bash",
+        "timestamp": 1774623002199,
+        "relevanceScore": 0,
+        "mentions": 49
+      }
+    ],
+    "decision": [],
+    "todo": [],
+    "dependency": []
+  },
+  "pool": [],
+  "eventCounter": 100,
+  "updatedAt": "2026-03-27T14:50:02.200Z"
+}

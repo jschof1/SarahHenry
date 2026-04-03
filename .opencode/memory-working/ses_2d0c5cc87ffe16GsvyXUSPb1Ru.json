@@ -1,0 +1,33 @@
+{
+  "sessionID": "ses_2d0c5cc87ffe16GsvyXUSPb1Ru",
+  "slots": {
+    "error": [],
+    "decision": [],
+    "todo": [],
+    "dependency": []
+  },
+  "pool": [
+    {
+      "id": "wm_1774613843088_afrjbqj",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/PeterYoung/docs/client/peter-young-updates.md",
+      "source": "tool:read",
+      "timestamp": 1774613843439,
+      "relevanceScore": 2.825375,
+      "mentions": 2,
+      "lastEventCounter": 4
+    },
+    {
+      "id": "wm_1774613843439_88zdflu",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/PeterYoung/docs/client/peter-young-requests.md",
+      "source": "tool:glob",
+      "timestamp": 1774613848251,
+      "relevanceScore": 2.1475,
+      "mentions": 2,
+      "lastEventCounter": 4
+    }
+  ],
+  "eventCounter": 4,
+  "updatedAt": "2026-03-27T12:17:28.251Z"
+}

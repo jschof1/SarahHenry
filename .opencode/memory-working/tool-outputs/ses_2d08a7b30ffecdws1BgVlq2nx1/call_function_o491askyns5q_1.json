@@ -1,0 +1,7 @@
+{
+  "callID": "call_function_o491askyns5q_1",
+  "sessionID": "ses_2d08a7b30ffecdws1BgVlq2nx1",
+  "tool": "bash",
+  "fullOutput": "\u001b[36m[nano-banana]\u001b[0m Generating image...\n\u001b[90mModel: Nano Banana 2 (Flash 3.1)\u001b[0m\n\u001b[90mPrompt: A sophisticated wedding table decor setup with a white tablecloth, featuring sage green eucalyptus garlands intertwined with fresh lilac flowers and gold accents\u001b[0m\n\u001b[90mSize: 1K | Aspect: 16:9\u001b[0m\n\n\u001b[90mCost: ~$0.0920 (25 input + 1534 output tokens)\u001b[0m\n\n\u001b[32m[nano-banana]\u001b[0m Generated 1 image(s):\n  \u001b[32m+\u001b[0m /Users/jack/Documents/GitHub/PeterYoung/wedding-table-06.jpeg\n",
+  "timestamp": 1774620526565
+}

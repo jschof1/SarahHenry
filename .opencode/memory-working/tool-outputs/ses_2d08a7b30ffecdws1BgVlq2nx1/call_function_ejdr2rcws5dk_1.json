@@ -1,0 +1,7 @@
+{
+  "callID": "call_function_ejdr2rcws5dk_1",
+  "sessionID": "ses_2d08a7b30ffecdws1BgVlq2nx1",
+  "tool": "bash",
+  "fullOutput": "\u001b[36m[nano-banana]\u001b[0m Generating image...\n\u001b[90mModel: Nano Banana 2 (Flash 3.1)\u001b[0m\n\u001b[90mPrompt: A high-angle shot of a wedding table setting featuring a crisp white tablecloth, decorated with an elegant floral centerpiece of sage green eucalyptus and soft lilac roses\u001b[0m\n\u001b[90mSize: 1K | Aspect: 16:9\u001b[0m\n\n\u001b[90mCost: ~$0.0923 (31 input + 1539 output tokens)\u001b[0m\n\n\u001b[32m[nano-banana]\u001b[0m Generated 1 image(s):\n  \u001b[32m+\u001b[0m /Users/jack/Documents/GitHub/PeterYoung/wedding-table-01.jpeg\n",
+  "timestamp": 1774618395355
+}

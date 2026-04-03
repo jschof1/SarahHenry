@@ -1,0 +1,7 @@
+{
+  "callID": "call_function_5s3hzu9wbmqj_1",
+  "sessionID": "ses_2d08a7b30ffecdws1BgVlq2nx1",
+  "tool": "bash",
+  "fullOutput": "\u001b[36m[nano-banana]\u001b[0m Generating image...\n\u001b[90mModel: Nano Banana 2 (Flash 3.1)\u001b[0m\n\u001b[90mPrompt: A rustic-chic wedding table setting with a white tablecloth, featuring sage green foliage and lilac flowers, captured in warm, golden hour light\u001b[0m\n\u001b[90mSize: 1K | Aspect: 16:9\u001b[0m\n\n\n\n<bash_metadata>\nbash tool terminated command after exceeding timeout 120000 ms\n</bash_metadata>",
+  "timestamp": 1774620347054
+}

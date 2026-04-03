@@ -1,0 +1,7 @@
+{
+  "callID": "call_function_6iqf42uurkqb_1",
+  "sessionID": "ses_2d08a7b30ffecdws1BgVlq2nx1",
+  "tool": "bash",
+  "fullOutput": "\u001b[36m[nano-banana]\u001b[0m Generating image...\n\u001b[90mModel: Nano Banana 2 (Flash 3.1)\u001b[0m\n\u001b[90mPrompt: A bright, airy wedding table display on a white tablecloth, featuring a vibrant arrangement of sage green leaves and lilac flowers, high-resolution imagery\u001b[0m\n\u001b[90mSize: 1K | Aspect: 16:9\u001b[0m\n\n\u001b[31m[nano-banana] Error:\u001b[0m {\"error\":{\"code\":500,\"message\":\"Internal error encountered.\",\"status\":\"INTERNAL\"}}\n",
+  "timestamp": 1774618525007
+}
