@@ -106,18 +106,27 @@ type RevealSectionProps = {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  parallaxBg?: string;
+  parallaxOverlay?: string;
 };
 
-function RevealSection({ children, className = '', id }: RevealSectionProps) {
+function RevealSection({ children, className = '', id, parallaxBg, parallaxOverlay }: RevealSectionProps) {
+  const hasParallax = !!parallaxBg;
   return (
     <motion.section
       id={id}
-      className={className}
+      className={`${className}${hasParallax ? ' has-parallax' : ''}`}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
     >
+      {hasParallax && (
+        <>
+          <div className={`parallax-bg ${parallaxBg}`} aria-hidden />
+          <div className={`parallax-overlay ${parallaxOverlay}`} aria-hidden />
+        </>
+      )}
       {children}
     </motion.section>
   );
@@ -216,7 +225,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      <RevealSection id="home-about" className="section-shell bg-brand-dark text-white">
+      <RevealSection id="home-about" className="section-shell bg-brand-dark text-white" parallaxBg="parallax-bg--about" parallaxOverlay="parallax-overlay--dark">
         <div className="section-inner">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
             <motion.div variants={itemVariants} className="relative">
@@ -281,7 +290,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection id="home-services" className="section-shell bg-lilac-100 text-brand-dark">
+      <RevealSection id="home-services" className="section-shell bg-lilac-100 text-brand-dark" parallaxBg="parallax-bg--services" parallaxOverlay="parallax-overlay--lilac">
         <div className="section-inner">
           <motion.div className="section-heading max-w-3xl" variants={itemVariants}>
             <span className="section-kicker !text-lilac-600">What I Offer</span>
@@ -327,7 +336,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell bg-cream-brand">
+      <RevealSection className="section-shell bg-cream-brand" parallaxBg="parallax-bg--fees" parallaxOverlay="parallax-overlay--cream">
         <div className="section-inner">
           <div className="flex flex-col gap-10">
             <motion.div variants={itemVariants} className="section-heading max-w-3xl">
@@ -396,7 +405,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell section-shell--dark bg-brand-dark text-white">
+      <RevealSection className="section-shell section-shell--dark bg-brand-dark text-white" parallaxBg="parallax-bg--quote" parallaxOverlay="parallax-overlay--dark">
         <div className="quote-scroll-section section-inner text-center">
           <motion.p variants={itemVariants} className="mx-auto max-w-4xl font-serif text-4xl italic leading-tight text-lilac-100 sm:text-5xl">
             &ldquo;Because your story deserves to be told, Your Way!&rdquo;
@@ -410,7 +419,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell bg-lilac-50">
+      <RevealSection className="section-shell bg-lilac-50" parallaxBg="parallax-bg--faq" parallaxOverlay="parallax-overlay--lilac">
         <div className="section-inner">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
             <motion.div variants={itemVariants} className="section-heading">
@@ -457,7 +466,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell bg-white">
+      <RevealSection className="section-shell bg-white" parallaxBg="parallax-bg--contact" parallaxOverlay="parallax-overlay--white">
         <div className="section-inner">
           <motion.div variants={itemVariants} className="section-heading mx-auto max-w-3xl text-center">
             <span className="section-kicker">Let&apos;s Connect</span>

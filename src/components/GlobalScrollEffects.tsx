@@ -171,9 +171,28 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
         }
       });
 
+      // Parallax background images
+      root.querySelectorAll<HTMLElement>('.parallax-bg').forEach((bg) => {
+        gsap.fromTo(
+          bg,
+          { y: '-15%' },
+          {
+            y: '15%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: bg.parentElement,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          },
+        );
+      });
+
       // Section Wipe Effect
       root.querySelectorAll('.section-shell').forEach((section, i) => {
-        if (i === 0) return; // Skip hero
+        if (i === 0) return;
+        if (section.classList.contains('has-parallax')) return;
         gsap.fromTo(
           section,
           { clipPath: 'inset(15% 0% 0% 0%)' },

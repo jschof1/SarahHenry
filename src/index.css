@@ -358,12 +358,66 @@
   @apply relative overflow-x-clip border-b-4 border-lilac-200 px-6 py-24 sm:py-28 lg:px-10;
 }
 
+.parallax-bg {
+  position: absolute;
+  inset: -20% 0;
+  z-index: 0;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center 30%;
+  will-change: transform;
+}
+
+.parallax-bg--about { background-image: url('/bg-parallax-about.jpeg'); }
+.parallax-bg--services { background-image: url('/bg-parallax-services.jpeg'); }
+.parallax-bg--fees { background-image: url('/bg-parallax-fees.jpeg'); }
+.parallax-bg--quote { background-image: url('/bg-parallax-quote.jpeg'); }
+.parallax-bg--faq { background-image: url('/bg-parallax-faq.jpeg'); }
+.parallax-bg--contact { background-image: url('/bg-parallax-contact.jpeg'); }
+
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.parallax-overlay--light {
+  background:
+    linear-gradient(180deg, rgba(250,248,251,0.92) 0%, rgba(250,248,251,0.88) 50%, rgba(250,248,251,0.92) 100%),
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(255,255,255,0.5), transparent 60%);
+}
+
+.parallax-overlay--lilac {
+  background:
+    linear-gradient(180deg, rgba(243,239,246,0.93) 0%, rgba(243,239,246,0.89) 50%, rgba(243,239,246,0.93) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(190,168,214,0.08), transparent 55%);
+}
+
+.parallax-overlay--cream {
+  background:
+    linear-gradient(180deg, rgba(250,248,251,0.93) 0%, rgba(250,248,251,0.90) 50%, rgba(250,248,251,0.93) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212,197,229,0.06), transparent 55%);
+}
+
+.parallax-overlay--dark {
+  background:
+    linear-gradient(180deg, rgba(26,26,26,0.88) 0%, rgba(13,13,13,0.92) 50%, rgba(26,26,26,0.88) 100%),
+    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(94,71,119,0.12), transparent 60%);
+}
+
+.parallax-overlay--white {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.89) 50%, rgba(255,255,255,0.93) 100%),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.5), transparent 60%);
+}
+
 .section-textured {
   @apply relative overflow-x-clip border-b-4 border-lilac-200;
 }
 
-.section-shell::after,
-.section-textured::after {
+.section-shell:not(.has-parallax)::after,
+.section-textured:not(.has-parallax)::after {
   content: '';
   position: absolute;
   inset: -6%;
@@ -385,8 +439,8 @@
   mix-blend-mode: multiply;
 }
 
-.section-shell--dark::after,
-.section-textured--dark::after {
+.section-shell--dark:not(.has-parallax)::after,
+.section-textured--dark:not(.has-parallax)::after {
   background-image:
     linear-gradient(
       180deg,
@@ -400,8 +454,8 @@
   filter: blur(32px) saturate(0.65) brightness(1.08);
 }
 
-.section-shell::before,
-.section-textured::before {
+.section-shell:not(.has-parallax)::before,
+.section-textured:not(.has-parallax)::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -423,6 +477,11 @@
 .section-textured > * {
   position: relative;
   z-index: 2;
+}
+
+.section-shell.has-parallax > * {
+  position: relative;
+  z-index: 3;
 }
 
 .section-inner {
