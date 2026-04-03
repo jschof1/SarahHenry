@@ -1,0 +1,24 @@
+{
+  "sessionID": "ses_2ab9edc9cffeixlU744ZrIH1b6",
+  "modelID": "minimax-m2.5-free",
+  "providerID": "opencode",
+  "limits": {
+    "context": 204800,
+    "output": 131072
+  },
+  "calculated": {
+    "maxOutputTokens": 32000,
+    "reserved": 20000,
+    "usable": 172800
+  },
+  "current": {
+    "totalTokens": 40572,
+    "pressure": 0.23479166666666668,
+    "level": "safe"
+  },
+  "thresholds": {
+    "moderate": 129600,
+    "high": 155520
+  },
+  "updatedAt": "2026-04-03T17:33:16.835Z"
+}

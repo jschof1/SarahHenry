@@ -1,0 +1,7 @@
+{
+  "callID": "call_function_5awnv7av5kxc_1",
+  "sessionID": "ses_2ab9edc9cffeixlU744ZrIH1b6",
+  "tool": "bash",
+  "fullOutput": "github.com\n  ✓ Logged in to github.com account jschof1 (keyring)\n  - Active account: true\n  - Git operations protocol: https\n  - Token: gho_************************************\n  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'\n",
+  "timestamp": 1775237152525
+}

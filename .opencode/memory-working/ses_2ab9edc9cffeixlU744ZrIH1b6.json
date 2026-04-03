@@ -1,0 +1,121 @@
+{
+  "sessionID": "ses_2ab9edc9cffeixlU744ZrIH1b6",
+  "slots": {
+    "error": [
+      {
+        "id": "wm_1775237156939_zsyh02x",
+        "type": "error",
+        "content": "error: No such remote 'origin'",
+        "source": "tool:bash",
+        "timestamp": 1775237156939,
+        "relevanceScore": 0,
+        "mentions": 1
+      },
+      {
+        "id": "wm_1775237162652_nuz8vl4",
+        "type": "error",
+        "content": "failed to run git: exit status 128",
+        "source": "tool:bash",
+        "timestamp": 1775237162652,
+        "relevanceScore": 0,
+        "mentions": 1
+      },
+      {
+        "id": "wm_1775237170617_ppf1eex",
+        "type": "error",
+        "content": "error: remote origin already exists.",
+        "source": "tool:bash",
+        "timestamp": 1775237170617,
+        "relevanceScore": 0,
+        "mentions": 1
+      }
+    ],
+    "decision": [],
+    "todo": [],
+    "dependency": []
+  },
+  "pool": [
+    {
+      "id": "wm_1775237586864_z7fa468",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/src/pages/HomePage.test.tsx",
+      "source": "tool:grep",
+      "timestamp": 1775237586863,
+      "relevanceScore": 2.58532012734375,
+      "mentions": 1,
+      "lastEventCounter": 11
+    },
+    {
+      "id": "wm_1775237586864_ulg853b",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/src/pages/HomePage.tsx",
+      "source": "tool:grep",
+      "timestamp": 1775237586863,
+      "relevanceScore": 2.453317796875,
+      "mentions": 1,
+      "lastEventCounter": 11
+    },
+    {
+      "id": "wm_1775237586864_2kdn65n",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/src/pages/ServicesPage.tsx",
+      "source": "tool:grep",
+      "timestamp": 1775237586863,
+      "relevanceScore": 2.2980209375,
+      "mentions": 1,
+      "lastEventCounter": 11
+    },
+    {
+      "id": "wm_1775237589479_imt4293",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/vite.config.ts",
+      "source": "tool:read",
+      "timestamp": 1775237589479,
+      "relevanceScore": 2.11531875,
+      "mentions": 1,
+      "lastEventCounter": 11
+    },
+    {
+      "id": "wm_1775237592343_zf9btgs",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/.opencode/memory-working/tool-outputs/ses_2ab9edc9cffeixlU744ZrIH1b6/call_function_yg1dvmnomt1q_1.json",
+      "source": "tool:grep",
+      "timestamp": 1775237592343,
+      "relevanceScore": 1.900375,
+      "mentions": 1,
+      "lastEventCounter": 11
+    },
+    {
+      "id": "wm_1775237592344_21u9ve5",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/.opencode/memory-working/tool-outputs/ses_2ab9edc9cffeixlU744ZrIH1b6/call_function_paivwsa3fgbz_1.json",
+      "source": "tool:grep",
+      "timestamp": 1775237592343,
+      "relevanceScore": 1.6475,
+      "mentions": 1,
+      "lastEventCounter": 11
+    },
+    {
+      "id": "wm_1775237592344_9e5va7h",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/.opencode/memory-working/tool-outputs/ses_2ab9edc9cffeixlU744ZrIH1b6/call_function_vfgf19sef32o_1.json",
+      "source": "tool:grep",
+      "timestamp": 1775237592343,
+      "relevanceScore": 1.35,
+      "mentions": 1,
+      "lastEventCounter": 11
+    },
+    {
+      "id": "wm_1775237592345_05e0ou7",
+      "type": "file-path",
+      "content": "/Users/jack/Documents/GitHub/SarahHenry/docs/plans/2026-03-21-homepage-redesign.md",
+      "source": "tool:grep",
+      "timestamp": 1775237592343,
+      "relevanceScore": 1,
+      "mentions": 1,
+      "lastEventCounter": 11
+    }
+  ],
+  "eventCounter": 11,
+  "updatedAt": "2026-04-03T17:33:12.345Z"
+}

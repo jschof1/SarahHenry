@@ -1,0 +1,7 @@
+{
+  "callID": "call_function_r400eca71c0o_1",
+  "sessionID": "ses_2ab9edc9cffeixlU744ZrIH1b6",
+  "tool": "read",
+  "fullOutput": "<path>/Users/jack/Documents/GitHub/SarahHenry/vite.config.ts</path>\n<type>file</type>\n<content>1: import { defineConfig } from 'vite'\n2: import react from '@vitejs/plugin-react'\n3: import path from 'path'\n4: import fs from 'fs'\n5: \n6: function cleanPublicFiles() {\n7:   return {\n8:     name: 'clean-public-files',\n9:     buildStart() {\n10:       const publicDir = path.resolve(__dirname, 'public');\n11:       const files = fs.readdirSync(publicDir);\n12:       for (const file of files) {\n13:         if (file.includes(' ')) {\n14:           fs.unlinkSync(path.join(publicDir, file));\n15:         }\n16:       }\n17:     },\n18:   };\n19: }\n20: \n21: export default defineConfig({\n22:   plugins: [cleanPublicFiles(), react()],\n23: })\n\n(End of file - total 23 lines)\n</content>",
+  "timestamp": 1775237589476
+}

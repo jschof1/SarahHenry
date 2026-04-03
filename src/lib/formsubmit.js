@@ -1,4 +1,4 @@
-export const FORMSUBMIT_EMAIL = 'hello@peteryoungindependantcelebrant.co.uk';
+export const FORMSUBMIT_EMAIL = 'hello@sarahssignatureceremonies.co.uk';
 export const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`;
 
 export function buildEnquiryPayload({ pageName, formData }) {

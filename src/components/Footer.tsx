@@ -1,8 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone } from 'lucide-react';
-import mainLogo from '../assets/white-logo.png';
-
-const academyUrl = 'https://www.funeralcelebrantacademy.co.uk';
+import { Mail, Phone, Instagram, Facebook } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Home', to: '/' },
@@ -13,27 +10,28 @@ const quickLinks = [
   { label: 'Contact', to: '/contact' },
 ];
 
+const FB_URL = 'https://www.facebook.com/share/18acomiKzA/';
+const IG_URL = 'https://instagram.com/sarahssignatureceremonies';
+
 export default function Footer() {
   return (
-    <footer className="bg-sage-800 text-white">
+    <footer className="bg-brand-dark text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12 items-start">
+        <div className="grid md:grid-cols-4 gap-12 items-start">
           <div>
             <div className="mb-4 inline-flex px-3 py-2">
-              <img
-                src={mainLogo}
-                alt="Peter Young Independent Celebrant"
-                className="h-20 w-auto object-contain"
-              />
+              <span className="font-serif text-2xl text-white tracking-wide">
+                Sarah's Signature Ceremonies
+              </span>
             </div>
-            <p className="text-sage-300 text-sm leading-relaxed mt-4">
-              Every ceremony tells a story, and I am here to help you tell yours
-              with heart and love.
+            <p className="text-gray-400 text-sm leading-relaxed mt-4">
+              Your significant milestone ceremonies curated with love, care and
+              authenticity.
             </p>
           </div>
 
           <div>
-            <h4 className="font-serif text-sm tracking-widest uppercase text-sage-300 mb-5">
+            <h4 className="font-serif text-sm tracking-widest uppercase text-lilac-300 mb-5">
               Quick Links
             </h4>
             <ul className="space-y-2.5">
@@ -41,7 +39,7 @@ export default function Footer() {
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="text-sage-300 hover:text-white transition-colors text-sm"
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -51,57 +49,65 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-serif text-sm tracking-widest uppercase text-sage-300 mb-5">
+            <h4 className="font-serif text-sm tracking-widest uppercase text-lilac-300 mb-5">
               Get in Touch
             </h4>
             <a
-              href="tel:07544036487"
-              className="flex items-center gap-2 text-sage-300 hover:text-white transition-colors text-sm"
+              href="tel:01355517037"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
             >
               <Phone size={14} />
-              07544 036 487
+              01355 517037
             </a>
             <a
-              href="tel:02080509495"
-              className="flex items-center gap-2 text-sage-300 hover:text-white transition-colors text-sm"
-            >
-              <Phone size={14} />
-              0208 050 9495
-            </a>
-            <a
-              href="mailto:hello@peteryoungindependantcelebrant.co.uk"
-              className="flex items-center gap-2 text-sage-300 hover:text-white transition-colors text-sm"
+              href="mailto:hello@sarahssignatureceremonies.co.uk"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
             >
               <Mail size={14} />
-              hello@peteryoungindependantcelebrant.co.uk
+              hello@sarahssignatureceremonies.co.uk
+            </a>
+          </div>
+
+          <div className="space-y-3">
+            <h4 className="font-serif text-sm tracking-widest uppercase text-lilac-300 mb-5">
+              Follow
+            </h4>
+            <a
+              href={FB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+            >
+              <Facebook size={14} />
+              Facebook
+            </a>
+            <a
+              href={IG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+            >
+              <Instagram size={14} />
+              @sarahssignatureceremonies
             </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-sage-700 py-6 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-2 text-sage-400 text-xs text-center">
+      <div className="border-t border-white/10 py-6 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-2 text-gray-500 text-xs text-center">
           <p>
-            &copy; {new Date().getFullYear()} Peter Young Independent Celebrant.
+            &copy; {new Date().getFullYear()} Sarah's Signature Ceremonies.
             All rights reserved.
           </p>
           <a
-            href="mailto:hello@peteryoungindependantcelebrant.co.uk"
-            className="hover:text-sage-200 transition-colors"
+            href="mailto:hello@sarahssignatureceremonies.co.uk"
+            className="hover:text-lilac-300 transition-colors"
           >
-            hello@peteryoungindependantcelebrant.co.uk
+            hello@sarahssignatureceremonies.co.uk
           </a>
           <p>
-            Website built by the{' '}
-            <a
-              href={academyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-sage-200 transition-colors underline"
-            >
-              Academy of Professional Celebrants
-            </a>
-            .
+            Based in East Kilbride, working across Scotland and beyond.
           </p>
         </div>
       </div>

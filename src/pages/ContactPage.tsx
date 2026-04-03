@@ -5,12 +5,11 @@ import { FORMSUBMIT_EMAIL, submitEnquiryForm } from '../lib/formsubmit.js';
 
 const ceremonyTypes = [
   'Wedding',
-  'Commitment Ceremony',
-  'Naming Ceremony',
-  'Christening',
   'Funeral / Memorial',
   'Celebration of Life',
-  'Pet Memorial',
+  'Naming Ceremony',
+  'Vow Renewal',
+  'Scattering / Interment of Ashes',
   'Other',
 ];
 
@@ -54,22 +53,22 @@ export default function ContactPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-sage-brand">
+      <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
         <div className="page-hero-floral page-hero-floral--photo" aria-hidden />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
-            <span className="text-xs tracking-[0.3em] uppercase text-cream-brand/80 font-bold">
+            <span className="text-xs tracking-[0.3em] uppercase text-white/80 font-bold">
               Let's Connect
             </span>
-            <h1 className="font-serif text-5xl sm:text-6xl text-cream-brand mt-3 mb-4">
+            <h1 className="font-serif text-5xl sm:text-6xl text-white mt-3 mb-4">
               Get in Touch
             </h1>
             <div className="w-16 h-0.5 bg-lilac-brand mx-auto mb-6" />
-            <p className="text-cream-brand/90 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white/90 text-lg max-w-2xl mx-auto leading-relaxed">
               If I have piqued your interest, I would love to have a proper chat with
               you over the phone or video call to talk about your thoughts for the
-              service. This is a free, no obligation chat and I can tailor packages to
+              ceremony. This is a free, no obligation chat and I can tailor packages to
               fit your specific requirements.
             </p>
           </div>
@@ -80,20 +79,17 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mx-auto reveal">
             <div className="text-center mb-10">
-              <h2 className="font-serif text-3xl text-gray-900 mb-3">
+              <h2 className="font-serif text-3xl text-brand-dark mb-3">
                 Send Me a Message
               </h2>
-              <p className="text-gray-500 text-sm">
-                Drop me an e-mail and find out more details.
-              </p>
             </div>
 
             {submitted ? (
-              <div className="bg-sage-50 border border-sage-200 p-10 text-center">
-                <div className="w-16 h-16 bg-sage-100 flex items-center justify-center mx-auto mb-4">
-                  <Send size={24} className="text-sage-500" />
+              <div className="bg-lilac-50 border border-lilac-200 rounded-brand-lg p-10 text-center">
+                <div className="w-16 h-16 bg-lilac-100 text-lilac-600 flex items-center justify-center mx-auto mb-4 rounded-brand">
+                  <Send size={24} />
                 </div>
-                <h3 className="font-serif text-2xl text-gray-900 mb-2">
+                <h3 className="font-serif text-2xl text-brand-dark mb-2">
                   Thank you for your message
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
@@ -101,7 +97,7 @@ export default function ContactPage() {
                   meantime, please email me directly at{' '}
                   <a
                     href={`mailto:${FORMSUBMIT_EMAIL}`}
-                    className="text-sage-500 underline"
+                    className="text-lilac-600 underline"
                   >
                     {FORMSUBMIT_EMAIL}
                   </a>
@@ -112,7 +108,7 @@ export default function ContactPage() {
                     setErrorMessage('');
                     setFormData({ name: '', email: '', phone: '', ceremonyType: '', date: '', location: '', message: '' });
                   }}
-                  className="mt-6 text-sage-500 underline text-sm"
+                  className="mt-6 text-lilac-600 underline text-sm font-medium"
                 >
                   Send another message
                 </button>
@@ -134,7 +130,7 @@ export default function ContactPage() {
                       required
                       value={formData.name}
                       onChange={(e) => updateField('name', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all text-sm bg-cream-50"
+                      className="w-full px-4 py-3 rounded-brand border border-lilac-200 bg-cream-brand focus:outline-none focus:ring-2 focus:ring-lilac-300 focus:border-transparent transition-all text-sm"
                       placeholder="Your full name"
                     />
                   </div>
@@ -149,7 +145,7 @@ export default function ContactPage() {
                       required
                       value={formData.email}
                       onChange={(e) => updateField('email', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all text-sm bg-cream-50"
+                      className="w-full px-4 py-3 rounded-brand border border-lilac-200 bg-cream-brand focus:outline-none focus:ring-2 focus:ring-lilac-300 focus:border-transparent transition-all text-sm"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -166,7 +162,7 @@ export default function ContactPage() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => updateField('phone', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all text-sm bg-cream-50"
+                      className="w-full px-4 py-3 rounded-brand border border-lilac-200 bg-cream-brand focus:outline-none focus:ring-2 focus:ring-lilac-300 focus:border-transparent transition-all text-sm"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -179,7 +175,7 @@ export default function ContactPage() {
                       name="ceremonyType"
                       value={formData.ceremonyType}
                       onChange={(e) => updateField('ceremonyType', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all text-sm bg-cream-50 appearance-none"
+                      className="w-full px-4 py-3 rounded-brand border border-lilac-200 bg-cream-brand focus:outline-none focus:ring-2 focus:ring-lilac-300 focus:border-transparent transition-all text-sm appearance-none"
                     >
                       <option value="">Select a type</option>
                       {ceremonyTypes.map((t) => (
@@ -200,7 +196,7 @@ export default function ContactPage() {
                       type="date"
                       value={formData.date}
                       onChange={(e) => updateField('date', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all text-sm bg-cream-50"
+                      className="w-full px-4 py-3 rounded-brand border border-lilac-200 bg-cream-brand focus:outline-none focus:ring-2 focus:ring-lilac-300 focus:border-transparent transition-all text-sm"
                     />
                   </div>
                   <div>
@@ -213,7 +209,7 @@ export default function ContactPage() {
                       type="text"
                       value={formData.location}
                       onChange={(e) => updateField('location', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all text-sm bg-cream-50"
+                      className="w-full px-4 py-3 rounded-brand border border-lilac-200 bg-cream-brand focus:outline-none focus:ring-2 focus:ring-lilac-300 focus:border-transparent transition-all text-sm"
                       placeholder="Venue or area"
                     />
                   </div>
@@ -230,7 +226,7 @@ export default function ContactPage() {
                     rows={5}
                     value={formData.message}
                     onChange={(e) => updateField('message', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all text-sm bg-cream-50 resize-none"
+                    className="w-full px-4 py-3 rounded-brand border border-lilac-200 bg-cream-brand focus:outline-none focus:ring-2 focus:ring-lilac-300 focus:border-transparent transition-all text-sm resize-none"
                     placeholder="Tell me about the ceremony you have in mind..."
                   />
                 </div>
@@ -247,7 +243,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-sage-400 hover:bg-sage-500 text-white py-3.5 transition-colors text-sm tracking-wide font-medium flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-brand-dark text-white py-3.5 rounded-brand-pill transition-colors text-sm tracking-wide font-medium flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed hover:bg-lilac-700"
                 >
                   <Send size={16} />
                   {isSubmitting ? 'Sending...' : 'Send Enquiry'}
@@ -256,56 +252,64 @@ export default function ContactPage() {
             )}
           </div>
 
-          <div className="grid md:grid-cols-3 gap-3 md:gap-8 max-w-4xl mx-auto mt-12 md:mt-16">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto mt-16">
             <a
-              href="tel:07544036487"
-              className="bg-cream-100 px-4 py-3 md:p-8 flex flex-row items-center gap-3 md:flex-col md:gap-0 text-left md:text-center hover:shadow-md transition-all duration-300 group reveal"
+              href="tel:01355517037"
+              className="bg-lilac-50 rounded-brand p-8 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300 reveal"
             >
-              <div className="w-11 h-11 md:w-14 md:h-14 shrink-0 bg-sage-50 flex items-center justify-center md:mx-auto md:mb-4 group-hover:bg-sage-100 transition-colors">
-                <Phone className="h-5 w-5 shrink-0 text-sage-400 md:h-[22px] md:w-[22px]" />
+              <div className="w-14 h-14 bg-lilac-100 text-lilac-600 flex items-center justify-center rounded-brand mb-4">
+                <Phone size={22} />
               </div>
-              <div className="min-w-0 flex-1 md:flex-none">
-                <h3 className="font-serif text-base md:text-lg text-gray-900 mb-0.5 md:mb-2">Mobile</h3>
-                <p className="text-sage-500 text-sm">07544 036 487</p>
-              </div>
+              <h3 className="font-serif text-xl text-brand-dark mb-2">Phone</h3>
+              <p className="text-gray-600 text-sm">01355 517037</p>
             </a>
 
             <a
-              href="tel:02080509495"
-              className="bg-cream-100 px-4 py-3 md:p-8 flex flex-row items-center gap-3 md:flex-col md:gap-0 text-left md:text-center hover:shadow-md transition-all duration-300 group reveal"
+              href={`mailto:${FORMSUBMIT_EMAIL}`}
+              className="bg-lilac-50 rounded-brand p-8 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300 reveal"
               style={{ transitionDelay: '0.1s' }}
             >
-              <div className="w-11 h-11 md:w-14 md:h-14 shrink-0 bg-sage-50 flex items-center justify-center md:mx-auto md:mb-4 group-hover:bg-sage-100 transition-colors">
-                <Phone className="h-5 w-5 shrink-0 text-sage-400 md:h-[22px] md:w-[22px]" />
+              <div className="w-14 h-14 bg-lilac-100 text-lilac-600 flex items-center justify-center rounded-brand mb-4">
+                <Mail size={22} />
               </div>
-              <div className="min-w-0 flex-1 md:flex-none">
-                <h3 className="font-serif text-base md:text-lg text-gray-900 mb-0.5 md:mb-2">Landline</h3>
-                <p className="text-sage-500 text-sm">0208 050 9495</p>
-              </div>
+              <h3 className="font-serif text-xl text-brand-dark mb-2">Email</h3>
+              <p className="text-gray-600 text-sm break-all">{FORMSUBMIT_EMAIL}</p>
             </a>
 
-            <a
-              href="mailto:hello@peteryoungindependantcelebrant.co.uk"
-              className="bg-cream-100 px-4 py-3 md:p-8 flex flex-row items-center gap-3 md:flex-col md:gap-0 text-left md:text-center hover:shadow-md transition-all duration-300 group reveal"
+            <div
+              className="bg-lilac-50 rounded-brand p-8 flex flex-col items-center text-center reveal"
               style={{ transitionDelay: '0.2s' }}
             >
-              <div className="w-11 h-11 md:w-14 md:h-14 shrink-0 bg-sage-50 flex items-center justify-center md:mx-auto md:mb-4 group-hover:bg-sage-100 transition-colors">
-                <Mail className="h-5 w-5 shrink-0 text-sage-400 md:h-[22px] md:w-[22px]" />
+              <div className="w-14 h-14 bg-lilac-100 text-lilac-600 flex items-center justify-center rounded-brand mb-4">
+                <MapPin size={22} />
               </div>
-              <div className="min-w-0 flex-1 md:flex-none">
-                <h3 className="font-serif text-base md:text-lg text-gray-900 mb-0.5 md:mb-2">Email</h3>
-                <p className="text-sage-500 text-sm break-all leading-snug">
-                  hello@peteryoungindependantcelebrant.co.uk
-                </p>
-              </div>
-            </a>
+              <h3 className="font-serif text-xl text-brand-dark mb-2">Location</h3>
+              <p className="text-gray-600 text-sm">East Kilbride, Scotland</p>
+            </div>
           </div>
 
-          <div className="mt-16 text-center reveal">
+          <div className="mt-12 text-center reveal">
+            <div className="flex items-center justify-center gap-6 mb-8">
+              <a
+                href="https://www.facebook.com/share/18acomiKzA/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-lilac-600 hover:text-lilac-700 font-medium transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/sarahssignatureceremonies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-lilac-600 hover:text-lilac-700 font-medium transition-colors"
+              >
+                @sarahssignatureceremonies
+              </a>
+            </div>
             <div className="inline-flex items-center gap-2 text-gray-500 text-sm">
-              <MapPin size={16} className="text-sage-400" />
-              Based in Kent, working across London, the surrounding counties and
-              beyond
+              <MapPin size={16} className="text-lilac-500" />
+              Based in East Kilbride, working across Scotland and beyond
             </div>
           </div>
         </div>

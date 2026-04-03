@@ -1,0 +1,7 @@
+{
+  "callID": "call_function_qsfxdpkvtym4_1",
+  "sessionID": "ses_2ab9edc9cffeixlU744ZrIH1b6",
+  "tool": "bash",
+  "fullOutput": "total 128\ndrwxr-xr-x@  13 jack  staff    416  3 Apr 18:25 .\ndrwxr-xr-x   42 jack  staff   1344  3 Apr 18:25 ..\n-rw-r--r--@   1 jack  staff     11  3 Apr 18:25 COMMIT_EDITMSG\n-rw-r--r--@   1 jack  staff    137  3 Apr 18:25 config\n-rw-r--r--@   1 jack  staff     73  3 Apr 18:25 description\n-rw-r--r--@   1 jack  staff     21  3 Apr 18:25 HEAD\ndrwxr-xr-x@  16 jack  staff    512  3 Apr 18:25 hooks\n-rw-r--r--@   1 jack  staff  42099  3 Apr 18:25 index\ndrwxr-xr-x@   3 jack  staff     96  3 Apr 18:25 info\ndrwxr-xr-x@   4 jack  staff    128  3 Apr 18:25 logs\ndrwxr-xr-x@ 192 jack  staff   6144  3 Apr 18:25 objects\n-rw-r--r--@   1 jack  staff     40  3 Apr 18:25 opencode\ndrwxr-xr-x@   4 jack  staff    128  3 Apr 18:25 refs\n",
+  "timestamp": 1775237153904
+}
