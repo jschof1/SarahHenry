@@ -79,9 +79,9 @@ export default function VowRenewalsPage() {
           <ul className="space-y-4">
             {[
               'All phone and email communications',
-              'Personal visits to meet you',
-              'Support with revisiting/creating new vows',
-              'Pre-renewal meeting for final review',
+              'Personal visits to meet you to gather information to design a bespoke ceremony',
+              'Support, if necessary, when it comes to revisiting/creating new vows',
+              'Pre-renewal meeting for a final review of all ceremony elements',
               'Professional ceremony delivery on the day',
               'Commemorative certificate',
             ].map((item) => (

@@ -59,13 +59,23 @@ export default function FuneralsPage() {
             give you reassurance, so that on the day you can focus on remembering,
             sharing and being together.
           </p>
-          <p className="text-lg leading-relaxed mb-10">
+          <p className="text-lg leading-relaxed mb-6">
             A funeral or celebration of life should honour the past, acknowledge
             the loss, and bring people together in a way that feels personal and
             sincere.
           </p>
+          <p className="text-lg leading-relaxed mb-6">
+            One of the many benefits of a celebrant led ceremony is the
+            flexibility it offers, whether the service takes place at a
+            crematorium, cemetery or a location that held special meaning, we can
+            create something that truly reflects your loved one.
+          </p>
+          <p className="text-lg leading-relaxed mb-10">
+            If you feel like I can support you during this time, please do get in
+            touch.
+          </p>
           <Link to="/contact" className="button-primary inline-flex items-center gap-2">
-            Let's Talk
+            Get in Touch
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
@@ -79,11 +89,11 @@ export default function FuneralsPage() {
           <ul className="space-y-4">
             {[
               'All phone and email communications',
-              'Visit in person to meet family and gather information',
-              'Bespoke ceremony script, revised until entirely happy',
-              'Advice on readings, poetry, and music',
-              'Conducting the service on the day',
-              "Keepsake version of loved one's story",
+              'A visit in person to meet you and your family, so that I can gather information and stories about your loved one that will allow me to design a bespoke, personal ceremony',
+              'The service sent to you to check as many times as needed until you are entirely happy with the content',
+              'Advice in choosing readings, poetry, and music for inclusion in the ceremony',
+              'Conducting the funeral service on the day',
+              'Providing you with a special keepsake version of your loved one\'s story after the service',
               'Travel within 30-mile radius of East Kilbride included',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-lg">
@@ -106,7 +116,8 @@ export default function FuneralsPage() {
               a loved one under the age of 18.
             </p>
             <p className="text-lg leading-relaxed">
-              Scattering or Interment of Ashes from £65
+              Scattering or Interment of Ashes from &pound;65 &mdash; Meaningful
+              personalised ceremony with flexible location and timing.
             </p>
           </div>
         </div>

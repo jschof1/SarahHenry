@@ -10,12 +10,12 @@ const packages = [
     featured: false,
     features: [
       'All phone and email communications',
-      'Personal visit to meet family',
-      'Bespoke ceremony script',
-      'Advice on readings, poetry and music',
-      'Conducting the service on the day',
-      'Keepsake version of loved one\'s story',
-      'Travel within 30-mile radius included',
+      'A visit in person to meet you and your family to gather information and stories about your loved one',
+      'The service sent to you to check as many times as needed until you are entirely happy with the content',
+      'Advice in choosing readings, poetry, and music for inclusion in the ceremony',
+      'Conducting the funeral service on the day',
+      'Providing you with a special keepsake version of your loved one\'s story after the service',
+      'Travel within 30-mile radius of East Kilbride included',
     ],
   },
   {
@@ -25,11 +25,11 @@ const packages = [
     featured: true,
     features: [
       'All phone and email communications',
-      'Personal visits to meet you',
-      'Support with writing vows',
-      'Pre-wedding meeting for final review',
+      'Personal visits to meet you to gather information to design a bespoke ceremony',
+      'Support, if necessary, when it comes to writing your vows',
+      'Pre-wedding meeting for a final review of all ceremony elements',
       'Professional ceremony delivery on the day',
-      'Commemorative certificate',
+      'Commemorative certificate — used for signing on the day',
       'Travel within 30-mile radius included',
     ],
   },
@@ -40,8 +40,8 @@ const packages = [
     featured: false,
     features: [
       'All phone and email communications',
-      'Personal visits to meet you',
-      'Support with writing pledges',
+      'Personal visits to meet you to gather information to design a bespoke ceremony',
+      'Support, if necessary, when it comes to writing pledges or promises that your significant/special people recite',
       'Professional ceremony delivery on the day',
       'Commemorative certificate',
       'Travel within 30-mile radius included',
@@ -54,9 +54,9 @@ const packages = [
     featured: false,
     features: [
       'All phone and email communications',
-      'Personal visits to meet you',
-      'Support with creating new vows',
-      'Pre-renewal meeting for final review',
+      'Personal visits to meet you to gather information to design a bespoke ceremony',
+      'Support, if necessary, when it comes to revisiting/creating new vows',
+      'Pre-renewal meeting for a final review of all ceremony elements',
       'Professional ceremony delivery on the day',
       'Commemorative certificate',
       'Travel within 30-mile radius included',
@@ -143,7 +143,17 @@ export default function FeesPage() {
               <p className="text-lg">
                 Scattering or Interment of Ashes from £65
               </p>
-              <p className="text-lg">
+              <ul className="ml-4 space-y-2 text-base text-gray-600">
+                <li className="flex items-start gap-3">
+                  <Check size={16} className="flex-shrink-0 mt-1 text-lilac-500" />
+                  <span>Meaningful personalised ceremony</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Check size={16} className="flex-shrink-0 mt-1 text-lilac-500" />
+                  <span>Flexible location and timing</span>
+                </li>
+              </ul>
+              <p className="text-lg mt-4">
                 I provide complimentary celebrant services where the ceremony is for a loved one under the age of 18.
               </p>
             </div>

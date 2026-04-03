@@ -54,10 +54,18 @@ export default function NamingPage() {
             This allows you to relax, be fully present and enjoy celebrating this
             milestone with the people who matter most.
           </p>
-          <p className="text-lg leading-relaxed mb-10">
+          <p className="text-lg leading-relaxed mb-6">
             Your naming ceremony should honour this moment in time, celebrate your
             child's place within your family and look ahead to the future that
             lies ahead for them.
+          </p>
+          <p className="text-lg leading-relaxed mb-6">
+            One of the many joys of a celebrant led ceremony is the flexibility
+            it offers, you're free to choose a location and setting that feels
+            right for you, creating a ceremony that truly reflects your family.
+          </p>
+          <p className="text-lg leading-relaxed mb-10">
+            If this feels like the right approach for you, I'd love to chat.
           </p>
           <Link to="/contact" className="button-primary inline-flex items-center gap-2">
             Let's Talk
@@ -74,8 +82,8 @@ export default function NamingPage() {
           <ul className="space-y-4">
             {[
               'All phone and email communications',
-              'Personal visits to meet you',
-              'Support with writing pledges or promises',
+              'Personal visits to meet you to gather information to design a bespoke ceremony',
+              'Support, if necessary, when it comes to writing pledges or promises that your significant/special people recite',
               'Professional ceremony delivery on the day',
               'Commemorative certificate',
             ].map((item) => (

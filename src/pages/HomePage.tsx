@@ -268,6 +268,11 @@ export default function HomePage() {
                 no &ldquo;one size fits all&rdquo;, just a thoughtfully crafted service
                 that reflects your wishes, your values and your voice.
               </p>
+              <p className="mt-6 text-base leading-8 text-white/80">
+                Fully accredited by The Academy of Professional Celebrants and fully
+                insured, I bring professionalism, adaptability and reliability to every
+                ceremony I deliver, along with warmth, care and attention to every detail.
+              </p>
               <Link to="/about" className="button-lift button-contrast mt-10">
                 Read More About Me
               </Link>

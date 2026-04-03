@@ -82,11 +82,11 @@ export default function WeddingsPage() {
           <ul className="space-y-4">
             {[
               'All phone and email communications',
-              'Personal visits to meet you',
-              'Support with writing vows',
-              'Pre-wedding meeting for final review',
+              'Personal visits to meet you to gather information to design a bespoke ceremony',
+              'Support, if necessary, when it comes to writing your vows',
+              'Pre-wedding meeting for a final review of all ceremony elements',
               'Professional ceremony delivery on the day',
-              'Commemorative certificate',
+              'Commemorative certificate — used for signing on the day',
               'Travel within 30-mile radius included',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-lg">
