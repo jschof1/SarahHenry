@@ -230,10 +230,45 @@
 }
 
 .page-hero-floral.page-hero-floral--photo {
-  background-image: url('/wedding-table-02.jpeg');
   background-position: center 42%;
   opacity: 1;
   filter: none;
+}
+
+.page-hero-floral--weddings {
+  background-image: url('/wedding-ceremony-couple.jpeg');
+}
+
+.page-hero-floral--funerals {
+  background-image: url('/ceremony-setup-room.jpeg');
+}
+
+.page-hero-floral--naming {
+  background-image: url('/sleeping-baby-bunny.jpeg');
+}
+
+.page-hero-floral--vow-renewals {
+  background-image: url('/exchanging-rings-bw.jpeg');
+}
+
+.page-hero-floral--about {
+  background-image: url('/beach-happy-place.jpeg');
+}
+
+.page-hero-floral--services {
+  background-image: url('/ceremony-setup-table.jpeg');
+}
+
+.page-hero-floral--fees {
+  background-image: url('/wedding-table-decor.jpeg');
+}
+
+.page-hero-floral--faq {
+  background-image: url('/wedding-group-bw.jpeg');
+}
+
+.page-hero-floral--contact {
+  background-image: url('/sarah-henry-indoor.jpeg');
 }
 
 .page-hero-scrim {

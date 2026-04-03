@@ -157,8 +157,8 @@ export default function HomePage() {
       <section className="homepage-hero">
         <motion.div className="homepage-hero-media hero-parallax-media">
           <img
-            src="/hero-life-celebrations.jpg"
-            alt="Outdoor ceremony setting"
+            src="/beach-happy-place.jpeg"
+            alt="Beautiful beach setting"
             className="h-full w-full object-cover"
           />
         </motion.div>
@@ -222,7 +222,7 @@ export default function HomePage() {
             <motion.div variants={itemVariants} className="relative">
               <div className="scroll-reveal-mask img-frame-organic-a max-lg:aspect-auto aspect-[3/4] overflow-hidden border-[12px] border-lilac-brand bg-white shadow-2xl rounded-brand-lg">
                 <img
-                  src="/3.png"
+                  src="/sarah-henry-bridge.jpeg"
                   alt="Sarah Henry"
                   className="reveal-parallax-img w-full max-lg:h-auto max-lg:object-contain max-lg:object-center lg:h-full lg:object-cover lg:object-top"
                 />

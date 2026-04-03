@@ -7,7 +7,7 @@ export default function VowRenewalsPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero bg-brand-dark page-hero-floral page-hero-floral--photo page-hero-scrim page-hero-scrim--photo">
+      <section className="page-hero bg-brand-dark page-hero-floral page-hero-floral--photo page-hero-floral--vow-renewals page-hero-scrim page-hero-scrim--photo">
         <div className="page-hero__inner">
           <p className="page-hero__kicker">Life Milestones</p>
           <h1 className="page-hero__title">Vow Renewals</h1>

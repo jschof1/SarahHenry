@@ -40,9 +40,7 @@ export default function Header() {
         >
           <Link to="/" className="flex items-center group" onClick={closeMobileMenu}>
             <div className="px-3 py-1.5">
-              <span className="font-serif text-2xl sm:text-3xl text-white tracking-wide">
-                Sarah's Signature Ceremonies
-              </span>
+              <img src="/logo.png" alt="Sarah's Signature Ceremonies" className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
           </Link>
 

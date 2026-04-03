@@ -7,7 +7,7 @@ export default function FuneralsPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero bg-brand-dark page-hero-floral page-hero-floral--photo page-hero-scrim page-hero-scrim--photo">
+      <section className="page-hero bg-brand-dark page-hero-floral page-hero-floral--photo page-hero-floral--funerals page-hero-scrim page-hero-scrim--photo">
         <div className="page-hero__inner">
           <p className="page-hero__kicker">Life Transitions</p>
           <h1 className="page-hero__title">Funerals &amp; Memorial Services</h1>

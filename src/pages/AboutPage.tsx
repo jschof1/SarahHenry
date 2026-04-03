@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div ref={revealRef}>
       <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
-        <div className="page-hero-floral page-hero-floral--photo" aria-hidden />
+        <div className="page-hero-floral page-hero-floral--photo page-hero-floral--about" aria-hidden />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
@@ -27,7 +27,7 @@ export default function AboutPage() {
             <div className="reveal-left">
               <div className="scroll-reveal-mask img-frame-organic-a aspect-[3/4] overflow-hidden rounded-brand border-[8px] border-lilac-brand bg-white shadow-2xl">
                 <img
-                  src="/sarah-portrait.jpg"
+                  src="/sarah-henry-indoor.jpeg"
                   alt="Sarah Henry - Independent Celebrant"
                   className="w-full h-full object-cover object-top"
                 />
@@ -83,7 +83,7 @@ export default function AboutPage() {
             <div className="reveal-right">
               <div className="scroll-reveal-mask img-frame-organic-c aspect-[3/4] overflow-hidden shadow-2xl rounded-brand border-[8px] border-lilac-brand">
                 <img
-                  src="/sarah-coastal.jpg"
+                  src="/sarah-henry-fascinator.jpeg"
                   alt="Sarah by the coast"
                   className="h-full w-full object-cover object-top"
                 />

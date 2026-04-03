@@ -53,7 +53,7 @@ export default function FAQPage() {
   return (
     <div ref={revealRef}>
       <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
-        <div className="page-hero-floral page-hero-floral--photo" aria-hidden />
+        <div className="page-hero-floral page-hero-floral--photo page-hero-floral--faq" aria-hidden />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
