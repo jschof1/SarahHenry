@@ -73,16 +73,19 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
           );
         }
 
-        const heroContent = hero.querySelector('.hero-parallax-content, .page-hero-inner');
+        const heroContent = hero.querySelector(
+          '.hero-parallax-content, .page-hero-inner:not(.page-hero-inner--service)',
+        );
         if (heroContent) {
           gsap.to(heroContent, {
             opacity: 0,
-            y: -50,
+            y: -80,
+            scale: 0.96,
             ease: 'none',
             scrollTrigger: {
               trigger: hero,
               start: 'top top',
-              end: '50% top',
+              end: '55% top',
               scrub: true,
             },
           });
@@ -132,21 +135,75 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
         }
       });
 
-      // Quote sections parallax
+      // Quote sections parallax — cinematic scale + opacity
       root.querySelectorAll('.quote-scroll-section').forEach((quote) => {
-        gsap.fromTo(
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: quote,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        });
+        tl.fromTo(
           quote,
-          { y: 100, opacity: 0, scale: 0.8 },
+          { y: 80, opacity: 0, scale: 0.85 },
+          { y: 0, opacity: 1, scale: 1, ease: 'power2.out', duration: 0.5 },
+        )
+        .to(quote, { y: -60, opacity: 0.6, ease: 'power1.in', duration: 0.5 });
+      });
+
+      // Quote glow ring pulses wider on scroll
+      root.querySelectorAll('.quote-glow-ring').forEach((ring) => {
+        gsap.fromTo(
+          ring,
+          { scale: 0.5, opacity: 0 },
           {
-            y: -100,
-            opacity: 1,
-            scale: 1,
+            scale: 1.6,
+            opacity: 0.6,
             ease: 'power2.out',
             scrollTrigger: {
-              trigger: quote,
-              start: 'top bottom',
-              end: 'bottom top',
+              trigger: ring,
+              start: 'top 85%',
+              end: 'top 40%',
               scrub: 1,
+            },
+          },
+        );
+      });
+
+      // Quote divider line wipes in from center
+      root.querySelectorAll('.quote-divider').forEach((div) => {
+        gsap.fromTo(
+          div,
+          { scaleX: 0, transformOrigin: 'center' },
+          {
+            scaleX: 1,
+            ease: 'power3.inOut',
+            scrollTrigger: {
+              trigger: div,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            duration: 1.2,
+          },
+        );
+      });
+
+      // Section kicker slide-in from left
+      root.querySelectorAll<HTMLElement>('.section-kicker').forEach((kicker) => {
+        gsap.fromTo(
+          kicker,
+          { x: -30, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: kicker,
+              start: 'top 90%',
+              toggleActions: 'play none none none',
             },
           },
         );
@@ -193,6 +250,7 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
       root.querySelectorAll('.section-shell').forEach((section, i) => {
         if (i === 0) return;
         if (section.classList.contains('has-parallax')) return;
+        if (section.classList.contains('section-shell--no-wipe')) return;
         gsap.fromTo(
           section,
           { clipPath: 'inset(15% 0% 0% 0%)' },

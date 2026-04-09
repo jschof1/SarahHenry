@@ -32,7 +32,8 @@ export default {
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans: ['"DM Sans"', 'Inter', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         brand: '12px',

@@ -12,7 +12,7 @@ import {
   Users,
   Flower2,
 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { FORMSUBMIT_EMAIL, submitEnquiryForm } from '../lib/formsubmit.js';
 import { MagneticButton } from '../components/MagneticButton';
 
@@ -79,24 +79,97 @@ const services = [
   { icon: Heart, title: 'Vow Renewals', desc: "A beautiful way to honour your love, reflect on the life you've built and reaffirm your promises." },
 ];
 
-const containerVariants = {
+const heroContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
+      staggerChildren: 0.18,
+      delayChildren: 0.4,
+    },
+  },
+};
+
+const heroItemVariants = {
+  hidden: { opacity: 0, y: 40, filter: 'blur(8px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 1.1,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const heroLogoVariants = {
+  hidden: { opacity: 0, scale: 0.88, filter: 'blur(12px)' },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const sectionVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.14,
+      delayChildren: 0.08,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 28 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.75,
+      duration: 0.85,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const slideFromLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const slideFromRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  },
+};
+
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1,
       ease: [0.16, 1, 0.3, 1] as const,
     },
   },
@@ -116,10 +189,10 @@ function RevealSection({ children, className = '', id, parallaxBg, parallaxOverl
     <motion.section
       id={id}
       className={`${className}${hasParallax ? ' has-parallax' : ''}`}
-      variants={containerVariants}
+      variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
     >
       {hasParallax && (
         <>
@@ -160,11 +233,18 @@ export default function HomePage() {
 
   const updateField = (field: string, value: string) => setFormData((prev) => ({ ...prev, [field]: value }));
 
+  const prefersReducedMotion = useReducedMotion();
+
   const pageBody = (
     <>
       <div className="homepage-shell">
       <section className="homepage-hero">
-        <motion.div className="homepage-hero-media hero-parallax-media">
+        <motion.div
+          className="homepage-hero-media hero-parallax-media"
+          initial={prefersReducedMotion ? false : { scale: 1.15 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
+        >
           <img
             src="/beach-happy-place.jpeg"
             alt="Beautiful beach setting"
@@ -175,60 +255,77 @@ export default function HomePage() {
         <div className="homepage-hero-glow" />
 
         <motion.div
-          className="hero-parallax-content homepage-hero-content relative z-10 mx-auto flex min-h-screen flex-col items-center justify-center px-6 pb-12 pt-24 text-center sm:pb-16 sm:pt-28 lg:pt-18 xl:pt-14"
-          variants={containerVariants}
+          className="hero-parallax-content homepage-hero-content relative z-10 mx-auto flex min-h-screen flex-col items-center justify-center px-6 pb-14 pt-24 text-center sm:pb-16 sm:pt-28 lg:pt-12 xl:pt-10"
+          variants={heroContainerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="hero-stack flex flex-col items-center justify-center" variants={itemVariants}>
-            <motion.span variants={itemVariants} className="hero-kicker">
+          <div className="hero-stack flex w-full max-w-5xl flex-col items-center justify-center gap-3 sm:gap-4 md:gap-4">
+            <motion.span variants={heroItemVariants} className="hero-kicker">
               East Kilbride &middot; Scotland &middot; Beyond
             </motion.span>
             <h1 className="sr-only">Sarah's Signature Ceremonies, Independent Celebrant</h1>
-            <motion.div variants={itemVariants}>
-              <span className="block font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl text-white tracking-wide [filter:drop-shadow(0_4px_24px_rgba(0,0,0,0.25))]">
-                Sarah's Signature Ceremonies
-              </span>
+            <motion.div variants={heroLogoVariants} className="flex w-full justify-center px-1">
+              <img
+                src="/logo.png"
+                alt=""
+                className="h-auto w-full max-w-[min(100%,20rem)] object-contain object-center [filter:drop-shadow(0_4px_28px_rgba(0,0,0,0.35))] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl"
+                decoding="async"
+              />
             </motion.div>
-            <motion.p variants={itemVariants} className="hero-tagline">
+            <motion.p variants={heroItemVariants} className="hero-tagline mt-0">
               Celebrating, remembering, cherishing &ndash; your way
             </motion.p>
-            <motion.p variants={itemVariants} className="mx-auto mt-2 max-w-2xl text-base sm:text-lg text-white/60 font-sans">
-              Every story deserves to be beautifully told.
-            </motion.p>
-            <motion.div variants={itemVariants} className="hero-actions flex flex-col sm:flex-row mt-4">
+            <motion.div
+              variants={heroItemVariants}
+              className="mx-auto flex w-full max-w-3xl flex-col gap-2 text-center sm:gap-3 md:max-w-4xl"
+            >
+              <p className="text-lg font-medium leading-snug text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:text-xl md:text-2xl md:leading-snug">
+                Every story deserves to be beautifully told.
+              </p>
+              <p className="text-base leading-relaxed text-white/85 sm:text-lg">
+                Independent civil celebrant for East Kilbride, Scotland, and beyond. Weddings, namings,
+                farewells, and vow renewals, shaped with you and for you.
+              </p>
+            </motion.div>
+            <motion.div variants={heroItemVariants} className="hero-actions mt-2 flex flex-col sm:mt-3 sm:flex-row">
               <MagneticButton>
-                <Link to="/services" className="button-lift button-primary">
+                <Link to="/services" className="button-lift button-primary btn-shimmer">
                   Explore My Services
                 </Link>
               </MagneticButton>
               <MagneticButton>
-                <Link to="/contact" className="button-lift button-secondary">
+                <Link to="/contact" className="button-lift button-secondary btn-shimmer">
                   Get in Touch
                 </Link>
               </MagneticButton>
             </motion.div>
-          </motion.div>
+          </div>
 
-          <MagneticButton className="hero-scroll-cue">
-            <button
-              type="button"
-              onClick={() => {
-                const el = document.getElementById('home-about');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              aria-label="Scroll to About"
-            >
-              <ArrowDown size={22} />
-            </button>
-          </MagneticButton>
+          <motion.div
+            variants={heroItemVariants}
+            className="hero-scroll-cue-wrap"
+          >
+            <MagneticButton className="hero-scroll-cue">
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('home-about');
+                  el?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                aria-label="Scroll to About"
+              >
+                <ArrowDown size={22} />
+              </button>
+            </MagneticButton>
+          </motion.div>
         </motion.div>
       </section>
 
       <RevealSection id="home-about" className="section-shell bg-brand-dark text-white" parallaxBg="parallax-bg--about" parallaxOverlay="parallax-overlay--dark">
         <div className="section-inner">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
-            <motion.div variants={itemVariants} className="relative">
+          <div className="home-about-grid relative isolate grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
+            <motion.div variants={slideFromLeft} className="relative">
               <div className="scroll-reveal-mask img-frame-organic-a max-lg:aspect-auto aspect-[3/4] overflow-hidden border-[12px] border-lilac-brand bg-white shadow-2xl rounded-brand-lg">
                 <img
                   src="/sarah-henry-bridge.jpeg"
@@ -247,7 +344,7 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="section-heading max-w-2xl">
+            <motion.div variants={slideFromRight} className="section-heading max-w-2xl">
               <span className="section-kicker !text-white/80">My Story</span>
               <div className="overflow-hidden pb-2">
                 <motion.h2
@@ -282,7 +379,7 @@ export default function HomePage() {
                 insured, I bring professionalism, adaptability and reliability to every
                 ceremony I deliver, along with warmth, care and attention to every detail.
               </p>
-              <Link to="/about" className="button-lift button-contrast mt-10">
+              <Link to="/about" className="button-lift button-contrast btn-shimmer mt-10">
                 Read More About Me
               </Link>
             </motion.div>
@@ -311,17 +408,18 @@ export default function HomePage() {
           </motion.div>
 
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
-            {services.map((service) => (
+            {services.map((service, i) => (
               <motion.article
                 key={service.title}
-                variants={itemVariants}
-                whileHover={{ y: -6 }}
-                className="premium-card bg-white text-brand-dark border-4 border-lilac-brand simple-service-card"
+                variants={i % 2 === 0 ? slideFromLeft : slideFromRight}
+                whileHover={{ y: -8, boxShadow: '0 32px 80px rgba(26,26,26,0.14)' }}
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                className="premium-card bg-white text-brand-dark border-4 border-lilac-brand simple-service-card service-card-hover"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center bg-lilac-50 text-lilac-600 rounded-brand">
                   <service.icon size={20} />
                 </div>
-                <h3 className="font-serif text-2xl text-brand-dark">{service.title}</h3>
+                <h3 className="font-heading text-2xl text-brand-dark">{service.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-gray-600">{service.desc}</p>
               </motion.article>
             ))}
@@ -354,19 +452,21 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <motion.div variants={sectionVariants} className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
               {packages.map((pkg) => (
                 <motion.article
                   key={pkg.title}
-                  whileHover={{ y: -10 }}
+                  variants={scaleUp}
+                  whileHover={{ y: -10, boxShadow: '0 36px 90px rgba(26,26,26,0.16)' }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
                   className={pkg.featured ? 'pricing-card border-[8px] border-lilac-brand bg-brand-dark text-white' : 'pricing-card border-4 border-lilac-brand bg-white text-brand-dark'}
                 >
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-[0.24em] text-current/60">{pkg.subtitle}</p>
-                    <h3 className="font-serif text-2xl lg:text-3xl">{pkg.title}</h3>
+                    <h3 className="font-heading text-2xl lg:text-3xl">{pkg.title}</h3>
                   </div>
                   <div>
-                    <p className="flex flex-wrap items-baseline gap-x-2 font-serif text-4xl">
+                    <p className="flex flex-wrap items-baseline gap-x-2 font-heading text-4xl">
                       <span className="text-base font-sans font-normal normal-case tracking-normal text-current/60">
                         from
                       </span>
@@ -375,7 +475,7 @@ export default function HomePage() {
                   </div>
                   <Link
                     to="/contact"
-                    className={`mt-auto self-stretch text-center ${pkg.featured ? 'button-lift button-contrast' : 'button-lift button-primary'}`}
+                    className={`btn-shimmer mt-auto self-stretch text-center ${pkg.featured ? 'button-lift button-contrast' : 'button-lift button-primary'}`}
                   >
                     Enquire Now
                   </Link>
@@ -405,14 +505,15 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell section-shell--dark bg-brand-dark text-white" parallaxBg="parallax-bg--quote" parallaxOverlay="parallax-overlay--dark">
+      <RevealSection className="section-shell section-shell--dark bg-brand-dark text-white quote-section" parallaxBg="parallax-bg--quote" parallaxOverlay="parallax-overlay--dark">
         <div className="quote-scroll-section section-inner text-center">
-          <motion.p variants={itemVariants} className="mx-auto max-w-4xl font-serif text-4xl italic leading-tight text-lilac-100 sm:text-5xl">
+          <motion.div variants={scaleUp} className="quote-glow-ring mx-auto mb-6 h-24 w-24 rounded-full" />
+          <motion.p variants={scaleUp} className="mx-auto max-w-4xl font-heading text-4xl italic leading-tight text-lilac-100 sm:text-5xl lg:text-6xl">
             &ldquo;Because your story deserves to be told, Your Way!&rdquo;
           </motion.p>
-          <motion.div variants={itemVariants} className="mx-auto my-8 h-px w-24 bg-lilac-brand/30" />
+          <motion.div variants={itemVariants} className="quote-divider mx-auto my-8 h-px w-24 bg-lilac-brand/30" />
           <motion.div variants={itemVariants}>
-            <Link to="/contact" className="button-lift button-contrast">
+            <Link to="/contact" className="button-lift button-contrast btn-shimmer">
               Start Your Journey
             </Link>
           </motion.div>
@@ -445,13 +546,13 @@ export default function HomePage() {
               {homeFaqs.map((faq, i) => {
                 const isOpen = openFaq === i;
                 return (
-                  <motion.div key={faq.q} variants={itemVariants} className="overflow-hidden rounded-brand border border-lilac-200 bg-white shadow-[0_16px_40px_rgba(26,26,26,0.04)]">
+                  <motion.div key={faq.q} variants={itemVariants} className="faq-card overflow-hidden rounded-brand border border-lilac-200 bg-white shadow-[0_16px_40px_rgba(26,26,26,0.04)]">
                     <button
                       onClick={() => setOpenFaq(isOpen ? null : i)}
                       className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                     >
-                      <span className="font-serif text-xl text-brand-dark">{faq.q}</span>
-                      <ChevronDown size={20} className={`flex-shrink-0 text-lilac-400 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                      <span className="font-heading text-xl text-brand-dark">{faq.q}</span>
+                      <ChevronDown size={20} className={`flex-shrink-0 text-lilac-400 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? 'rotate-180' : ''}`} />
                     </button>
                     <div className={`grid transition-[grid-template-rows] duration-300 ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                       <div className="overflow-hidden">
@@ -496,7 +597,7 @@ export default function HomePage() {
                     <Phone size={20} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="font-serif text-xl leading-snug text-brand-dark sm:text-2xl">Phone</h3>
+                    <h3 className="font-heading text-xl leading-snug text-brand-dark sm:text-2xl">Phone</h3>
                     <p className="mt-1.5 text-xs font-medium uppercase tracking-[0.14em] text-lilac-500 sm:text-sm">
                       01355 517037
                     </p>
@@ -509,7 +610,7 @@ export default function HomePage() {
                     <Mail size={20} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="font-serif text-xl leading-snug text-brand-dark sm:text-2xl">Email</h3>
+                    <h3 className="font-heading text-xl leading-snug text-brand-dark sm:text-2xl">Email</h3>
                     <p className="break-words text-sm leading-relaxed text-gray-600">{FORMSUBMIT_EMAIL}</p>
                   </div>
                 </div>
@@ -518,7 +619,7 @@ export default function HomePage() {
 
             <motion.div variants={itemVariants} className="rounded-brand-lg border border-lilac-200 bg-[linear-gradient(180deg,rgba(250,248,251,1)_0%,rgba(255,255,255,1)_100%)] p-8 shadow-[0_24px_70px_rgba(26,26,26,0.06)] sm:p-10">
               <div className="mb-8">
-                <h3 className="font-serif text-3xl text-brand-dark">Send Me a Message</h3>
+                <h3 className="font-heading text-3xl text-brand-dark">Send Me a Message</h3>
               </div>
               {submitted ? (
                 <div className="rounded-brand border border-lilac-200 bg-lilac-50 p-10 text-center">
@@ -586,7 +687,7 @@ export default function HomePage() {
                   {errorMessage ? (
                     <p className="text-center text-sm text-red-600">{errorMessage}</p>
                   ) : null}
-                  <button type="submit" disabled={isSubmitting} className="button-lift button-primary w-full disabled:cursor-not-allowed disabled:opacity-70">
+                  <button type="submit" disabled={isSubmitting} className="button-lift button-primary btn-shimmer w-full disabled:cursor-not-allowed disabled:opacity-70">
                     <span className="inline-flex items-center gap-2">
                       <Send size={16} />
                       {isSubmitting ? 'Sending...' : 'Send Enquiry'}

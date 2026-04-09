@@ -78,7 +78,7 @@ export default function FeesPage() {
               Transparent Pricing
             </span>
             <h1 className="font-serif text-5xl sm:text-6xl text-white mt-3 mb-4">
-              Services &amp; Fees
+              Fees
             </h1>
             <div className="w-16 h-0.5 bg-lilac-brand mx-auto mb-6" />
             <p className="text-white/90 text-lg max-w-2xl mx-auto italic">
@@ -89,14 +89,14 @@ export default function FeesPage() {
       </section>
 
       <section className="section-shell bg-white text-brand-dark">
-        <div className="section-inner">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+        <div className="section-inner max-w-[90rem]">
+          <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-10 2xl:grid-cols-4 2xl:gap-8 items-stretch">
             {packages.map((pkg, i) => (
               <div
                 key={pkg.title}
-                className={`flex flex-col p-8 reveal ${
+                className={`flex min-h-0 min-w-0 flex-col p-7 sm:p-8 xl:p-9 reveal ${
                   pkg.featured
-                    ? 'border-[8px] border-lilac-brand bg-brand-dark text-white rounded-brand-lg scale-105 z-10 shadow-2xl'
+                    ? 'border-[8px] border-lilac-brand bg-brand-dark text-white rounded-brand-lg shadow-2xl ring-1 ring-white/10 2xl:-translate-y-1'
                     : 'border-4 border-lilac-brand bg-white text-brand-dark rounded-brand-lg shadow-lg'
                 }`}
                 style={{ transitionDelay: `${i * 0.1}s` }}
@@ -104,15 +104,15 @@ export default function FeesPage() {
                 <span className={`text-xs font-bold uppercase tracking-[0.2em] mb-3 ${pkg.featured ? 'text-white/70' : 'text-lilac-500'}`}>
                   {pkg.tag}
                 </span>
-                <h3 className="font-serif text-2xl mb-4">{pkg.title}</h3>
+                <h3 className="font-serif text-2xl mb-3">{pkg.title}</h3>
                 <p className="font-serif text-3xl mb-6">{pkg.price}</p>
 
-                <ul className="space-y-3 flex-1 mb-8">
+                <ul className="mb-8 flex-1 space-y-3.5">
                   {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-3 text-sm">
+                    <li key={feature} className="flex items-start gap-3 text-sm leading-relaxed">
                       <Check
                         size={16}
-                        className={`flex-shrink-0 mt-0.5 ${pkg.featured ? 'text-white/80' : 'text-lilac-500'}`}
+                        className={`mt-0.5 flex-shrink-0 ${pkg.featured ? 'text-white/80' : 'text-lilac-500'}`}
                       />
                       <span className={pkg.featured ? 'text-white/90' : 'text-gray-600'}>
                         {feature}

@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
+  FORMSUBMIT_EMAIL,
   FORMSUBMIT_ENDPOINT,
   buildEnquiryPayload,
 } from '../src/lib/formsubmit.js';
@@ -9,7 +10,7 @@ import {
 test('FORMSUBMIT_ENDPOINT targets the celebrant inbox', () => {
   assert.equal(
     FORMSUBMIT_ENDPOINT,
-    'https://formsubmit.co/ajax/hello@peteryoungindependantcelebrant.co.uk',
+    `https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`,
   );
 });
 

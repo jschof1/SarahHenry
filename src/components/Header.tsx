@@ -40,7 +40,11 @@ export default function Header() {
         >
           <Link to="/" className="flex items-center group" onClick={closeMobileMenu}>
             <div className="px-3 py-1.5">
-              <img src="/logo.png" alt="Sarah's Signature Ceremonies" className="h-12 w-auto object-contain brightness-0 invert" />
+              <img
+                src="/logo.png"
+                alt="Sarah's Signature Ceremonies"
+                className="h-12 w-auto max-h-12 object-contain object-left drop-shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
+              />
             </div>
           </Link>
 
@@ -50,12 +54,10 @@ export default function Header() {
                 key={link.to}
                 to={link.to}
                 onClick={closeMobileMenu}
-                className={`text-lg tracking-wide transition-colors ${
+                className={`nav-link text-lg tracking-wide transition-all duration-300 ${
                   location.pathname === link.to
-                    ? showSolid
-                      ? 'text-white font-semibold'
-                      : 'text-white font-medium'
-                    : 'text-white/90 hover:text-white'
+                    ? 'text-white font-semibold nav-link--active'
+                    : 'text-white/80 hover:text-white'
                 }`}
               >
                 {link.label}

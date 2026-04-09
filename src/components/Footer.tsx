@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 items-start">
           <div>
             <div className="mb-4 inline-flex px-3 py-2">
-              <span className="font-serif text-2xl text-white tracking-wide">
+              <span className="font-heading text-2xl text-white tracking-wide">
                 Sarah's Signature Ceremonies
               </span>
             </div>
@@ -108,6 +108,18 @@ export default function Footer() {
           </a>
           <p>
             Based in East Kilbride, working across Scotland and beyond.
+          </p>
+          <p className="mt-2 text-gray-600">
+            Website built by{' '}
+            <a
+              href="https://www.funeralcelebrantacademy.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-lilac-400 transition-colors underline-offset-2 hover:underline"
+            >
+              The Academy of Professional Celebrants
+            </a>
+            .
           </p>
         </div>
       </div>

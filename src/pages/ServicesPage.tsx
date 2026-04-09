@@ -78,7 +78,7 @@ export default function ServicesPage() {
               to={service.to}
               className="group"
             >
-              <article className="bg-white border-4 border-lilac-brand rounded-brand-lg p-8 shadow transition-transform duration-300 group-hover:-translate-y-1.5 h-full flex flex-col">
+              <article className="simple-service-card bg-white border-4 border-lilac-brand rounded-brand-lg p-8 shadow transition-transform duration-300 group-hover:-translate-y-1.5 h-full flex flex-col">
                 <div className="flex h-14 w-14 items-center justify-center bg-lilac-50 text-lilac-600 rounded-brand mb-6">
                   <service.icon size={28} />
                 </div>
