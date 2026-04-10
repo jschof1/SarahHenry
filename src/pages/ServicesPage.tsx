@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Heart, Flower2, Users, ArrowRight } from 'lucide-react';
+import { ParallaxBackdrop } from '../components/ParallaxBackdrop';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const services = [
@@ -38,8 +39,8 @@ export default function ServicesPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
-        <div className="page-hero-floral page-hero-floral--photo page-hero-floral--services" aria-hidden />
+      <section className="page-hero page-hero-has-parallax relative overflow-hidden pt-32 pb-20">
+        <ParallaxBackdrop variant="services" overlay={false} />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
@@ -59,18 +60,22 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-lilac-100 text-brand-dark">
-        <div className="max-w-4xl mx-auto text-center space-y-6 reveal">
-          <p className="text-xl leading-relaxed text-brand-dark">
-            Each life story is unique, and I believe life's most precious moments deserve to be celebrated, commemorated, and reflected upon in a way that feels truly right for you.
-          </p>
-          <p className="text-xl leading-relaxed text-gray-600">
-            I approach each ceremony as a genuine collaboration. No templates, no 'one size fits all', just a thoughtfully crafted service that reflects your wishes, your values and your voice.
-          </p>
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="services" />
+        <div className="max-w-4xl mx-auto reveal">
+          <div className="rounded-brand-lg border border-lilac-200/90 bg-white/92 p-8 text-center shadow-[0_12px_40px_rgba(26,26,26,0.06)] backdrop-blur-sm sm:p-10 space-y-6">
+            <p className="text-xl leading-relaxed text-brand-dark">
+              Each life story is unique, and I believe life's most precious moments deserve to be celebrated, commemorated, and reflected upon in a way that feels truly right for you.
+            </p>
+            <p className="text-xl leading-relaxed text-gray-600">
+              I approach each ceremony as a genuine collaboration. No templates, no 'one size fits all', just a thoughtfully crafted service that reflects your wishes, your values and your voice.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="section-shell bg-white text-brand-dark">
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="contact" />
         <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {services.map((service) => (
             <Link
@@ -102,7 +107,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-brand-dark text-white">
+      <section className="section-shell has-parallax text-white">
+        <ParallaxBackdrop variant="quote" />
         <div className="max-w-3xl mx-auto text-center reveal">
           <h2 className="font-serif text-4xl sm:text-5xl text-white mb-6">
             Because your story deserves to be told, Your Way!

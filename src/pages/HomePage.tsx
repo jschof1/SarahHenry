@@ -116,10 +116,10 @@ const heroLogoVariants = {
   },
 };
 
+/* Do not fade the whole section (that hides parallax JPEGs until animation completes). */
 const sectionVariants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.14,
       delayChildren: 0.08,
@@ -322,7 +322,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      <RevealSection id="home-about" className="section-shell bg-brand-dark text-white" parallaxBg="parallax-bg--about" parallaxOverlay="parallax-overlay--dark">
+      <RevealSection id="home-about" className="section-shell text-white" parallaxBg="parallax-bg--about" parallaxOverlay="parallax-overlay--dark">
         <div className="section-inner">
           <div className="home-about-grid relative isolate grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center">
             <motion.div variants={slideFromLeft} className="relative">
@@ -387,7 +387,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection id="home-services" className="section-shell bg-lilac-100 text-brand-dark" parallaxBg="parallax-bg--services" parallaxOverlay="parallax-overlay--lilac">
+      <RevealSection id="home-services" className="section-shell text-brand-dark parallax-on-light" parallaxBg="parallax-bg--services" parallaxOverlay="parallax-overlay--services">
         <div className="section-inner">
           <motion.div className="section-heading max-w-3xl" variants={itemVariants}>
             <span className="section-kicker !text-lilac-600">What I Offer</span>
@@ -402,7 +402,7 @@ export default function HomePage() {
                 My Services
               </motion.h2>
             </div>
-            <p className="section-copy !text-gray-600">
+            <p className="section-copy text-gray-800">
               Because your story deserves to be told, Your Way!
             </p>
           </motion.div>
@@ -434,7 +434,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell bg-cream-brand" parallaxBg="parallax-bg--fees" parallaxOverlay="parallax-overlay--cream">
+      <RevealSection className="section-shell text-brand-dark parallax-on-light" parallaxBg="parallax-bg--fees" parallaxOverlay="parallax-overlay--fees">
         <div className="section-inner">
           <div className="flex flex-col gap-10">
             <motion.div variants={itemVariants} className="section-heading max-w-3xl">
@@ -505,7 +505,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell section-shell--dark bg-brand-dark text-white quote-section" parallaxBg="parallax-bg--quote" parallaxOverlay="parallax-overlay--dark">
+      <RevealSection className="section-shell section-shell--dark text-white quote-section" parallaxBg="parallax-bg--quote" parallaxOverlay="parallax-overlay--dark">
         <div className="quote-scroll-section section-inner text-center">
           <motion.div variants={scaleUp} className="quote-glow-ring mx-auto mb-6 h-24 w-24 rounded-full" />
           <motion.p variants={scaleUp} className="mx-auto max-w-4xl font-heading text-4xl italic leading-tight text-lilac-100 sm:text-5xl lg:text-6xl">
@@ -520,7 +520,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell bg-lilac-50" parallaxBg="parallax-bg--faq" parallaxOverlay="parallax-overlay--lilac">
+      <RevealSection className="section-shell text-brand-dark parallax-on-light" parallaxBg="parallax-bg--faq" parallaxOverlay="parallax-overlay--lilac">
         <div className="section-inner">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
             <motion.div variants={itemVariants} className="section-heading">
@@ -567,7 +567,7 @@ export default function HomePage() {
         </div>
       </RevealSection>
 
-      <RevealSection className="section-shell bg-white" parallaxBg="parallax-bg--contact" parallaxOverlay="parallax-overlay--white">
+      <RevealSection className="section-shell text-brand-dark parallax-on-light" parallaxBg="parallax-bg--contact" parallaxOverlay="parallax-overlay--white">
         <div className="section-inner">
           <motion.div variants={itemVariants} className="section-heading mx-auto max-w-3xl text-center">
             <span className="section-kicker">Let&apos;s Connect</span>

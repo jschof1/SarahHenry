@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { ParallaxBackdrop } from '../components/ParallaxBackdrop';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { FORMSUBMIT_EMAIL, submitEnquiryForm } from '../lib/formsubmit.js';
 
@@ -53,8 +54,8 @@ export default function ContactPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
-        <div className="page-hero-floral page-hero-floral--photo page-hero-floral--contact" aria-hidden />
+      <section className="page-hero page-hero-has-parallax relative overflow-hidden pt-32 pb-20">
+        <ParallaxBackdrop variant="contact" overlay={false} />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
@@ -75,7 +76,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section-textured bg-white py-24 px-6">
+      <section className="section-textured has-parallax px-6 py-24 text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="contact" />
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mx-auto reveal">
             <div className="text-center mb-10">

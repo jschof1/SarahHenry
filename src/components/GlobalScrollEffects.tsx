@@ -47,6 +47,64 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
       if (!enabled || !rootRef.current) return;
 
       const root = rootRef.current;
+
+      // ── Homepage: hero photo moves slower than scroll (classic parallax) ──
+      const homeHero = root.querySelector<HTMLElement>('.homepage-hero');
+      const homeHeroImg = root.querySelector<HTMLElement>('.homepage-hero .hero-parallax-media img');
+      if (homeHero && homeHeroImg) {
+        gsap.fromTo(
+          homeHeroImg,
+          { yPercent: -10 },
+          {
+            yPercent: 14,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: homeHero,
+              start: 'top top',
+              end: 'bottom top',
+              scrub: true,
+            },
+          },
+        );
+      }
+
+      // Homepage hero: subtle layered parallax on scrims (depth between photo and copy)
+      if (homeHero) {
+        const heroOverlay = homeHero.querySelector<HTMLElement>('.homepage-hero-overlay');
+        const heroGlow = homeHero.querySelector<HTMLElement>('.homepage-hero-glow');
+        if (heroOverlay) {
+          gsap.fromTo(
+            heroOverlay,
+            { yPercent: 4 },
+            {
+              yPercent: -6,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: homeHero,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+              },
+            },
+          );
+        }
+        if (heroGlow) {
+          gsap.fromTo(
+            heroGlow,
+            { yPercent: -3 },
+            {
+              yPercent: 8,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: homeHero,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+              },
+            },
+          );
+        }
+      }
       
       // Hero "Aperture" Reveal
       const hero = root.querySelector('.homepage-hero, .page-hero');
@@ -228,16 +286,40 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
         }
       });
 
-      // Parallax background images
+      // Parallax background images (stronger travel when section is set up for parallax)
       root.querySelectorAll<HTMLElement>('.parallax-bg').forEach((bg) => {
+        const deep =
+          !!bg.closest('.homepage-shell') ||
+          !!bg.closest('.has-parallax') ||
+          !!bg.closest('.page-hero-has-parallax');
+        const fromY = deep ? '-28%' : '-15%';
+        const toY = deep ? '28%' : '15%';
         gsap.fromTo(
           bg,
-          { y: '-15%' },
+          { y: fromY },
           {
-            y: '15%',
+            y: toY,
             ease: 'none',
             scrollTrigger: {
               trigger: bg.parentElement,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          },
+        );
+      });
+
+      // Sections: overlays drift slightly against the bg for layered parallax
+      root.querySelectorAll<HTMLElement>('.has-parallax .parallax-overlay').forEach((overlay) => {
+        gsap.fromTo(
+          overlay,
+          { y: '-6%' },
+          {
+            y: '6%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: overlay.parentElement,
               start: 'top bottom',
               end: 'bottom top',
               scrub: true,

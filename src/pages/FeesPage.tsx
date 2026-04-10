@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Check, Info, ArrowRight } from 'lucide-react';
+import { ParallaxBackdrop } from '../components/ParallaxBackdrop';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const packages = [
@@ -69,8 +70,8 @@ export default function FeesPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
-        <div className="page-hero-floral page-hero-floral--photo page-hero-floral--fees" aria-hidden />
+      <section className="page-hero page-hero-has-parallax relative overflow-hidden pt-32 pb-20">
+        <ParallaxBackdrop variant="fees" overlay={false} />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
@@ -88,7 +89,8 @@ export default function FeesPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-white text-brand-dark">
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="fees" />
         <div className="section-inner max-w-[90rem]">
           <div className="grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2 md:gap-x-10 md:gap-y-10 2xl:grid-cols-4 2xl:gap-8 items-stretch">
             {packages.map((pkg, i) => (
@@ -168,21 +170,24 @@ export default function FeesPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-lilac-100 text-brand-dark">
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="services" />
         <div className="section-inner text-center reveal">
-          <h2 className="font-serif text-4xl text-brand-dark mb-4">
-            I look forward to speaking with you
-          </h2>
-          <p className="text-gray-600 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
-            I would be pleased to assist and discuss your requirements in more detail.
-          </p>
-          <Link
-            to="/contact"
-            className="button-lift button-primary"
-          >
-            Check Availability
-            <ArrowRight size={16} />
-          </Link>
+          <div className="mx-auto max-w-2xl rounded-brand-lg border border-lilac-200/90 bg-white/92 px-8 py-10 shadow-[0_12px_40px_rgba(26,26,26,0.06)] backdrop-blur-sm sm:px-12">
+            <h2 className="font-serif text-4xl text-brand-dark mb-4">
+              I look forward to speaking with you
+            </h2>
+            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              I would be pleased to assist and discuss your requirements in more detail.
+            </p>
+            <Link
+              to="/contact"
+              className="button-lift button-primary"
+            >
+              Check Availability
+              <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

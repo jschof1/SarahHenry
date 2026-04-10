@@ -1,3 +1,4 @@
+import { ParallaxBackdrop } from '../components/ParallaxBackdrop';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function AboutPage() {
@@ -5,8 +6,8 @@ export default function AboutPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
-        <div className="page-hero-floral page-hero-floral--photo page-hero-floral--about" aria-hidden />
+      <section className="page-hero page-hero-has-parallax relative overflow-hidden pt-32 pb-20">
+        <ParallaxBackdrop variant="about" overlay={false} />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
@@ -21,7 +22,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-lilac-100 text-brand-dark">
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="services" />
         <div className="section-inner">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="reveal-left">
@@ -55,7 +57,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-white text-brand-dark">
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="contact" />
         <div className="section-inner">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6 reveal-left">

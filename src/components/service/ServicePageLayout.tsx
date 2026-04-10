@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Heart, Sparkles, Users } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { ParallaxBackdrop, type ParallaxVariant } from '../ParallaxBackdrop';
 
 export type ServiceHeroFloral =
   | 'weddings'
@@ -14,6 +15,14 @@ const KICKER_ICON: Record<ServiceHeroFloral, LucideIcon> = {
   funerals: Heart,
   naming: Users,
   'vow-renewals': Heart,
+};
+
+/** Nano-banana section backgrounds mapped to each service tone (hero + intro band) */
+const SERVICE_PARALLAX: Record<ServiceHeroFloral, ParallaxVariant> = {
+  weddings: 'services',
+  funerals: 'quote',
+  naming: 'faq',
+  'vow-renewals': 'fees',
 };
 
 const SERVICE_VISUAL: Record<
@@ -54,11 +63,8 @@ export function ServicePageHero({ floral, kicker, title, subtitle }: ServicePage
   const KickerIcon = KICKER_ICON[floral];
 
   return (
-    <section className="page-hero relative overflow-hidden bg-brand-dark pt-32 pb-20">
-      <div
-        className={`page-hero-floral page-hero-floral--photo page-hero-floral--${floral}`}
-        aria-hidden
-      />
+    <section className="page-hero page-hero-has-parallax relative overflow-hidden pt-32 pb-20">
+      <ParallaxBackdrop variant={SERVICE_PARALLAX[floral]} overlay={false} />
       <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
 
       <div className="page-hero-inner page-hero-inner--service mx-auto max-w-7xl px-6 text-center lg:px-12">
@@ -102,12 +108,8 @@ export function ServiceIntroSection({ floral, pullQuote, children }: ServiceIntr
   const visual = SERVICE_VISUAL[floral];
 
   return (
-    <section className="section-shell has-parallax relative -mt-px bg-lilac-100 text-brand-dark">
-      <div
-        className={`parallax-bg parallax-bg--service-${floral} opacity-[0.22] sm:opacity-[0.28]`}
-        aria-hidden
-      />
-      <div className="parallax-overlay parallax-overlay--lilac" aria-hidden />
+    <section className="section-shell has-parallax relative -mt-px text-brand-dark parallax-on-light">
+      <ParallaxBackdrop variant={SERVICE_PARALLAX[floral]} />
 
       <div className="section-inner relative z-[3]">
         <div className="reveal mb-10 max-w-2xl">
@@ -170,7 +172,8 @@ type ServiceIncludesSectionProps = {
 
 export function ServiceIncludesSection({ items, afterList }: ServiceIncludesSectionProps) {
   return (
-    <section className="section-shell relative bg-white text-brand-dark">
+    <section className="section-shell has-parallax relative text-brand-dark parallax-on-light">
+      <ParallaxBackdrop variant="contact" />
       <div className="pointer-events-none absolute -right-24 top-1/4 hidden h-72 w-72 rounded-full bg-lilac-100/80 blur-3xl xl:block" aria-hidden />
       <div className="section-inner relative">
         <div className="reveal mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-10">
@@ -244,7 +247,8 @@ export function ServicePricingCTA({
   primaryLabel = 'Get in Touch',
 }: ServicePricingCTAProps) {
   return (
-    <section className="section-shell section-shell--dark section-shell--no-wipe section-shell--cta-band relative h-fit min-h-0 shrink-0 overflow-hidden bg-brand-dark text-white">
+    <section className="section-shell section-shell--dark section-shell--no-wipe section-shell--cta-band has-parallax relative h-fit min-h-0 shrink-0 overflow-hidden text-white">
+      <ParallaxBackdrop variant="quote" />
       <div
         className="pointer-events-none absolute -left-20 top-0 h-96 w-96 rounded-full bg-lilac-800/35 blur-3xl"
         aria-hidden

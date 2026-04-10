@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ParallaxBackdrop } from '../components/ParallaxBackdrop';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const faqs = [
@@ -52,8 +53,8 @@ export default function FAQPage() {
 
   return (
     <div ref={revealRef}>
-      <section className="page-hero relative pt-32 pb-20 overflow-hidden bg-brand-dark">
-        <div className="page-hero-floral page-hero-floral--photo page-hero-floral--faq" aria-hidden />
+      <section className="page-hero page-hero-has-parallax relative overflow-hidden pt-32 pb-20">
+        <ParallaxBackdrop variant="faq" overlay={false} />
         <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
         <div className="page-hero-inner max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center reveal">
@@ -68,7 +69,8 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-lilac-50 text-brand-dark">
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="faq" />
         <div className="max-w-3xl mx-auto">
           <div className="space-y-4">
             {faqs.map((faq, i) => {
@@ -111,7 +113,8 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <section className="section-shell bg-white text-brand-dark">
+      <section className="section-shell has-parallax text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="contact" />
         <div className="max-w-3xl mx-auto text-center reveal">
           <h2 className="font-serif text-4xl text-brand-dark mb-4">
             What&apos;s next?

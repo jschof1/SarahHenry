@@ -177,6 +177,17 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
+}
+
+/* Extra scale so vertical parallax on the hero photo never shows edges */
+.homepage-hero-media.hero-parallax-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.14);
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .homepage-hero-overlay,
@@ -314,21 +325,42 @@
     radial-gradient(ellipse 70% 50% at 100% 100%, rgba(190, 168, 214, 0.06), transparent 55%);
 }
 
+/* Dark enough for white type on variable JPEGs; vignettes keep some photo visible at edges */
 .page-hero-scrim.page-hero-scrim--photo {
   background:
     linear-gradient(
       180deg,
-      rgba(13, 13, 13, 0.78) 0%,
-      rgba(13, 13, 13, 0.58) 45%,
-      rgba(13, 13, 13, 0.82) 100%
+      rgba(6, 6, 10, 0.78) 0%,
+      rgba(10, 10, 14, 0.62) 48%,
+      rgba(6, 6, 10, 0.82) 100%
     ),
-    radial-gradient(ellipse 85% 60% at 50% 0%, rgba(0, 0, 0, 0.22), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(168, 142, 197, 0.1), transparent 55%);
+    radial-gradient(ellipse 110% 85% at 50% 0%, rgba(0, 0, 0, 0.42), transparent 58%),
+    radial-gradient(ellipse 85% 60% at 100% 100%, rgba(40, 28, 58, 0.28), transparent 55%);
 }
 
 .page-hero-inner {
   position: relative;
   z-index: 2;
+}
+
+/* Insurance on bright hotspots: headings + hero blurbs stay legible */
+.page-hero-has-parallax .page-hero-inner :is(h1, h2) {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 4px 28px rgba(0, 0, 0, 0.45);
+}
+
+.page-hero-has-parallax .page-hero-inner p {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45), 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+
+.page-hero-has-parallax .page-hero-inner span {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* While hero parallax image loads, avoid a white flash */
+.page-hero-has-parallax {
+  background-color: #0d0d0d;
 }
 
 .hero-stack {
@@ -422,10 +454,50 @@
   will-change: transform;
 }
 
-/* Nano Banana–generated section backdrops: keep them atmospheric under tinted overlays */
-.homepage-shell .parallax-bg {
-  opacity: 0.42;
-  filter: blur(14px) saturate(0.88);
+/* .section-shell > * forces position:relative — that must not apply to backdrop layers or they
+   collapse to zero height and no background image is visible. */
+.section-shell.has-parallax .parallax-bg,
+.section-textured.has-parallax .parallax-bg,
+.page-hero-has-parallax .parallax-bg {
+  position: absolute;
+  inset: -20% 0;
+  z-index: 0;
+}
+
+.section-shell.has-parallax .parallax-overlay,
+.section-textured.has-parallax .parallax-overlay,
+.page-hero-has-parallax .parallax-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Nano Banana section backdrops — keep imagery visible (solid bg-* on the section was washing these out) */
+.section-shell.has-parallax,
+.section-textured.has-parallax {
+  background-color: transparent;
+}
+
+.has-parallax .parallax-bg,
+.page-hero-has-parallax .parallax-bg {
+  opacity: 0.88;
+  filter: blur(9px) saturate(0.94);
+}
+
+.page-hero-has-parallax .parallax-bg {
+  opacity: 0.92;
+  filter: blur(6px) saturate(0.96);
+}
+
+/* Services & fees JPEGs: default stack was blur + tint reading as flat mush */
+.has-parallax .parallax-bg--services,
+.has-parallax .parallax-bg--fees,
+.page-hero-has-parallax .parallax-bg--services,
+.page-hero-has-parallax .parallax-bg--fees {
+  opacity: 1;
+  filter: blur(2px) saturate(1.08) contrast(1.04);
+  background-size: cover;
+  background-position: center 38%;
 }
 
 .parallax-bg--about { background-image: url('/bg-parallax-about.jpeg'); }
@@ -453,28 +525,56 @@
     radial-gradient(ellipse 90% 60% at 50% 0%, rgba(255,255,255,0.5), transparent 60%);
 }
 
+/* Scrims: strong enough for WCAG-friendly body copy; imagery still shows at edges and through gradients */
 .parallax-overlay--lilac {
   background:
-    linear-gradient(180deg, rgba(243,239,246,0.93) 0%, rgba(243,239,246,0.89) 50%, rgba(243,239,246,0.93) 100%),
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(190,168,214,0.08), transparent 55%);
+    linear-gradient(180deg, rgba(228, 218, 240, 0.94) 0%, rgba(216, 204, 232, 0.9) 50%, rgba(228, 218, 240, 0.94) 100%),
+    linear-gradient(180deg, rgba(18, 14, 24, 0.14) 0%, rgba(18, 14, 24, 0.22) 100%),
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(145, 117, 176, 0.12), transparent 58%);
 }
 
 .parallax-overlay--cream {
   background:
-    linear-gradient(180deg, rgba(250,248,251,0.93) 0%, rgba(250,248,251,0.90) 50%, rgba(250,248,251,0.93) 100%),
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212,197,229,0.06), transparent 55%);
+    linear-gradient(180deg, rgba(242, 236, 248, 0.93) 0%, rgba(232, 224, 240, 0.9) 50%, rgba(242, 236, 248, 0.93) 100%),
+    linear-gradient(180deg, rgba(30, 22, 18, 0.1) 0%, rgba(30, 22, 18, 0.16) 100%),
+    radial-gradient(ellipse 90% 58% at 50% 0%, rgba(190, 168, 214, 0.1), transparent 58%);
+}
+
+/* Services + fees: thin colour wash so the photograph stays the hero; cards carry most copy */
+.parallax-overlay--services {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(245, 238, 252, 0.28) 0%,
+      rgba(230, 218, 245, 0.14) 45%,
+      rgba(236, 226, 248, 0.3) 100%
+    ),
+    radial-gradient(ellipse 95% 75% at 50% 100%, rgba(18, 14, 28, 0.1), transparent 58%);
+}
+
+.parallax-overlay--fees {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 255, 0.26) 0%,
+      rgba(240, 232, 250, 0.12) 48%,
+      rgba(245, 236, 252, 0.28) 100%
+    ),
+    radial-gradient(ellipse 90% 70% at 20% 15%, rgba(255, 255, 255, 0.18), transparent 52%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(30, 22, 40, 0.08), transparent 58%);
 }
 
 .parallax-overlay--dark {
   background:
-    linear-gradient(180deg, rgba(26,26,26,0.88) 0%, rgba(13,13,13,0.92) 50%, rgba(26,26,26,0.88) 100%),
-    radial-gradient(ellipse 90% 55% at 50% 20%, rgba(94,71,119,0.12), transparent 60%);
+    linear-gradient(180deg, rgba(18, 16, 22, 0.82) 0%, rgba(8, 8, 10, 0.9) 50%, rgba(18, 16, 22, 0.82) 100%),
+    radial-gradient(ellipse 95% 60% at 50% 25%, rgba(94, 71, 119, 0.28), transparent 62%);
 }
 
 .parallax-overlay--white {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.89) 50%, rgba(255,255,255,0.93) 100%),
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.5), transparent 60%);
+    linear-gradient(180deg, rgba(248, 246, 252, 0.94) 0%, rgba(238, 232, 246, 0.9) 50%, rgba(248, 246, 252, 0.94) 100%),
+    linear-gradient(180deg, rgba(18, 16, 22, 0.1) 0%, rgba(18, 16, 22, 0.16) 100%),
+    radial-gradient(ellipse 88% 55% at 50% 0%, rgba(255, 255, 255, 0.45), transparent 60%);
 }
 
 /* Home About: subtle glass panel so parallax + lilac accents sit behind photo + copy */
@@ -512,8 +612,56 @@
 
 #home-about > .parallax-overlay--dark {
   background:
-    linear-gradient(180deg, rgba(26, 26, 26, 0.8) 0%, rgba(13, 13, 13, 0.86) 50%, rgba(26, 26, 26, 0.8) 100%),
-    radial-gradient(ellipse 90% 55% at 50% 18%, rgba(94, 71, 119, 0.14), transparent 58%);
+    linear-gradient(180deg, rgba(12, 12, 16, 0.78) 0%, rgba(6, 6, 8, 0.86) 50%, rgba(12, 12, 16, 0.78) 100%),
+    radial-gradient(ellipse 95% 58% at 50% 18%, rgba(94, 71, 119, 0.28), transparent 58%);
+}
+
+/* Contrast: dark copy on light parallax scrims (avoid gray-600 on near-white).
+ * Use .parallax-on-light on the section — not .text-brand-dark — so selectors do not
+ * collide with @apply text-brand-dark on .section-title (Tailwind circular dependency). */
+.section-shell.has-parallax.parallax-on-light .section-title,
+.section-textured.has-parallax.parallax-on-light .section-title {
+  color: #141414;
+}
+
+.section-shell.has-parallax.parallax-on-light .section-copy,
+.section-textured.has-parallax.parallax-on-light .section-copy {
+  color: #2a2a2e;
+}
+
+.section-shell.has-parallax.parallax-on-light .section-kicker,
+.section-textured.has-parallax.parallax-on-light .section-kicker {
+  color: #5e4777;
+}
+
+.section-shell.has-parallax.parallax-on-light .text-gray-600,
+.section-textured.has-parallax.parallax-on-light .text-gray-600 {
+  color: #3d3d42;
+}
+
+.section-shell.has-parallax.parallax-on-light .text-gray-700,
+.section-textured.has-parallax.parallax-on-light .text-gray-700 {
+  color: #2e2e33;
+}
+
+/* Dark parallax bands: keep white / lilac type readable */
+.section-shell.has-parallax.text-white .section-title,
+.section-shell.has-parallax.text-white .font-heading,
+.section-shell.section-shell--dark.has-parallax .section-title {
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+.section-shell.has-parallax.text-white .section-copy,
+.section-shell.has-parallax.text-white p {
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.35);
+}
+
+.section-shell.has-parallax.text-white .text-lilac-100,
+.quote-section .text-lilac-100 {
+  color: rgb(243 239 246);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
 }
 
 .section-textured {
@@ -577,13 +725,14 @@
   mix-blend-mode: soft-light;
 }
 
-.section-shell > *,
-.section-textured > * {
+.section-shell > *:not(.parallax-bg):not(.parallax-overlay),
+.section-textured > *:not(.parallax-bg):not(.parallax-overlay) {
   position: relative;
   z-index: 2;
 }
 
-.section-shell.has-parallax > * {
+.section-shell.has-parallax > *:not(.parallax-bg):not(.parallax-overlay),
+.section-textured.has-parallax > *:not(.parallax-bg):not(.parallax-overlay) {
   position: relative;
   z-index: 3;
 }
@@ -879,6 +1028,11 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .homepage-hero-media.hero-parallax-media img {
+    transform: none;
+    will-change: auto;
   }
 
   *,
