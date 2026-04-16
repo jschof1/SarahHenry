@@ -15,10 +15,10 @@ const IG_URL = 'https://instagram.com/sarahssignatureceremonies';
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="relative z-10 bg-brand-dark text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-4 gap-12 items-start">
-          <div>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-x-8 md:gap-y-10 lg:gap-12 items-start md:[grid-template-columns:repeat(4,minmax(0,1fr))]">
+          <div className="min-w-0">
             <div className="mb-4 inline-flex px-3 py-2">
               <span className="font-heading text-2xl text-white tracking-wide">
                 Sarah's Signature Ceremonies
@@ -30,7 +30,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <h4 className="font-serif text-sm tracking-widest uppercase text-lilac-300 mb-5">
               Quick Links
             </h4>
@@ -48,27 +48,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-3">
+          <div className="min-w-0 space-y-3">
             <h4 className="font-serif text-sm tracking-widest uppercase text-lilac-300 mb-5">
               Get in Touch
             </h4>
             <a
               href="tel:01355517037"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+              className="flex items-start gap-2 text-gray-400 hover:text-white transition-colors text-sm"
             >
-              <Phone size={14} />
-              01355 517037
+              <Phone size={14} className="mt-0.5 shrink-0" />
+              <span className="min-w-0">01355 517037</span>
             </a>
             <a
               href="mailto:hello@sarahssignatureceremonies.co.uk"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+              className="flex items-start gap-2 text-gray-400 hover:text-white transition-colors text-sm"
             >
-              <Mail size={14} />
-              hello@sarahssignatureceremonies.co.uk
+              <Mail size={14} className="mt-0.5 shrink-0" />
+              <span className="min-w-0 break-words [overflow-wrap:anywhere]">
+                hello@sarahssignatureceremonies.co.uk
+              </span>
             </a>
           </div>
 
-          <div className="space-y-3">
+          <div className="min-w-0 space-y-3">
             <h4 className="font-serif text-sm tracking-widest uppercase text-lilac-300 mb-5">
               Follow
             </h4>
@@ -76,19 +78,21 @@ export default function Footer() {
               href={FB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+              className="flex items-start gap-2 text-gray-400 hover:text-white transition-colors text-sm"
             >
-              <Facebook size={14} />
-              Facebook
+              <Facebook size={14} className="mt-0.5 shrink-0" />
+              <span className="min-w-0">Facebook</span>
             </a>
             <a
               href={IG_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+              className="flex items-start gap-2 text-gray-400 hover:text-white transition-colors text-sm"
             >
-              <Instagram size={14} />
-              @sarahssignatureceremonies
+              <Instagram size={14} className="mt-0.5 shrink-0" />
+              <span className="min-w-0 break-words [overflow-wrap:anywhere]">
+                @sarahssignatureceremonies
+              </span>
             </a>
           </div>
         </div>

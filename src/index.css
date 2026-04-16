@@ -128,7 +128,7 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.22;
   background:
     radial-gradient(ellipse 85% 55% at 50% -15%, rgba(255, 255, 255, 0.07), transparent 42%),
     radial-gradient(ellipse 70% 50% at 100% 100%, rgba(190, 168, 214, 0.05), transparent 48%),
@@ -143,7 +143,8 @@
   overflow: clip;
   min-height: 100svh;
   background: #0d0d0d;
-  @apply border-b-4 border-lilac-brand;
+  /* Match inner sections so the handoff is one soft rule, not a heavy bar + section border */
+  @apply border-b border-lilac-200/70;
 }
 
 .homepage-hero::before {
@@ -207,8 +208,14 @@
   inset: 0;
   background:
     linear-gradient(90deg, rgba(13, 13, 13, 0.78) 0%, rgba(13, 13, 13, 0.28) 42%, rgba(13, 13, 13, 0.58) 100%),
-    linear-gradient(180deg, rgba(13, 13, 13, 0.12) 0%, rgba(13, 13, 13, 0.5) 65%, rgba(13, 13, 13, 0.72) 100%),
-    radial-gradient(ellipse 80% 70% at 50% 50%, transparent 30%, rgba(13, 13, 13, 0.4) 100%);
+    linear-gradient(
+      180deg,
+      rgba(13, 13, 13, 0.1) 0%,
+      rgba(13, 13, 13, 0.42) 50%,
+      rgba(10, 10, 14, 0.78) 82%,
+      rgba(8, 8, 12, 0.88) 100%
+    ),
+    radial-gradient(ellipse 80% 70% at 50% 45%, transparent 28%, rgba(13, 13, 13, 0.45) 100%);
 }
 
 .homepage-hero-overlay {
@@ -325,17 +332,32 @@
     radial-gradient(ellipse 70% 50% at 100% 100%, rgba(190, 168, 214, 0.06), transparent 55%);
 }
 
-/* Dark enough for white type on variable JPEGs; vignettes keep some photo visible at edges */
+/* Dark enough for white type on variable JPEGs */
 .page-hero-scrim.page-hero-scrim--photo {
   background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.2) 100%),
     linear-gradient(
       180deg,
-      rgba(6, 6, 10, 0.78) 0%,
-      rgba(10, 10, 14, 0.62) 48%,
-      rgba(6, 6, 10, 0.82) 100%
+      rgba(6, 6, 10, 0.82) 0%,
+      rgba(10, 10, 14, 0.68) 48%,
+      rgba(6, 6, 10, 0.86) 100%
     ),
-    radial-gradient(ellipse 110% 85% at 50% 0%, rgba(0, 0, 0, 0.42), transparent 58%),
-    radial-gradient(ellipse 85% 60% at 100% 100%, rgba(40, 28, 58, 0.28), transparent 55%);
+    radial-gradient(ellipse 115% 88% at 50% 0%, rgba(0, 0, 0, 0.48), transparent 58%),
+    radial-gradient(ellipse 88% 62% at 100% 100%, rgba(35, 25, 50, 0.32), transparent 55%);
+}
+
+/* Service detail heroes: uniform dark base so white type never sits on blown-out JPEG */
+.page-hero-scrim.page-hero-scrim--service-hero {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.42) 100%),
+    linear-gradient(
+      180deg,
+      rgba(8, 8, 14, 0.88) 0%,
+      rgba(12, 10, 18, 0.72) 55%,
+      rgba(6, 6, 10, 0.9) 100%
+    ),
+    radial-gradient(ellipse 130% 95% at 50% 15%, rgba(0, 0, 0, 0.55), transparent 58%),
+    radial-gradient(ellipse 95% 75% at 50% 100%, rgba(0, 0, 0, 0.45), transparent 62%);
 }
 
 .page-hero-inner {
@@ -356,6 +378,12 @@
 
 .page-hero-has-parallax .page-hero-inner span {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.page-hero-has-parallax .page-hero-inner--service :is(h1, p) {
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.65),
+    0 4px 28px rgba(0, 0, 0, 0.55);
 }
 
 /* While hero parallax image loads, avoid a white flash */
@@ -438,15 +466,23 @@
 
 /* Short CTA bands: tight padding; height follows content (never fills leftover flex space) */
 .section-shell.section-shell--cta-band {
-  @apply py-12 sm:py-14 lg:py-16;
+  @apply py-8 sm:py-10 lg:py-12;
   height: fit-content;
   min-height: 0;
   flex-shrink: 0;
 }
 
+/* Pricing / fee CTA: full-opacity parallax — the global top feather mask reads as empty space
+   above the card when the band is tall or fills the viewport */
+.section-shell.section-shell--cta-band.has-parallax .parallax-bg {
+  inset: -40px 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 100%);
+}
+
 .parallax-bg {
   position: absolute;
-  inset: -20% 0;
+  inset: -8% 0;
   z-index: 0;
   pointer-events: none;
   background-size: cover;
@@ -460,8 +496,15 @@
 .section-textured.has-parallax .parallax-bg,
 .page-hero-has-parallax .parallax-bg {
   position: absolute;
-  inset: -20% 0;
+  inset: -8% 0;
   z-index: 0;
+}
+
+/* Feather top edge only — a bottom fade left a transparent band above the footer (harsh cut) */
+.section-shell.has-parallax .parallax-bg,
+.section-textured.has-parallax .parallax-bg {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
 }
 
 .section-shell.has-parallax .parallax-overlay,
@@ -480,13 +523,13 @@
 
 .has-parallax .parallax-bg,
 .page-hero-has-parallax .parallax-bg {
-  opacity: 0.88;
-  filter: blur(9px) saturate(0.94);
+  opacity: 0.96;
+  filter: blur(4px) saturate(0.98);
 }
 
 .page-hero-has-parallax .parallax-bg {
-  opacity: 0.92;
-  filter: blur(6px) saturate(0.96);
+  opacity: 1;
+  filter: blur(3px) saturate(1);
 }
 
 /* Services & fees JPEGs: default stack was blur + tint reading as flat mush */
@@ -525,12 +568,11 @@
     radial-gradient(ellipse 90% 60% at 50% 0%, rgba(255,255,255,0.5), transparent 60%);
 }
 
-/* Scrims: strong enough for WCAG-friendly body copy; imagery still shows at edges and through gradients */
+/* Scrims: prioritise readable body copy; photo reads as texture */
 .parallax-overlay--lilac {
   background:
-    linear-gradient(180deg, rgba(228, 218, 240, 0.94) 0%, rgba(216, 204, 232, 0.9) 50%, rgba(228, 218, 240, 0.94) 100%),
-    linear-gradient(180deg, rgba(18, 14, 24, 0.14) 0%, rgba(18, 14, 24, 0.22) 100%),
-    radial-gradient(ellipse 90% 60% at 50% 0%, rgba(145, 117, 176, 0.12), transparent 58%);
+    linear-gradient(180deg, rgba(228, 218, 240, 0.92) 0%, rgba(210, 198, 232, 0.9) 50%, rgba(224, 214, 238, 0.92) 100%),
+    linear-gradient(180deg, rgba(18, 14, 24, 0.08) 0%, rgba(18, 14, 24, 0.14) 100%);
 }
 
 .parallax-overlay--cream {
@@ -540,28 +582,22 @@
     radial-gradient(ellipse 90% 58% at 50% 0%, rgba(190, 168, 214, 0.1), transparent 58%);
 }
 
-/* Services + fees: thin colour wash so the photograph stays the hero; cards carry most copy */
 .parallax-overlay--services {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(245, 238, 252, 0.28) 0%,
-      rgba(230, 218, 245, 0.14) 45%,
-      rgba(236, 226, 248, 0.3) 100%
-    ),
-    radial-gradient(ellipse 95% 75% at 50% 100%, rgba(18, 14, 28, 0.1), transparent 58%);
+  background: linear-gradient(
+    180deg,
+    rgba(248, 242, 255, 0.9) 0%,
+    rgba(236, 226, 248, 0.88) 50%,
+    rgba(242, 234, 250, 0.91) 100%
+  );
 }
 
 .parallax-overlay--fees {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 252, 255, 0.26) 0%,
-      rgba(240, 232, 250, 0.12) 48%,
-      rgba(245, 236, 252, 0.28) 100%
-    ),
-    radial-gradient(ellipse 90% 70% at 20% 15%, rgba(255, 255, 255, 0.18), transparent 52%),
-    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(30, 22, 40, 0.08), transparent 58%);
+  background: linear-gradient(
+    180deg,
+    rgba(252, 250, 255, 0.9) 0%,
+    rgba(238, 230, 246, 0.88) 50%,
+    rgba(244, 238, 252, 0.9) 100%
+  );
 }
 
 .parallax-overlay--dark {
@@ -571,10 +607,12 @@
 }
 
 .parallax-overlay--white {
-  background:
-    linear-gradient(180deg, rgba(248, 246, 252, 0.94) 0%, rgba(238, 232, 246, 0.9) 50%, rgba(248, 246, 252, 0.94) 100%),
-    linear-gradient(180deg, rgba(18, 16, 22, 0.1) 0%, rgba(18, 16, 22, 0.16) 100%),
-    radial-gradient(ellipse 88% 55% at 50% 0%, rgba(255, 255, 255, 0.45), transparent 60%);
+  background: linear-gradient(
+    180deg,
+    rgba(250, 248, 252, 0.93) 0%,
+    rgba(240, 234, 248, 0.91) 50%,
+    rgba(248, 244, 252, 0.93) 100%
+  );
 }
 
 /* Home About: subtle glass panel so parallax + lilac accents sit behind photo + copy */
@@ -642,6 +680,11 @@
 .section-shell.has-parallax.parallax-on-light .text-gray-700,
 .section-textured.has-parallax.parallax-on-light .text-gray-700 {
   color: #2e2e33;
+}
+
+.section-shell.has-parallax.parallax-on-light a.text-lilac-600,
+.section-textured.has-parallax.parallax-on-light a.text-lilac-600 {
+  color: #3e2f50;
 }
 
 /* Dark parallax bands: keep white / lilac type readable */
@@ -843,8 +886,8 @@
 
 /* Quote section glow ring */
 .quote-glow-ring {
-  background: radial-gradient(circle, rgba(168,142,197,0.2) 0%, transparent 70%);
-  box-shadow: 0 0 80px 20px rgba(168,142,197,0.12);
+  background: radial-gradient(circle, rgba(168, 142, 197, 0.14) 0%, transparent 72%);
+  box-shadow: 0 0 48px 12px rgba(168, 142, 197, 0.08);
 }
 
 .quote-divider {

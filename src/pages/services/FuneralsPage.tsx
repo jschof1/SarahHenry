@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import {
   ServicePageHero,
@@ -6,6 +8,20 @@ import {
   ServiceIncludesSection,
   ServicePricingCTA,
 } from '../../components/service/ServicePageLayout';
+import { ParallaxBackdrop } from '../../components/ParallaxBackdrop';
+
+const galleryImages = [
+  { src: '/crematorium-exterior.webp', alt: 'Crematorium building and grounds' },
+  { src: '/crematorium-interior.webp', alt: 'Crematorium ceremony room interior' },
+  { src: '/memorial-gardens-entrance.webp', alt: 'Memorial Gardens entrance archway' },
+  { src: '/cemetery-avenue.webp', alt: 'Tree-lined cemetery avenue' },
+  { src: '/cemetery-pathway.webp', alt: 'Peaceful cemetery pathway' },
+  { src: '/celtic-cross-memorial.webp', alt: 'Celtic cross memorial in spring sunlight' },
+  { src: '/celtic-cross-headstone.webp', alt: 'Celtic cross headstone overlooking the cemetery' },
+  { src: '/cemetery-headstones.webp', alt: 'Family headstones with fresh flowers' },
+  { src: '/graveside-flowers.webp', alt: 'Fresh flowers left at a graveside' },
+  { src: '/memorial-urn-candles.webp', alt: 'Memorial urn with candles at rest' },
+];
 
 const included = [
   'All phone and email communications',
@@ -99,7 +115,111 @@ export default function FuneralsPage() {
         }
       />
 
+      <GallerySection />
+
       <ServicePricingCTA priceLabel="From £225" primaryLabel="Get in touch" />
     </div>
+  );
+}
+
+function GallerySection() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const openLightbox = (i: number) => setLightboxIndex(i);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prev = () =>
+    setLightboxIndex((c) => (c !== null ? (c - 1 + galleryImages.length) % galleryImages.length : null));
+  const next = () =>
+    setLightboxIndex((c) => (c !== null ? (c + 1) % galleryImages.length : null));
+
+  return (
+    <>
+      <section className="section-shell has-parallax relative text-brand-dark parallax-on-light">
+        <ParallaxBackdrop variant="faq" />
+        <div className="section-inner relative">
+          <div className="reveal mb-12 max-w-3xl">
+            <p className="section-kicker text-lilac-600">Settings &amp; Venues</p>
+            <h2 className="mt-3 font-serif text-3xl text-brand-dark sm:text-4xl lg:text-5xl">
+              Ceremony Locations
+            </h2>
+            <p className="mt-4 max-w-xl text-lg text-gray-600">
+              From crematoriums and memorial gardens to peaceful cemeteries, every
+              setting is handled with dignity and care.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {galleryImages.map((img, i) => (
+              <button
+                key={img.src}
+                type="button"
+                onClick={() => openLightbox(i)}
+                className="group relative aspect-[4/3] overflow-hidden rounded-brand border-2 border-lilac-200 bg-lilac-50 shadow-sm transition-all duration-300 hover:border-lilac-brand hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-lilac-brand"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-dark/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image lightbox"
+        >
+          <button
+            type="button"
+            onClick={closeLightbox}
+            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/30"
+            aria-label="Close lightbox"
+          >
+            <X size={20} />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); prev(); }}
+            className="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/30 sm:left-6"
+            aria-label="Previous image"
+          >
+            <ChevronLeft size={22} />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); next(); }}
+            className="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/30 sm:right-6"
+            aria-label="Next image"
+          >
+            <ChevronRight size={22} />
+          </button>
+
+          <div
+            className="max-h-[85vh] max-w-[90vw] sm:max-w-[80vw]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={galleryImages[lightboxIndex].src}
+              alt={galleryImages[lightboxIndex].alt}
+              className="max-h-[85vh] w-auto rounded-brand-lg object-contain shadow-2xl"
+            />
+            <p className="mt-3 text-center text-sm text-white/70">
+              {galleryImages[lightboxIndex].alt}
+            </p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

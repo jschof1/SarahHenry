@@ -106,49 +106,7 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
         }
       }
       
-      // Hero "Aperture" Reveal
-      const hero = root.querySelector('.homepage-hero, .page-hero');
-      if (hero) {
-        const heroMedia = hero.querySelector('.hero-parallax-media, .page-hero-floral');
-        if (heroMedia) {
-          gsap.fromTo(
-            heroMedia,
-            {
-              clipPath: 'inset(5% 5% 5% 5% round 0)',
-              scale: 1.1,
-            },
-            {
-              clipPath: 'inset(0% 0% 0% 0% round 0rem)',
-              scale: 1,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: hero,
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true,
-              },
-            },
-          );
-        }
-
-        const heroContent = hero.querySelector(
-          '.hero-parallax-content, .page-hero-inner:not(.page-hero-inner--service)',
-        );
-        if (heroContent) {
-          gsap.to(heroContent, {
-            opacity: 0,
-            y: -80,
-            scale: 0.96,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: hero,
-              start: 'top top',
-              end: '55% top',
-              scrub: true,
-            },
-          });
-        }
-      }
+      /* Hero: no clip-path / no content drift — those caused visible seams and misaligned layers vs the next section */
 
       // Image reveal with "Unfolding" aperture
       root.querySelectorAll<HTMLElement>('.scroll-reveal-mask').forEach((mask) => {
@@ -205,20 +163,19 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
         });
         tl.fromTo(
           quote,
-          { y: 80, opacity: 0, scale: 0.85 },
+          { y: 48, opacity: 0, scale: 0.98 },
           { y: 0, opacity: 1, scale: 1, ease: 'power2.out', duration: 0.5 },
-        )
-        .to(quote, { y: -60, opacity: 0.6, ease: 'power1.in', duration: 0.5 });
+        );
       });
 
       // Quote glow ring pulses wider on scroll
       root.querySelectorAll('.quote-glow-ring').forEach((ring) => {
         gsap.fromTo(
           ring,
-          { scale: 0.5, opacity: 0 },
+          { scale: 0.85, opacity: 0 },
           {
-            scale: 1.6,
-            opacity: 0.6,
+            scale: 1.08,
+            opacity: 0.35,
             ease: 'power2.out',
             scrollTrigger: {
               trigger: ring,
@@ -287,13 +244,14 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
       });
 
       // Parallax background images (stronger travel when section is set up for parallax)
+      /* Subtle bg parallax only — large Y + overlay drift caused harsh horizontal “cuts” between layers */
       root.querySelectorAll<HTMLElement>('.parallax-bg').forEach((bg) => {
         const deep =
           !!bg.closest('.homepage-shell') ||
           !!bg.closest('.has-parallax') ||
           !!bg.closest('.page-hero-has-parallax');
-        const fromY = deep ? '-28%' : '-15%';
-        const toY = deep ? '28%' : '15%';
+        const fromY = deep ? '-10%' : '-6%';
+        const toY = deep ? '10%' : '6%';
         gsap.fromTo(
           bg,
           { y: fromY },
@@ -302,24 +260,6 @@ export function GlobalScrollEffects({ rootRef, enabled }: GlobalScrollEffectsPro
             ease: 'none',
             scrollTrigger: {
               trigger: bg.parentElement,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: true,
-            },
-          },
-        );
-      });
-
-      // Sections: overlays drift slightly against the bg for layered parallax
-      root.querySelectorAll<HTMLElement>('.has-parallax .parallax-overlay').forEach((overlay) => {
-        gsap.fromTo(
-          overlay,
-          { y: '-6%' },
-          {
-            y: '6%',
-            ease: 'none',
-            scrollTrigger: {
-              trigger: overlay.parentElement,
               start: 'top bottom',
               end: 'bottom top',
               scrub: true,

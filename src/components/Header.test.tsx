@@ -19,7 +19,7 @@ afterEach(() => {
 });
 
 describe('Header', () => {
-  it('uses the white logo at the top of the homepage', () => {
+  it('renders the logo on the homepage', () => {
     setScrollY(0);
 
     render(
@@ -28,11 +28,11 @@ describe('Header', () => {
       </MemoryRouter>,
     );
 
-    const logo = screen.getByAltText('Peter Young Independent Celebrant');
-    expect(logo).toHaveAttribute('src', expect.stringContaining('white-logo'));
+    const logo = screen.getByAltText("Sarah's Signature Ceremonies");
+    expect(logo).toHaveAttribute('src', '/logo.png');
   });
 
-  it('uses the standard logo after scrolling on the homepage', () => {
+  it('shows solid background after scrolling', () => {
     setScrollY(0);
 
     render(
@@ -46,11 +46,11 @@ describe('Header', () => {
       window.dispatchEvent(new Event('scroll'));
     });
 
-    const logo = screen.getByAltText('Peter Young Independent Celebrant');
-    expect(logo).toHaveAttribute('src', expect.stringContaining('white-logo'));
+    const header = screen.getByRole('banner');
+    expect(header.className).toContain('bg-brand-dark');
   });
 
-  it('uses the standard logo on inner pages', () => {
+  it('shows solid background on inner pages', () => {
     setScrollY(0);
 
     render(
@@ -59,7 +59,22 @@ describe('Header', () => {
       </MemoryRouter>,
     );
 
-    const logo = screen.getByAltText('Peter Young Independent Celebrant');
-    expect(logo).toHaveAttribute('src', expect.stringContaining('white-logo'));
+    const header = screen.getByRole('banner');
+    expect(header.className).toContain('bg-brand-dark');
+  });
+
+  it('renders services dropdown links', () => {
+    setScrollY(0);
+
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <Header />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getAllByText('Weddings').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('Funerals & Memorials').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('Naming Ceremonies').length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText('Vow Renewals').length).toBeGreaterThanOrEqual(1);
   });
 });

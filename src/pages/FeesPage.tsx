@@ -173,11 +173,11 @@ export default function FeesPage() {
       <section className="section-shell has-parallax text-brand-dark parallax-on-light">
         <ParallaxBackdrop variant="services" />
         <div className="section-inner text-center reveal">
-          <div className="mx-auto max-w-2xl rounded-brand-lg border border-lilac-200/90 bg-white/92 px-8 py-10 shadow-[0_12px_40px_rgba(26,26,26,0.06)] backdrop-blur-sm sm:px-12">
+          <div className="mx-auto max-w-2xl rounded-brand-lg border-2 border-lilac-300/90 bg-white px-8 py-10 shadow-[0_20px_50px_rgba(26,26,26,0.12)] ring-1 ring-black/5 sm:px-12">
             <h2 className="font-serif text-4xl text-brand-dark mb-4">
               I look forward to speaking with you
             </h2>
-            <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+            <p className="text-gray-700 text-lg mb-8 leading-relaxed">
               I would be pleased to assist and discuss your requirements in more detail.
             </p>
             <Link

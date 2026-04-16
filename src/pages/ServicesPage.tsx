@@ -10,6 +10,7 @@ const services = [
     tag: 'Life Milestones',
     description: 'A truly personalised ceremony that reflects who you are both as individuals and as a couple.',
     to: '/services/weddings',
+    image: '/wedding-ceremony-couple.jpeg',
   },
   {
     icon: Flower2,
@@ -17,6 +18,7 @@ const services = [
     tag: 'Life Transitions',
     description: 'A personalised, respectful ceremony that truly reflects your loved one and the life they lived.',
     to: '/services/funerals',
+    image: '/memorial-gardens-entrance.webp',
   },
   {
     icon: Users,
@@ -24,6 +26,7 @@ const services = [
     tag: 'Family & Children',
     description: 'A beautiful way to celebrate the arrival of your child and all that they mean to you.',
     to: '/services/naming',
+    image: '/sleeping-baby-bunny.jpeg',
   },
   {
     icon: Heart,
@@ -31,6 +34,7 @@ const services = [
     tag: 'Life Milestones',
     description: 'A beautiful way to honour your love, reflect on the life you\'ve built and reaffirm your promises.',
     to: '/services/vow-renewals',
+    image: '/exchanging-rings-bw.jpeg',
   },
 ];
 
@@ -63,11 +67,11 @@ export default function ServicesPage() {
       <section className="section-shell has-parallax text-brand-dark parallax-on-light">
         <ParallaxBackdrop variant="services" />
         <div className="max-w-4xl mx-auto reveal">
-          <div className="rounded-brand-lg border border-lilac-200/90 bg-white/92 p-8 text-center shadow-[0_12px_40px_rgba(26,26,26,0.06)] backdrop-blur-sm sm:p-10 space-y-6">
+          <div className="rounded-brand-lg border-2 border-lilac-300/90 bg-white p-8 text-center shadow-[0_20px_50px_rgba(26,26,26,0.12)] ring-1 ring-black/5 sm:p-10 space-y-6">
             <p className="text-xl leading-relaxed text-brand-dark">
               Each life story is unique, and I believe life's most precious moments deserve to be celebrated, commemorated, and reflected upon in a way that feels truly right for you.
             </p>
-            <p className="text-xl leading-relaxed text-gray-600">
+            <p className="text-xl leading-relaxed text-gray-700">
               I approach each ceremony as a genuine collaboration. No templates, no 'one size fits all', just a thoughtfully crafted service that reflects your wishes, your values and your voice.
             </p>
           </div>
@@ -83,24 +87,36 @@ export default function ServicesPage() {
               to={service.to}
               className="group"
             >
-              <article className="simple-service-card bg-white border-4 border-lilac-brand rounded-brand-lg p-8 shadow transition-transform duration-300 group-hover:-translate-y-1.5 h-full flex flex-col">
-                <div className="flex h-14 w-14 items-center justify-center bg-lilac-50 text-lilac-600 rounded-brand mb-6">
-                  <service.icon size={28} />
+              <article className="simple-service-card overflow-hidden bg-white border-4 border-lilac-brand rounded-brand-lg shadow transition-transform duration-300 group-hover:-translate-y-1.5 h-full flex flex-col">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute bottom-3 left-4 flex h-11 w-11 items-center justify-center bg-white/90 text-lilac-600 rounded-brand shadow-md backdrop-blur-sm">
+                    <service.icon size={22} />
+                  </div>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-lilac-500 mb-3">
-                  {service.tag}
-                </span>
-                <h2 className="font-serif text-3xl text-brand-dark mb-4">
-                  {service.title}
-                </h2>
-                <div className="w-12 h-0.5 bg-lilac-brand mb-6" />
-                <p className="text-gray-600 leading-relaxed mb-6 flex-1">
-                  {service.description}
-                </p>
-                <span className="inline-flex items-center gap-2 text-lilac-600 font-semibold group-hover:gap-3 transition-all">
-                  Learn More
-                  <ArrowRight size={16} />
-                </span>
+                <div className="flex flex-1 flex-col p-8">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-lilac-500 mb-3">
+                    {service.tag}
+                  </span>
+                  <h2 className="font-serif text-3xl text-brand-dark mb-4">
+                    {service.title}
+                  </h2>
+                  <div className="w-12 h-0.5 bg-lilac-brand mb-6" />
+                  <p className="text-gray-600 leading-relaxed mb-6 flex-1">
+                    {service.description}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-lilac-600 font-semibold group-hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight size={16} />
+                  </span>
+                </div>
               </article>
             </Link>
           ))}

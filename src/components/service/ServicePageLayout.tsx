@@ -35,8 +35,8 @@ const SERVICE_VISUAL: Record<
     keywords: ['Bespoke', 'Collaborative', 'Unhurried'],
   },
   funerals: {
-    image: '/ceremony-setup-room.jpeg',
-    imageAlt: 'Peaceful ceremony space',
+    image: '/graveside-flowers.webp',
+    imageAlt: 'Fresh flowers left at a graveside',
     keywords: ['Compassionate', 'Respectful', 'Personal'],
   },
   naming: {
@@ -65,7 +65,7 @@ export function ServicePageHero({ floral, kicker, title, subtitle }: ServicePage
   return (
     <section className="page-hero page-hero-has-parallax relative overflow-hidden pt-32 pb-20">
       <ParallaxBackdrop variant={SERVICE_PARALLAX[floral]} overlay={false} />
-      <div className="page-hero-scrim page-hero-scrim--photo" aria-hidden />
+      <div className="page-hero-scrim page-hero-scrim--service-hero" aria-hidden />
 
       <div className="page-hero-inner page-hero-inner--service mx-auto max-w-7xl px-6 text-center lg:px-12">
         <div className="reveal flex w-full flex-col items-center">

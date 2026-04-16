@@ -73,10 +73,10 @@ const ceremonyTypes = [
 ];
 
 const services = [
-  { icon: Heart, title: 'Weddings', desc: 'A truly personalised ceremony that reflects who you are as individuals and as a couple.' },
-  { icon: Flower2, title: 'Funerals & Memorials', desc: 'A personalised, respectful ceremony that truly reflects your loved one and the life they lived.' },
-  { icon: Users, title: 'Naming Ceremonies', desc: 'A beautiful way to celebrate the arrival of your child and all that they mean to you.' },
-  { icon: Heart, title: 'Vow Renewals', desc: "A beautiful way to honour your love, reflect on the life you've built and reaffirm your promises." },
+  { icon: Heart, title: 'Weddings', desc: 'A truly personalised ceremony that reflects who you are as individuals and as a couple.', image: '/wedding-ceremony-couple.jpeg', to: '/services/weddings' },
+  { icon: Flower2, title: 'Funerals & Memorials', desc: 'A personalised, respectful ceremony that truly reflects your loved one and the life they lived.', image: '/cemetery-avenue.webp', to: '/services/funerals' },
+  { icon: Users, title: 'Naming Ceremonies', desc: 'A beautiful way to celebrate the arrival of your child and all that they mean to you.', image: '/sleeping-baby-bunny.jpeg', to: '/services/naming' },
+  { icon: Heart, title: 'Vow Renewals', desc: "A beautiful way to honour your love, reflect on the life you've built and reaffirm your promises.", image: '/exchanging-rings-bw.jpeg', to: '/services/vow-renewals' },
 ];
 
 const heroContainerVariants = {
@@ -288,7 +288,10 @@ export default function HomePage() {
                 farewells, and vow renewals, shaped with you and for you.
               </p>
             </motion.div>
-            <motion.div variants={heroItemVariants} className="hero-actions mt-2 flex flex-col sm:mt-3 sm:flex-row">
+            <motion.div
+              variants={heroItemVariants}
+              className="hero-actions mt-2 flex w-full max-w-xl flex-col gap-3 rounded-[1.35rem] border border-white/18 bg-[rgba(6,6,10,0.58)] px-4 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:mt-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4 sm:px-6 sm:py-5"
+            >
               <MagneticButton>
                 <Link to="/services" className="button-lift button-primary btn-shimmer">
                   Explore My Services
@@ -409,24 +412,44 @@ export default function HomePage() {
 
           <div className="mt-14 grid gap-8 sm:grid-cols-2">
             {services.map((service, i) => (
-              <motion.article
-                key={service.title}
-                variants={i % 2 === 0 ? slideFromLeft : slideFromRight}
-                whileHover={{ y: -8, boxShadow: '0 32px 80px rgba(26,26,26,0.14)' }}
-                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                className="premium-card bg-white text-brand-dark border-4 border-lilac-brand simple-service-card service-card-hover"
-              >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center bg-lilac-50 text-lilac-600 rounded-brand">
-                  <service.icon size={20} />
-                </div>
-                <h3 className="font-heading text-2xl text-brand-dark">{service.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-gray-600">{service.desc}</p>
-              </motion.article>
+              <Link key={service.title} to={service.to} className="group">
+                <motion.article
+                  variants={i % 2 === 0 ? slideFromLeft : slideFromRight}
+                  whileHover={{ y: -8, boxShadow: '0 32px 80px rgba(26,26,26,0.14)' }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                  className="overflow-hidden bg-white text-brand-dark border-4 border-lilac-brand simple-service-card service-card-hover rounded-brand-lg h-full flex flex-col"
+                >
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div className="absolute bottom-3 left-4 flex h-10 w-10 items-center justify-center bg-white/90 text-lilac-600 rounded-brand shadow-md backdrop-blur-sm">
+                      <service.icon size={18} />
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="font-heading text-2xl text-brand-dark">{service.title}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-7 text-gray-600">{service.desc}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-lilac-600 group-hover:gap-3 transition-all">
+                      Learn More
+                      <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </motion.article>
+              </Link>
             ))}
           </div>
 
           <motion.div variants={itemVariants} className="mt-10">
-            <Link to="/services" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-lilac-600 border-b-2 border-lilac-600 pb-1">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-brand-dark border-b-2 border-lilac-800 pb-1 hover:text-lilac-900"
+            >
               View all services in detail
               <ArrowRight size={16} />
             </Link>
@@ -497,7 +520,10 @@ export default function HomePage() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-10">
-            <Link to="/fees" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-lilac-600 border-b-2 border-lilac-600 pb-1">
+            <Link
+              to="/fees"
+              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-brand-dark border-b-2 border-lilac-800 pb-1 hover:text-lilac-900"
+            >
               See Full Pricing
               <ArrowRight size={16} />
             </Link>
@@ -536,7 +562,10 @@ export default function HomePage() {
                   Frequently Asked Questions
                 </motion.h2>
               </div>
-              <Link to="/faq" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-lilac-600">
+              <Link
+                to="/faq"
+                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-brand-dark border-b-2 border-lilac-800 pb-0.5 hover:text-lilac-900"
+              >
                 View all FAQs
                 <ArrowRight size={16} />
               </Link>
