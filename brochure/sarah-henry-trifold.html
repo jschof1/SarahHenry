@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <title>Sarah's Signature Ceremonies — Tri-fold Brochure</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --lilac-50:  #faf8fb;
+      --lilac-100: #f3eff6;
+      --lilac-200: #e6ddf0;
+      --lilac-300: #d4c5e5;
+      --lilac-400: #bea8d6;
+      --lilac-500: #a88ec5;
+      --lilac-600: #9175b0;
+      --lilac-800: #5e4777;
+      --brand-dark: #1a1a1a;
+      --body:       #3d3d42;
+      --muted:      #5b5b62;
+      --sage:       #9fb39d;
+
+      --serif:   "Playfair Display", "Cormorant Garamond", Georgia, serif;
+      --display: "Cormorant Garamond", Georgia, serif;
+      --sans:    "DM Sans", Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+
+      --page-w: 297mm;
+      --page-h: 210mm;
+      --panel-w: 99mm;
+      --pad: 9mm;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #e9e5ed;
+      color: var(--body);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+
+    @page { size: A4 landscape; margin: 0; }
+
+    .screen-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14mm;
+      padding: 14mm 10mm;
+    }
+
+    .sheet {
+      width: var(--page-w);
+      height: var(--page-h);
+      background: #fff;
+      display: grid;
+      grid-template-columns: var(--panel-w) var(--panel-w) var(--panel-w);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel {
+      width: var(--panel-w);
+      height: var(--page-h);
+      padding: var(--pad);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .panel + .panel { border-left: 1px dashed #dcd4e5; }
+
+    /* --- Type helpers ------------------------------------------------ */
+
+    .kicker {
+      font-family: var(--sans);
+      font-size: 7.75pt;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--lilac-600);
+    }
+
+    .headline {
+      font-family: var(--serif);
+      font-weight: 500;
+      color: var(--brand-dark);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 4mm 0 3mm;
+    }
+
+    h1.headline { font-size: 26pt; }
+    h2.headline { font-size: 18pt; }
+    h3.headline { font-size: 14pt; }
+
+    p { margin: 0 0 3mm; }
+
+    .body-copy { font-size: 9.8pt; line-height: 1.6; color: var(--body); }
+    .body-copy-sm { font-size: 8.75pt; line-height: 1.55; color: var(--muted); }
+
+    .rule {
+      width: 14mm;
+      height: 1px;
+      background: var(--lilac-500);
+      margin: 2.5mm 0 3.5mm;
+    }
+
+    /* --- Botanical ornament (inline SVG, wrapper) -------------------- */
+
+    .ornament {
+      display: block;
+      margin: 0 0 3mm;
+      color: var(--lilac-500);
+    }
+    .ornament--center { margin-left: auto; margin-right: auto; }
+    .ornament svg { display: block; height: 6mm; width: auto; }
+
+    .sprig {
+      display: block;
+      color: var(--lilac-600);
+    }
+    .sprig svg { display: block; width: 16mm; height: auto; }
+
+    /* --- Panel backgrounds ------------------------------------------- */
+
+    .panel-cream   { background: var(--lilac-50); }
+    .panel-cream-2 { background: var(--lilac-100); }
+
+    /* --- Image frame (shared) ---------------------------------------- */
+
+    .img-frame {
+      border: 2px solid var(--lilac-500);
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+      line-height: 0;
+    }
+    .img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* =============================================================== */
+    /* OUTSIDE — FRONT COVER (floral mood, no portrait)                 */
+    /* =============================================================== */
+
+    .cover { padding: 0; background: var(--lilac-50); color: var(--brand-dark); }
+    .cover-media { position: absolute; inset: 0; z-index: 0; }
+    .cover-media img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+    /* Very gentle warming wash so white text pins can settle — applied on image, not on a wrapper */
+    .cover-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(180deg, rgba(250,248,251,0.18) 0%, rgba(250,248,251,0) 30%, rgba(250,248,251,0.45) 100%);
+    }
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14mm 9mm;
+      color: var(--brand-dark);
+    }
+    .cover-kicker {
+      font-family: var(--sans);
+      font-size: 7.25pt;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--lilac-800);
+      background: rgba(250,248,251,0.85);
+      border: 1px solid var(--lilac-400);
+      padding: 2mm 5mm;
+    }
+    .cover-card {
+      width: 100%;
+      max-width: 74mm;
+      background: var(--lilac-50);
+      border: 1.5px solid var(--lilac-300);
+      padding: 8mm 7mm 9mm;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3mm;
+    }
+    .cover-card .cover-logo {
+      width: 58mm;
+      height: auto;
+      display: block;
+      margin: 0 auto 1mm;
+    }
+    .cover-card .ornament { margin: 0 auto 2mm; }
+    .cover-tagline {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-style: italic;
+      font-size: 15pt;
+      line-height: 1.2;
+      text-align: center;
+      color: var(--brand-dark);
+      margin: 0;
+    }
+    .cover-strap {
+      font-family: var(--sans);
+      font-size: 8.5pt;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: center;
+      margin: 0;
+      max-width: 60mm;
+      font-style: italic;
+    }
+    .cover-foot {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7pt;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--lilac-800);
+    }
+    .cover-foot .dot {
+      width: 4mm; height: 1px;
+      background: var(--lilac-500);
+    }
+
+    /* =============================================================== */
+    /* OUTSIDE — BACK COVER (contact, QR, accreditation)                */
+    /* =============================================================== */
+
+    .back-cover { padding: var(--pad); }
+    .back-cover .wordmark {
+      font-family: var(--serif);
+      font-size: 16pt;
+      color: var(--brand-dark);
+      line-height: 1.15;
+      margin: 0 0 1.5mm;
+    }
+    .back-cover .wordmark span {
+      display: block;
+      font-family: var(--sans);
+      font-size: 7.5pt;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--lilac-600);
+      margin-top: 1.5mm;
+    }
+    .back-strap {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 10.5pt;
+      line-height: 1.35;
+      color: var(--brand-dark);
+      margin: 0 0 4mm;
+    }
+    .back-cover .divider {
+      height: 1px;
+      background: var(--lilac-300);
+      margin: 3mm 0 4mm;
+    }
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 4mm;
+      display: flex;
+      flex-direction: column;
+      gap: 2.6mm;
+      font-size: 8.75pt;
+      color: var(--brand-dark);
+    }
+    .contact-list .label {
+      display: block;
+      font-family: var(--sans);
+      font-size: 6.75pt;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--lilac-600);
+      margin-bottom: 0.6mm;
+    }
+    .contact-list a,
+    .contact-list span.val {
+      color: var(--brand-dark);
+      text-decoration: none;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+
+    /* QR + badge row */
+    .back-blocks {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
+    }
+    .qr-block {
+      background: var(--lilac-50);
+      border: 1.5px solid var(--lilac-300);
+      padding: 3.5mm 4mm;
+      display: grid;
+      grid-template-columns: 24mm 1fr;
+      gap: 4mm;
+      align-items: center;
+    }
+    .qr-block .qr {
+      width: 24mm;
+      height: 24mm;
+      background: #fff;
+      border: 1px solid var(--lilac-400);
+      padding: 1.5mm;
+      display: block;
+    }
+    .qr-block .qr svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .qr-block .qr-copy .qr-eyebrow {
+      font-family: var(--sans);
+      font-size: 6.75pt;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--lilac-600);
+      margin: 0 0 1mm;
+    }
+    .qr-block .qr-copy .qr-headline {
+      font-family: var(--serif);
+      font-size: 11pt;
+      line-height: 1.2;
+      color: var(--brand-dark);
+      margin: 0 0 1mm;
+    }
+    .qr-block .qr-copy .qr-url {
+      font-family: var(--sans);
+      font-size: 7.25pt;
+      color: var(--lilac-800);
+      letter-spacing: 0.02em;
+      margin: 0;
+      word-break: break-word;
+    }
+    .badge-block {
+      background: #fff;
+      border: 1.5px solid var(--lilac-300);
+      padding: 3.5mm 4mm;
+      display: grid;
+      grid-template-columns: 24mm 1fr;
+      gap: 4mm;
+      align-items: center;
+    }
+    .badge-block img {
+      width: 24mm;
+      height: auto;
+      display: block;
+    }
+    .badge-block .badge-copy .badge-eyebrow {
+      font-family: var(--sans);
+      font-size: 6.75pt;
+      font-weight: 600;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--lilac-600);
+      margin: 0 0 1mm;
+    }
+    .badge-block .badge-copy .badge-line {
+      font-family: var(--serif);
+      font-size: 9.5pt;
+      line-height: 1.3;
+      color: var(--brand-dark);
+      margin: 0;
+    }
+
+    /* =============================================================== */
+    /* OUTSIDE — MEET SARAH FLAP                                        */
+    /* =============================================================== */
+
+    .flap { background: var(--lilac-50); }
+    .flap .flap-photo {
+      width: 100%;
+      height: 86mm;
+      margin-bottom: 4mm;
+    }
+    .flap .flap-photo img { object-position: center 15%; }
+    .flap p { font-size: 9pt; line-height: 1.55; }
+    .flap .signature {
+      margin-top: auto;
+      padding-top: 4mm;
+      border-top: 1px solid var(--lilac-300);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14pt;
+      color: var(--lilac-800);
+    }
+    .flap .signature .sig-eyebrow {
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 7pt;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--lilac-600);
+    }
+
+    /* =============================================================== */
+    /* INSIDE — WELCOME                                                 */
+    /* =============================================================== */
+
+    .welcome { background: #fff; }
+    .welcome .pull-card {
+      background: var(--lilac-100);
+      border: 1.5px solid var(--lilac-300);
+      padding: 4mm 5mm;
+      margin: 4mm 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 11pt;
+      line-height: 1.35;
+      color: var(--lilac-800);
+      position: relative;
+    }
+    .welcome .pull-card .pull-mark {
+      font-family: var(--serif);
+      font-size: 22pt;
+      line-height: 0.6;
+      color: var(--lilac-500);
+      display: inline-block;
+      margin-right: 1mm;
+      vertical-align: -2mm;
+    }
+    .welcome .small { font-size: 8.5pt; color: var(--muted); line-height: 1.55; }
+    .welcome .signoff {
+      margin-top: auto;
+      padding: 4mm 5mm;
+      background: var(--lilac-50);
+      border: 1.5px solid var(--lilac-200);
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+    }
+    .welcome .signoff img { height: 14mm; width: auto; }
+    .welcome .signoff p {
+      margin: 0;
+      font-size: 8.5pt;
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    .welcome .signoff strong { color: var(--brand-dark); font-weight: 600; }
+
+    /* =============================================================== */
+    /* INSIDE — SERVICES                                                */
+    /* =============================================================== */
+
+    .services { background: var(--lilac-50); }
+    .services .intro { margin-bottom: 2mm; }
+    .services .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin-top: 4mm;
+    }
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      border: 1.5px solid var(--lilac-400);
+      background: #fff;
+      overflow: hidden;
+    }
+    .service-card .thumb {
+      width: 100%;
+      height: 18mm;
+      overflow: hidden;
+      line-height: 0;
+      border-bottom: 1px solid var(--lilac-400);
+    }
+    .service-card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .service-card .body {
+      padding: 3mm 3.5mm 3.5mm;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-card h3 {
+      font-family: var(--serif);
+      font-size: 10.5pt;
+      color: var(--brand-dark);
+      margin: 0 0 1mm;
+      line-height: 1.1;
+    }
+    .service-card .price {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 6.75pt;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--lilac-500);
+      padding: 0.8mm 2mm;
+      margin-bottom: 2mm;
+      align-self: flex-start;
+    }
+    .service-card p {
+      font-size: 7.75pt;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* =============================================================== */
+    /* INSIDE — JOURNEY + FEES                                          */
+    /* =============================================================== */
+
+    .journey { background: #fff; }
+    .journey .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+      margin: 3mm 0 4mm;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 9mm 1fr;
+      gap: 3mm;
+      align-items: start;
+    }
+    .step .num {
+      width: 9mm;
+      height: 9mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lilac-500);
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 11.5pt;
+      line-height: 1;
+    }
+    .step h4 {
+      font-family: var(--serif);
+      font-size: 10pt;
+      margin: 0 0 0.6mm;
+      color: var(--brand-dark);
+      line-height: 1.15;
+    }
+    .step p {
+      margin: 0;
+      font-size: 7.75pt;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .fee-table {
+      border: 1.5px solid var(--lilac-400);
+      background: var(--lilac-50);
+      padding: 3mm 3.5mm;
+      margin-top: auto;
+    }
+    .fee-table h4 {
+      font-family: var(--serif);
+      font-size: 10.5pt;
+      margin: 0 0 1.8mm;
+      color: var(--brand-dark);
+    }
+    .fee-table ul { list-style: none; margin: 0 0 2mm; padding: 0; }
+    .fee-table li {
+      display: flex;
+      justify-content: space-between;
+      gap: 3mm;
+      font-size: 7.75pt;
+      padding: 0.9mm 0;
+      border-bottom: 1px solid var(--lilac-200);
+      color: var(--brand-dark);
+    }
+    .fee-table li:last-of-type { border-bottom: none; }
+    .fee-table li .price { font-family: var(--serif); color: var(--lilac-800); }
+    .fee-footnote {
+      font-size: 6.75pt;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0;
+      font-style: italic;
+    }
+    .cta-line {
+      margin-top: 3mm;
+      padding: 2.5mm 0 0;
+      border-top: 1px solid var(--lilac-200);
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 9pt;
+      color: var(--brand-dark);
+    }
+    .cta-line .cta-contact {
+      display: block;
+      margin-top: 1.5mm;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: 7.75pt;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--lilac-800);
+      line-height: 1.5;
+    }
+
+    /* --- Print ------------------------------------------------------- */
+    @media print {
+      html, body { background: #fff; }
+      .screen-wrap { padding: 0; gap: 0; }
+      .sheet { page-break-after: always; }
+      .panel + .panel { border-left: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================================== -->
+<!-- Reusable inline SVG ornaments                                     -->
+<!-- ================================================================== -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <symbol id="ornament-divider" viewBox="0 0 140 12">
+      <line x1="6" y1="6" x2="55" y2="6" stroke="currentColor" stroke-width="0.7"/>
+      <g transform="translate(70 6)" fill="currentColor">
+        <circle cx="0" cy="0" r="1.8"/>
+        <circle cx="-4.2" cy="0" r="1.1" opacity="0.7"/>
+        <circle cx="4.2" cy="0" r="1.1" opacity="0.7"/>
+        <circle cx="0" cy="-3.2" r="1.1" opacity="0.7"/>
+        <circle cx="0" cy="3.2" r="1.1" opacity="0.7"/>
+      </g>
+      <line x1="85" y1="6" x2="134" y2="6" stroke="currentColor" stroke-width="0.7"/>
+    </symbol>
+
+    <symbol id="sprig" viewBox="0 0 40 120">
+      <path d="M20 6 C20 40, 18 72, 20 114" stroke="currentColor" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+      <g fill="currentColor" opacity="0.75">
+        <ellipse cx="12" cy="22" rx="6.5" ry="2.1" transform="rotate(-40 12 22)"/>
+        <ellipse cx="28" cy="26" rx="6.5" ry="2.1" transform="rotate(35 28 26)"/>
+        <ellipse cx="11" cy="44" rx="7.5" ry="2.4" transform="rotate(-45 11 44)"/>
+        <ellipse cx="29" cy="48" rx="7.5" ry="2.4" transform="rotate(40 29 48)"/>
+        <ellipse cx="12" cy="66" rx="7" ry="2.3" transform="rotate(-40 12 66)"/>
+        <ellipse cx="28" cy="70" rx="7" ry="2.3" transform="rotate(38 28 70)"/>
+        <ellipse cx="14" cy="88" rx="6" ry="2" transform="rotate(-40 14 88)"/>
+        <ellipse cx="26" cy="92" rx="6" ry="2" transform="rotate(38 26 92)"/>
+        <ellipse cx="17" cy="106" rx="4.5" ry="1.7" transform="rotate(-40 17 106)"/>
+        <ellipse cx="23" cy="108" rx="4.5" ry="1.7" transform="rotate(38 23 108)"/>
+      </g>
+      <g fill="#a88ec5">
+        <circle cx="20" cy="4" r="2.2"/>
+        <circle cx="16" cy="6.5" r="1.8"/>
+        <circle cx="24" cy="6.5" r="1.8"/>
+        <circle cx="18" cy="10.5" r="1.8"/>
+        <circle cx="22" cy="10.5" r="1.8"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="screen-wrap">
+
+  <!-- =============================================================== -->
+  <!-- SHEET 1 — OUTSIDE (flap | back cover | front cover)             -->
+  <!-- =============================================================== -->
+  <section class="sheet" aria-label="Outside of brochure">
+
+    <!-- Panel 1 of outside: Meet Sarah flap -->
+    <article class="panel flap">
+      <span class="ornament"><svg><use href="#ornament-divider"/></svg></span>
+      <span class="kicker">My Story</span>
+      <h2 class="headline">Meet Sarah</h2>
+      <div class="rule"></div>
+      <div class="img-frame flap-photo">
+        <img src="../public/sarah-henry-indoor.jpeg" alt="Sarah Henry, Independent Celebrant" />
+      </div>
+      <p class="body-copy">
+        Hi, I am Sarah, an Independent civil celebrant, wife to Wayne, Mum to
+        two grown up children and proud Gran to my beautiful granddaughter.
+      </p>
+      <p class="body-copy">
+        I come from a large close-knit family, where I have always been the
+        one that goes the extra mile to make people feel special. Whether it
+        is the smallest detail or a big moment, I believe it is those
+        personal touches that truly matter.
+      </p>
+      <p class="body-copy-sm">
+        Today, as a celebrant, I bring all of that with me: kindness, warmth,
+        a sense of humour and a calm, organised approach. I create
+        ceremonies that are meaningful, personal and truly memorable.
+      </p>
+      <div class="signature">
+        <span class="sig-eyebrow">With love,</span>
+        Sarah
+      </div>
+    </article>
+
+    <!-- Panel 2 of outside: Back cover -->
+    <article class="panel back-cover">
+      <span class="ornament"><svg><use href="#ornament-divider"/></svg></span>
+      <h3 class="wordmark">
+        Sarah's Signature<br/>Ceremonies
+        <span>Independent Celebrant</span>
+      </h3>
+      <p class="back-strap">
+        Your significant milestone ceremonies, curated with love, care and
+        authenticity.
+      </p>
+
+      <div class="divider"></div>
+
+      <ul class="contact-list">
+        <li>
+          <span class="label">Telephone</span>
+          <a href="tel:01355517037">01355 517037</a>
+        </li>
+        <li>
+          <span class="label">Email</span>
+          <a href="mailto:hello@sarahssignatureceremonies.co.uk">hello@sarahssignatureceremonies.co.uk</a>
+        </li>
+        <li>
+          <span class="label">Social</span>
+          <span class="val">
+            Facebook · Sarah's Signature Ceremonies<br/>
+            Instagram · @sarahssignatureceremonies
+          </span>
+        </li>
+        <li>
+          <span class="label">Service area</span>
+          <span class="val">
+            Based in East Kilbride, working across Scotland and beyond.
+            Travel within a 30-mile radius is included.
+          </span>
+        </li>
+      </ul>
+
+      <div class="back-blocks">
+        <!-- QR panel -->
+        <div class="qr-block">
+          <div class="qr" aria-label="QR code linking to sarahssignatureceremonies.co.uk">
+            <!-- Inline SVG QR generated with qrencode, module-based -->
+            <svg viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="29" height="29" fill="#ffffff"/>
+              <path fill="#1a1a1a" d="M0 0h1v1H0zM1 0h1v1H1zM2 0h1v1H2zM3 0h1v1H3zM4 0h1v1H4zM5 0h1v1H5zM6 0h1v1H6zM8 0h1v1H8zM10 0h1v1H10zM12 0h1v1H12zM13 0h1v1H13zM18 0h1v1H18zM19 0h1v1H19zM20 0h1v1H20zM22 0h1v1H22zM23 0h1v1H23zM24 0h1v1H24zM25 0h1v1H25zM26 0h1v1H26zM27 0h1v1H27zM28 0h1v1H28zM0 1h1v1H0zM6 1h1v1H6zM8 1h1v1H8zM10 1h1v1H10zM11 1h1v1H11zM13 1h1v1H13zM16 1h1v1H16zM17 1h1v1H17zM18 1h1v1H18zM20 1h1v1H20zM22 1h1v1H22zM28 1h1v1H28zM0 2h1v1H0zM2 2h1v1H2zM3 2h1v1H3zM4 2h1v1H4zM6 2h1v1H6zM9 2h1v1H9zM10 2h1v1H10zM11 2h1v1H11zM13 2h1v1H13zM15 2h1v1H15zM18 2h1v1H18zM22 2h1v1H22zM24 2h1v1H24zM25 2h1v1H25zM26 2h1v1H26zM28 2h1v1H28zM0 3h1v1H0zM2 3h1v1H2zM3 3h1v1H3zM4 3h1v1H4zM6 3h1v1H6zM8 3h1v1H8zM9 3h1v1H9zM11 3h1v1H11zM12 3h1v1H12zM13 3h1v1H13zM14 3h1v1H14zM17 3h1v1H17zM20 3h1v1H20zM22 3h1v1H22zM24 3h1v1H24zM25 3h1v1H25zM26 3h1v1H26zM28 3h1v1H28zM0 4h1v1H0zM2 4h1v1H2zM3 4h1v1H3zM4 4h1v1H4zM6 4h1v1H6zM12 4h1v1H12zM15 4h1v1H15zM16 4h1v1H16zM17 4h1v1H17zM19 4h1v1H19zM22 4h1v1H22zM24 4h1v1H24zM25 4h1v1H25zM26 4h1v1H26zM28 4h1v1H28zM0 5h1v1H0zM6 5h1v1H6zM9 5h1v1H9zM10 5h1v1H10zM11 5h1v1H11zM13 5h1v1H13zM14 5h1v1H14zM17 5h1v1H17zM19 5h1v1H19zM20 5h1v1H20zM22 5h1v1H22zM28 5h1v1H28zM0 6h1v1H0zM1 6h1v1H1zM2 6h1v1H2zM3 6h1v1H3zM4 6h1v1H4zM5 6h1v1H5zM6 6h1v1H6zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18 6h1v1H18zM20 6h1v1H20zM22 6h1v1H22zM23 6h1v1H23zM24 6h1v1H24zM25 6h1v1H25zM26 6h1v1H26zM27 6h1v1H27zM28 6h1v1H28zM8 7h1v1H8zM9 7h1v1H9zM10 7h1v1H10zM11 7h1v1H11zM12 7h1v1H12zM15 7h1v1H15zM17 7h1v1H17zM18 7h1v1H18zM0 8h1v1H0zM2 8h1v1H2zM3 8h1v1H3zM5 8h1v1H5zM6 8h1v1H6zM7 8h1v1H7zM9 8h1v1H9zM10 8h1v1H10zM11 8h1v1H11zM12 8h1v1H12zM14 8h1v1H14zM16 8h1v1H16zM17 8h1v1H17zM18 8h1v1H18zM19 8h1v1H19zM20 8h1v1H20zM22 8h1v1H22zM25 8h1v1H25zM27 8h1v1H27zM28 8h1v1H28zM0 9h1v1H0zM1 9h1v1H1zM2 9h1v1H2zM4 9h1v1H4zM7 9h1v1H7zM10 9h1v1H10zM11 9h1v1H11zM13 9h1v1H13zM16 9h1v1H16zM18 9h1v1H18zM19 9h1v1H19zM20 9h1v1H20zM21 9h1v1H21zM22 9h1v1H22zM23 9h1v1H23zM24 9h1v1H24zM28 9h1v1H28zM0 10h1v1H0zM6 10h1v1H6zM8 10h1v1H8zM12 10h1v1H12zM13 10h1v1H13zM14 10h1v1H14zM17 10h1v1H17zM18 10h1v1H18zM20 10h1v1H20zM22 10h1v1H22zM26 10h1v1H26zM27 10h1v1H27zM0 11h1v1H0zM2 11h1v1H2zM3 11h1v1H3zM4 11h1v1H4zM9 11h1v1H9zM12 11h1v1H12zM13 11h1v1H13zM14 11h1v1H14zM15 11h1v1H15zM18 11h1v1H18zM19 11h1v1H19zM20 11h1v1H20zM22 11h1v1H22zM28 11h1v1H28zM1 12h1v1H1zM2 12h1v1H2zM4 12h1v1H4zM6 12h1v1H6zM9 12h1v1H9zM12 12h1v1H12zM17 12h1v1H17zM20 12h1v1H20zM25 12h1v1H25zM26 12h1v1H26zM3 13h1v1H3zM4 13h1v1H4zM5 13h1v1H5zM8 13h1v1H8zM10 13h1v1H10zM12 13h1v1H12zM13 13h1v1H13zM14 13h1v1H14zM15 13h1v1H15zM17 13h1v1H17zM18 13h1v1H18zM19 13h1v1H19zM21 13h1v1H21zM22 13h1v1H22zM26 13h1v1H26zM27 13h1v1H27zM28 13h1v1H28zM1 14h1v1H1zM5 14h1v1H5zM6 14h1v1H6zM8 14h1v1H8zM10 14h1v1H10zM12 14h1v1H12zM14 14h1v1H14zM17 14h1v1H17zM19 14h1v1H19zM20 14h1v1H20zM22 14h1v1H22zM24 14h1v1H24zM26 14h1v1H26zM27 14h1v1H27zM28 14h1v1H28zM2 15h1v1H2zM3 15h1v1H3zM4 15h1v1H4zM7 15h1v1H7zM8 15h1v1H8zM9 15h1v1H9zM13 15h1v1H13zM18 15h1v1H18zM22 15h1v1H22zM24 15h1v1H24zM27 15h1v1H27zM0 16h1v1H0zM1 16h1v1H1zM6 16h1v1H6zM8 16h1v1H8zM11 16h1v1H11zM16 16h1v1H16zM18 16h1v1H18zM20 16h1v1H20zM21 16h1v1H21zM24 16h1v1H24zM25 16h1v1H25zM27 16h1v1H27zM1 17h1v1H1zM7 17h1v1H7zM10 17h1v1H10zM11 17h1v1H11zM12 17h1v1H12zM13 17h1v1H13zM15 17h1v1H15zM20 17h1v1H20zM21 17h1v1H21zM23 17h1v1H23zM25 17h1v1H25zM26 17h1v1H26zM27 17h1v1H27zM0 18h1v1H0zM4 18h1v1H4zM6 18h1v1H6zM7 18h1v1H7zM10 18h1v1H10zM11 18h1v1H11zM12 18h1v1H12zM15 18h1v1H15zM16 18h1v1H16zM21 18h1v1H21zM23 18h1v1H23zM24 18h1v1H24zM26 18h1v1H26zM2 19h1v1H2zM5 19h1v1H5zM8 19h1v1H8zM10 19h1v1H10zM16 19h1v1H16zM17 19h1v1H17zM18 19h1v1H18zM19 19h1v1H19zM21 19h1v1H21zM22 19h1v1H22zM23 19h1v1H23zM26 19h1v1H26zM1 20h1v1H1zM3 20h1v1H3zM5 20h1v1H5zM6 20h1v1H6zM9 20h1v1H9zM13 20h1v1H13zM16 20h1v1H16zM17 20h1v1H17zM18 20h1v1H18zM20 20h1v1H20zM21 20h1v1H21zM22 20h1v1H22zM23 20h1v1H23zM24 20h1v1H24zM25 20h1v1H25zM26 20h1v1H26zM8 21h1v1H8zM11 21h1v1H11zM12 21h1v1H12zM13 21h1v1H13zM14 21h1v1H14zM16 21h1v1H16zM17 21h1v1H17zM18 21h1v1H18zM20 21h1v1H20zM24 21h1v1H24zM25 21h1v1H25zM26 21h1v1H26zM27 21h1v1H27zM28 21h1v1H28zM0 22h1v1H0zM1 22h1v1H1zM2 22h1v1H2zM3 22h1v1H3zM4 22h1v1H4zM5 22h1v1H5zM6 22h1v1H6zM8 22h1v1H8zM9 22h1v1H9zM10 22h1v1H10zM12 22h1v1H12zM13 22h1v1H13zM16 22h1v1H16zM17 22h1v1H17zM18 22h1v1H18zM19 22h1v1H19zM20 22h1v1H20zM22 22h1v1H22zM24 22h1v1H24zM25 22h1v1H25zM27 22h1v1H27zM0 23h1v1H0zM6 23h1v1H6zM8 23h1v1H8zM12 23h1v1H12zM16 23h1v1H16zM18 23h1v1H18zM20 23h1v1H20zM24 23h1v1H24zM25 23h1v1H25zM27 23h1v1H27zM0 24h1v1H0zM2 24h1v1H2zM3 24h1v1H3zM4 24h1v1H4zM6 24h1v1H6zM11 24h1v1H11zM14 24h1v1H14zM17 24h1v1H17zM20 24h1v1H20zM21 24h1v1H21zM22 24h1v1H22zM23 24h1v1H23zM24 24h1v1H24zM26 24h1v1H26zM0 25h1v1H0zM2 25h1v1H2zM3 25h1v1H3zM4 25h1v1H4zM6 25h1v1H6zM8 25h1v1H8zM9 25h1v1H9zM12 25h1v1H12zM13 25h1v1H13zM14 25h1v1H14zM15 25h1v1H15zM16 25h1v1H16zM19 25h1v1H19zM21 25h1v1H21zM23 25h1v1H23zM24 25h1v1H24zM25 25h1v1H25zM28 25h1v1H28zM0 26h1v1H0zM2 26h1v1H2zM3 26h1v1H3zM4 26h1v1H4zM6 26h1v1H6zM8 26h1v1H8zM9 26h1v1H9zM12 26h1v1H12zM14 26h1v1H14zM16 26h1v1H16zM17 26h1v1H17zM18 26h1v1H18zM23 26h1v1H23zM26 26h1v1H26zM28 26h1v1H28zM0 27h1v1H0zM6 27h1v1H6zM9 27h1v1H9zM12 27h1v1H12zM13 27h1v1H13zM16 27h1v1H16zM20 27h1v1H20zM21 27h1v1H21zM22 27h1v1H22zM23 27h1v1H23zM25 27h1v1H25zM27 27h1v1H27zM0 28h1v1H0zM1 28h1v1H1zM2 28h1v1H2zM3 28h1v1H3zM4 28h1v1H4zM5 28h1v1H5zM6 28h1v1H6zM8 28h1v1H8zM10 28h1v1H10zM15 28h1v1H15zM18 28h1v1H18zM19 28h1v1H19zM20 28h1v1H20zM21 28h1v1H21zM23 28h1v1H23zM25 28h1v1H25zM27 28h1v1H27z"/>
+            </svg>
+          </div>
+          <div class="qr-copy">
+            <p class="qr-eyebrow">Scan to visit</p>
+            <p class="qr-headline">Read more, see more, enquire.</p>
+            <p class="qr-url">sarahssignatureceremonies.co.uk</p>
+          </div>
+        </div>
+
+        <!-- Accreditation panel -->
+        <div class="badge-block">
+          <img src="../public/the_academy.png" alt="The Academy of Professional Celebrants" />
+          <div class="badge-copy">
+            <p class="badge-eyebrow">Accreditation</p>
+            <p class="badge-line">
+              Fully accredited by The Academy of Professional Celebrants.
+              Fully insured.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Panel 3 of outside: Front cover (mood floral, no portrait) -->
+    <article class="panel cover">
+      <div class="cover-media">
+        <img src="../public/mood-floral-home-about.jpg" alt="" />
+      </div>
+      <div class="cover-scrim"></div>
+      <div class="cover-content">
+        <span class="cover-kicker">East Kilbride · Scotland · Beyond</span>
+
+        <div class="cover-card">
+          <img class="cover-logo" src="../public/logo.png" alt="Sarah's Signature Ceremonies" />
+          <span class="ornament"><svg><use href="#ornament-divider"/></svg></span>
+          <p class="cover-tagline">
+            Celebrating, remembering,<br/>cherishing &ndash; your way.
+          </p>
+          <p class="cover-strap">
+            Significant milestone ceremonies, curated with love, care and
+            authenticity.
+          </p>
+        </div>
+
+        <div class="cover-foot">
+          <span>Independent Celebrant</span>
+          <span class="dot"></span>
+          <span>Est. 2026</span>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- =============================================================== -->
+  <!-- SHEET 2 — INSIDE (welcome | services | journey + fees)          -->
+  <!-- =============================================================== -->
+  <section class="sheet" aria-label="Inside of brochure">
+
+    <!-- Inside panel 1: Welcome -->
+    <article class="panel welcome">
+      <span class="ornament"><svg><use href="#ornament-divider"/></svg></span>
+      <span class="kicker">Welcome</span>
+      <h2 class="headline">Every story deserves to be beautifully told.</h2>
+      <div class="rule"></div>
+
+      <p class="body-copy">
+        Each life story is unique, and I believe life's most precious
+        moments deserve to be celebrated, commemorated, and reflected upon
+        in a way that feels truly right for you.
+      </p>
+      <p class="body-copy">
+        Whether you are planning a wedding, a funeral, a baby naming or a
+        vow renewal, I take the time to get to know you, listening
+        carefully to your story or the story of your loved one. From our
+        first contact, I am fully invested in creating a ceremony that
+        feels authentic, meaningful and completely personal.
+      </p>
+
+      <div class="pull-card">
+        <span class="pull-mark">&ldquo;</span>
+        No templates, no 'one size fits all', just a thoughtfully crafted
+        service that reflects your wishes, your values and your voice.
+      </div>
+
+      <p class="small">
+        Fully accredited by The Academy of Professional Celebrants and
+        fully insured, I bring professionalism, adaptability and reliability
+        to every ceremony I deliver, along with warmth, care and attention
+        to every detail.
+      </p>
+
+      <div class="signoff">
+        <img src="../public/the_academy.png" alt="" />
+        <p>
+          Because your story deserves to be told &ndash;<br/>
+          <strong>Your Way.</strong>
+        </p>
+      </div>
+    </article>
+
+    <!-- Inside panel 2: Services -->
+    <article class="panel services">
+      <span class="ornament"><svg><use href="#ornament-divider"/></svg></span>
+      <span class="kicker">What I Offer</span>
+      <h2 class="headline">Ceremonies I create</h2>
+      <div class="rule"></div>
+
+      <p class="body-copy-sm intro">
+        Each ceremony is a genuine collaboration, shaped entirely around
+        you, your loved ones and the moment you are marking.
+      </p>
+
+      <div class="grid">
+        <div class="service-card">
+          <div class="thumb"><img src="../public/wedding-ceremony-couple.jpeg" alt="" /></div>
+          <div class="body">
+            <h3>Weddings</h3>
+            <span class="price">From £500</span>
+            <p>
+              A truly personalised ceremony that reflects who you are as
+              individuals and as a couple. I'll support you through vows,
+              rituals and every detail, so on the day you can simply be
+              present.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="thumb"><img src="../public/cemetery-avenue.webp" alt="" /></div>
+          <div class="body">
+            <h3>Funerals &amp; Memorials</h3>
+            <span class="price">£225</span>
+            <p>
+              A personalised, respectful ceremony that truly reflects your
+              loved one and the life they lived. Delivered with sensitivity,
+              warmth and care.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="thumb"><img src="../public/sleeping-baby-bunny.jpeg" alt="" /></div>
+          <div class="body">
+            <h3>Naming Ceremonies</h3>
+            <span class="price">From £250</span>
+            <p>
+              A beautiful way to welcome your child into your family. Space
+              for promises from the special people in their life, shaped
+              around your story.
+            </p>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="thumb"><img src="../public/exchanging-rings-bw.jpeg" alt="" /></div>
+          <div class="body">
+            <h3>Vow Renewals</h3>
+            <span class="price">From £400</span>
+            <p>
+              Honour your love, reflect on the life you've built and
+              reaffirm your promises. Renew your original vows, write new
+              ones, or weave a little of both.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Inside panel 3: Journey + fees -->
+    <article class="panel journey">
+      <span class="ornament"><svg><use href="#ornament-divider"/></svg></span>
+      <span class="kicker">The Journey</span>
+      <h2 class="headline">How we work together</h2>
+      <div class="rule"></div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h4>We meet</h4>
+            <p>
+              A relaxed, no-obligation chat, in person, by phone or over
+              video, so we can get to know each other and talk through
+              what you have in mind.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h4>I listen</h4>
+            <p>
+              I gather your story, the people, the memories, the values
+              and the small details that make this moment yours, so the
+              ceremony feels genuinely personal.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h4>I craft</h4>
+            <p>
+              I carefully write your ceremony from scratch and share it
+              with you to review. You can revise it as many times as you
+              need until every word feels right.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h4>I deliver</h4>
+            <p>
+              On the day I make sure everything flows seamlessly, so you
+              can simply be present with the people you love and enjoy
+              the moment you are marking.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fee-table">
+        <h4>A guide to my fees</h4>
+        <ul>
+          <li><span>Weddings</span><span class="price">from £500</span></li>
+          <li><span>Vow Renewals</span><span class="price">from £400</span></li>
+          <li><span>Naming Ceremonies</span><span class="price">from £250</span></li>
+          <li><span>Funerals &amp; Memorials</span><span class="price">£225</span></li>
+          <li><span>Scattering / Interment of Ashes</span><span class="price">from £65</span></li>
+        </ul>
+        <p class="fee-footnote">
+          Complimentary celebrant services where the ceremony is for a
+          loved one under the age of 18. Travel within a 30-mile radius
+          of East Kilbride included.
+        </p>
+      </div>
+
+      <p class="cta-line">
+        I would love to have a proper chat with you.
+        <span class="cta-contact">
+          01355 517037<br/>hello@sarahssignatureceremonies.co.uk
+        </span>
+      </p>
+    </article>
+
+  </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sarah Henry — Business Card (85×55mm trim · 91×61mm w/ 3mm bleed)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap"
+    />
+    <style>
+      /* =========================================================
+         Sarah Henry · Independent Celebrant
+         UK standard business card
+           • Trim size  : 85mm × 55mm   (final card)
+           • Bleed size : 91mm × 61mm   (3mm bleed on every edge)
+           • Safe area  : 79mm × 49mm   (3mm inside trim)
+         Two pages: Front (page 1) + Back (page 2)
+         Background artwork extends to the full 91×61 bleed.
+         All text / logo is kept inside the safe area.
+         Tiny crop marks sit in the bleed; they're trimmed off.
+         ========================================================= */
+
+      :root {
+        --cream: #faf8fb;
+        --cream-warm: #f5eef0;
+        --lilac-50: #f3eff6;
+        --lilac-100: #e6ddf0;
+        --lilac-200: #d4c5e5;
+        --lilac-300: #bea8d6;
+        --lilac-400: #a88ec5;
+        --lilac-500: #9175b0;
+        --lilac-600: #7a5f99;
+        --lilac-700: #5e4777;
+        --lilac-800: #3e2f50;
+        --ink: #1a1a1a;
+        --ink-soft: #2a2330;
+        --gold: #b89a6a;
+
+        /* Print geometry */
+        --bleed-w: 91mm;
+        --bleed-h: 61mm;
+        --trim-w: 85mm;
+        --trim-h: 55mm;
+        --bleed: 3mm;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: var(--ink);
+        font-family: 'DM Sans', Inter, system-ui, sans-serif;
+      }
+
+      /* -- Screen viewing: nice preview ----------------------- */
+      @media screen {
+        body {
+          min-height: 100vh;
+          background:
+            radial-gradient(1000px 600px at 20% -10%, #efe5f4 0%, transparent 60%),
+            radial-gradient(900px 500px at 110% 110%, #e9dfee 0%, transparent 55%),
+            linear-gradient(180deg, #f6f1f8 0%, #ece3f0 100%);
+          padding: 48px 24px 80px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 32px;
+        }
+        .screen-header {
+          text-align: center;
+          max-width: 720px;
+          color: var(--lilac-800);
+        }
+        .screen-header h1 {
+          font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+          font-weight: 500;
+          font-size: 34px;
+          letter-spacing: 0.01em;
+          margin: 0 0 10px;
+        }
+        .screen-header p {
+          margin: 0;
+          font-size: 14px;
+          color: var(--lilac-700);
+          letter-spacing: 0.04em;
+        }
+        .screen-header .dim {
+          display: inline-block;
+          margin-top: 14px;
+          padding: 6px 14px;
+          background: white;
+          border: 1px solid var(--lilac-200);
+          border-radius: 999px;
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.16em;
+          color: var(--lilac-700);
+        }
+        .cards {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 48px;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 8px;
+        }
+        .card-label {
+          text-align: center;
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--lilac-600);
+          margin-top: 14px;
+        }
+        .card-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .card {
+          box-shadow:
+            0 1px 0 rgba(255,255,255,0.8) inset,
+            0 30px 60px -20px rgba(62, 47, 80, 0.35),
+            0 12px 24px -12px rgba(62, 47, 80, 0.25);
+          border-radius: 6px;
+        }
+      }
+
+      /* -- Print: true business card -------------------------- */
+      @page {
+        size: 91mm 61mm;
+        margin: 0;
+      }
+
+      @media print {
+        html, body {
+          background: white;
+        }
+        body {
+          margin: 0;
+          padding: 0;
+          display: block;
+        }
+        .screen-header, .card-label { display: none !important; }
+        .cards {
+          display: block;
+          gap: 0;
+          padding: 0;
+        }
+        .card-wrap { display: block; }
+        .card {
+          box-shadow: none !important;
+          border-radius: 0 !important;
+          page-break-after: always;
+          break-after: page;
+        }
+        .card:last-child {
+          page-break-after: auto;
+          break-after: auto;
+        }
+      }
+
+      /* -- The card itself (full bleed) ----------------------- */
+      .card {
+        width: var(--bleed-w);   /* 91mm — includes 3mm bleed on each side */
+        height: var(--bleed-h);  /* 61mm */
+        position: relative;
+        overflow: hidden;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      /* Crop marks — short L-brackets drawn in the 3mm bleed area
+         at the corners of the trim box. The cut removes them along
+         with the bleed, leaving a clean 85×55mm card. */
+      .crop-marks {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 5;
+      }
+
+      /* ============ FRONT ============ */
+      .front {
+        background:
+          radial-gradient(120% 100% at 110% -20%, rgba(168, 142, 197, 0.22) 0%, transparent 55%),
+          radial-gradient(90% 80% at -20% 120%, rgba(168, 142, 197, 0.18) 0%, transparent 55%),
+          linear-gradient(180deg, #fdfbfd 0%, #f5eef3 100%);
+      }
+
+      /* Soft watercolor wash behind the logo */
+      .front::before {
+        content: "";
+        position: absolute;
+        inset: 11mm 13mm;
+        background:
+          radial-gradient(60% 70% at 50% 50%, rgba(168, 142, 197, 0.28) 0%, rgba(168, 142, 197, 0.08) 50%, transparent 75%);
+        filter: blur(6px);
+        pointer-events: none;
+      }
+
+      /* Decorative botanical corners (SVG) — kept in safe area,
+         1.5mm inside the trim line so nothing important is lost. */
+      .corner {
+        position: absolute;
+        width: 22mm;
+        height: 22mm;
+        opacity: 0.55;
+        pointer-events: none;
+      }
+      .corner.tl { top: 4.5mm; left: 4.5mm; }
+      .corner.br {
+        bottom: 4.5mm; right: 4.5mm;
+        transform: rotate(180deg);
+      }
+
+      .front-inner {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        /* 3mm bleed + 6mm visual padding = 9mm top/bottom, 11mm left/right */
+        padding: 9mm 11mm;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .front-logo {
+        width: 56mm;
+        height: auto;
+        max-height: 24mm;
+        object-fit: contain;
+        filter: drop-shadow(0 1px 2px rgba(94, 71, 119, 0.15));
+      }
+
+      .rule {
+        display: flex;
+        align-items: center;
+        gap: 3mm;
+        margin-top: 3.5mm;
+        color: var(--lilac-600);
+      }
+      .rule .line {
+        width: 8mm;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, var(--lilac-400) 50%, transparent 100%);
+      }
+      .rule .dot {
+        width: 1.2mm;
+        height: 1.2mm;
+        background: var(--lilac-500);
+        border-radius: 50%;
+      }
+
+      .tagline {
+        margin-top: 2.2mm;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-weight: 500;
+        font-size: 9.5pt;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        color: var(--lilac-700);
+      }
+
+      .subtagline {
+        margin-top: 1.2mm;
+        font-family: 'Great Vibes', 'Cormorant Garamond', cursive;
+        font-size: 13pt;
+        color: var(--lilac-800);
+        line-height: 1;
+      }
+
+      /* ============ BACK ============ */
+      /* Portrait column = 3mm bleed + 29mm visible = 32mm.
+         Right column fills the remaining width of the 91mm bleed card. */
+      .back {
+        background: #20182a;
+        color: #f6eff4;
+        display: grid;
+        grid-template-columns: 32mm 1fr;
+      }
+
+      .back::after {
+        /* subtle grain + vignette */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(120% 90% at 100% 0%, rgba(168, 142, 197, 0.25) 0%, transparent 55%),
+          radial-gradient(100% 80% at 0% 100%, rgba(94, 71, 119, 0.4) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .portrait {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+      }
+      .portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 52% 24%;
+        display: block;
+      }
+      .portrait::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, transparent 60%, rgba(32, 24, 42, 0.85) 100%),
+          linear-gradient(180deg, rgba(32,24,42,0.15) 0%, transparent 30%, transparent 70%, rgba(32,24,42,0.35) 100%);
+      }
+
+      .back-content {
+        position: relative;
+        z-index: 2;
+        /* 3mm bleed added to top/right/bottom. Left side already sits
+           against the portrait (which handles its own 3mm left bleed). */
+        padding: 7.8mm 7.5mm 7.5mm 4.8mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 0;
+      }
+
+      .name-block { line-height: 1.05; }
+
+      .name {
+        font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+        font-weight: 500;
+        font-size: 15.5pt;
+        letter-spacing: 0.005em;
+        color: #ffffff;
+        margin: 0;
+      }
+      .name .amp {
+        display: block;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-style: italic;
+        font-weight: 500;
+        color: var(--lilac-300);
+        font-size: 9pt;
+        margin-top: 0.8mm;
+        letter-spacing: 0.04em;
+      }
+
+      .brand-line {
+        margin-top: 1.6mm;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 500;
+        font-size: 5.8pt;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--lilac-200);
+        display: flex;
+        align-items: center;
+        gap: 1.6mm;
+      }
+      .brand-line::before,
+      .brand-line::after {
+        content: "";
+        flex: 0 0 2.2mm;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--lilac-400) 50%, transparent);
+      }
+      .brand-line::after { flex: 1; }
+
+      .contact {
+        display: grid;
+        grid-template-columns: 3.2mm 1fr;
+        gap: 1mm 1.8mm;
+        align-items: center;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 6.6pt;
+        line-height: 1.3;
+        color: #efe6f1;
+      }
+      .contact svg {
+        width: 2.6mm;
+        height: 2.6mm;
+        color: var(--lilac-300);
+        justify-self: center;
+      }
+      .contact span {
+        white-space: nowrap;
+        overflow: visible;
+      }
+      .contact .phone { font-size: 8pt; letter-spacing: 0.02em; font-weight: 500; color: #ffffff; }
+      .contact .tiny { font-size: 6.2pt; letter-spacing: 0.005em; }
+
+      .back-footer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2mm;
+      }
+      .location {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+        font-size: 7pt;
+        color: var(--lilac-200);
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+      .monogram {
+        font-family: 'Great Vibes', cursive;
+        font-size: 14pt;
+        color: var(--lilac-300);
+        line-height: 0.9;
+        opacity: 0.85;
+      }
+
+      /* tiny helper */
+      .nowrap { white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div class="screen-header">
+      <h1>Sarah Henry · Signature Ceremonies</h1>
+      <p>Double-sided UK business card · trim <b>85×55 mm</b> · with <b>3 mm bleed</b> (page <b>91×61 mm</b>)</p>
+      <span class="dim">Press ⌘P / Ctrl+P · page size 91×61 mm · margins: none · send to printer as-is</span>
+    </div>
+
+    <div class="cards">
+      <!-- ========================== FRONT ========================== -->
+      <div class="card-wrap">
+        <section class="card front" aria-label="Business card — front">
+
+          <!-- Crop marks: L-brackets in the 3mm bleed at each corner
+               of the 85×55 trim box. They are cut off during trimming. -->
+          <svg class="crop-marks" viewBox="0 0 91 61" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="#1a1a1a" stroke-width="0.15" stroke-linecap="butt" fill="none" opacity="0.7">
+              <!-- top-left -->
+              <line x1="3" y1="0.5" x2="3" y2="2.2"/>
+              <line x1="0.5" y1="3" x2="2.2" y2="3"/>
+              <!-- top-right -->
+              <line x1="88" y1="0.5" x2="88" y2="2.2"/>
+              <line x1="88.8" y1="3" x2="90.5" y2="3"/>
+              <!-- bottom-left -->
+              <line x1="3" y1="58.8" x2="3" y2="60.5"/>
+              <line x1="0.5" y1="58" x2="2.2" y2="58"/>
+              <!-- bottom-right -->
+              <line x1="88" y1="58.8" x2="88" y2="60.5"/>
+              <line x1="88.8" y1="58" x2="90.5" y2="58"/>
+            </g>
+          </svg>
+
+          <!-- Top-left botanical corner -->
+          <svg class="corner tl" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="#7a5f99" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- curved stem -->
+              <path d="M8 120 C 30 95, 55 75, 85 60 S 140 30, 165 22"/>
+              <!-- secondary stem -->
+              <path d="M12 148 C 40 130, 70 118, 95 112 S 140 100, 172 92" opacity="0.7"/>
+              <!-- leaves along stem 1 -->
+              <path d="M40 102 C 44 92, 56 85, 68 88 C 62 96, 52 102, 40 102 Z" fill="#bea8d6" fill-opacity="0.35"/>
+              <path d="M72 80 C 76 70, 88 63, 100 66 C 94 74, 84 80, 72 80 Z" fill="#bea8d6" fill-opacity="0.35"/>
+              <path d="M110 52 C 114 42, 126 35, 138 38 C 132 46, 122 52, 110 52 Z" fill="#bea8d6" fill-opacity="0.35"/>
+              <!-- small berries -->
+              <circle cx="152" cy="30" r="3.2" fill="#7a5f99" fill-opacity="0.75"/>
+              <circle cx="160" cy="38" r="2.6" fill="#7a5f99" fill-opacity="0.55"/>
+              <circle cx="146" cy="38" r="2.4" fill="#7a5f99" fill-opacity="0.55"/>
+              <!-- rose (simple spiral) -->
+              <g transform="translate(30,155)">
+                <circle r="14" fill="#f3eff6" stroke="#7a5f99" stroke-width="1.1"/>
+                <path d="M-6 2 C -6 -5, 0 -8, 4 -4 C 8 -1, 6 5, 1 6 C -3 7, -7 5, -6 2 Z" fill="#d4c5e5"/>
+                <path d="M-3 0 C -2 -3, 2 -4, 3 -1 C 4 1, 2 3, 0 2 C -2 1, -3 0, -3 0 Z" fill="#a88ec5"/>
+                <path d="M-18 6 C -20 -2, -14 -12, -4 -14" fill="none"/>
+                <path d="M-10 16 C -16 14, -20 8, -20 0" fill="none"/>
+              </g>
+              <!-- thistle (Scottish) -->
+              <g transform="translate(110,108)">
+                <path d="M0 0 C -1 -6, 2 -14, 6 -20 C 10 -14, 12 -6, 10 0" fill="#bea8d6" fill-opacity="0.5"/>
+                <path d="M1 -20 L 0 -28 M 5 -22 L 6 -30 M 9 -22 L 11 -30 M 12 -20 L 14 -28" stroke="#7a5f99"/>
+                <path d="M-2 1 L -8 4 M 10 1 L 16 4 M -1 4 L -4 10 M 8 4 L 12 10" stroke="#7a5f99"/>
+                <path d="M5 0 L 5 20" stroke="#7a5f99"/>
+              </g>
+            </g>
+          </svg>
+
+          <!-- Bottom-right botanical corner (mirror) -->
+          <svg class="corner br" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="#7a5f99" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 120 C 30 95, 55 75, 85 60 S 140 30, 165 22"/>
+              <path d="M40 102 C 44 92, 56 85, 68 88 C 62 96, 52 102, 40 102 Z" fill="#bea8d6" fill-opacity="0.35"/>
+              <path d="M72 80 C 76 70, 88 63, 100 66 C 94 74, 84 80, 72 80 Z" fill="#bea8d6" fill-opacity="0.35"/>
+              <path d="M110 52 C 114 42, 126 35, 138 38 C 132 46, 122 52, 110 52 Z" fill="#bea8d6" fill-opacity="0.35"/>
+              <circle cx="152" cy="30" r="3.2" fill="#7a5f99" fill-opacity="0.75"/>
+              <circle cx="160" cy="38" r="2.6" fill="#7a5f99" fill-opacity="0.55"/>
+              <circle cx="146" cy="38" r="2.4" fill="#7a5f99" fill-opacity="0.55"/>
+            </g>
+          </svg>
+
+          <div class="front-inner">
+            <img class="front-logo" src="../public/logo.png" alt="Sarah's Signature Ceremonies" />
+            <div class="rule">
+              <span class="line"></span>
+              <span class="dot"></span>
+              <span class="line"></span>
+            </div>
+            <div class="tagline">Independent Celebrant</div>
+            <div class="subtagline">weddings · funerals · naming · vow renewals</div>
+          </div>
+        </section>
+        <div class="card-label">Front</div>
+      </div>
+
+      <!-- ========================== BACK =========================== -->
+      <div class="card-wrap">
+        <section class="card back" aria-label="Business card — back">
+
+          <!-- Crop marks: matching set on the reverse, trimmed off. -->
+          <svg class="crop-marks" viewBox="0 0 91 61" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="#ffffff" stroke-width="0.15" stroke-linecap="butt" fill="none" opacity="0.85">
+              <line x1="3" y1="0.5" x2="3" y2="2.2"/>
+              <line x1="0.5" y1="3" x2="2.2" y2="3"/>
+              <line x1="88" y1="0.5" x2="88" y2="2.2"/>
+              <line x1="88.8" y1="3" x2="90.5" y2="3"/>
+              <line x1="3" y1="58.8" x2="3" y2="60.5"/>
+              <line x1="0.5" y1="58" x2="2.2" y2="58"/>
+              <line x1="88" y1="58.8" x2="88" y2="60.5"/>
+              <line x1="88.8" y1="58" x2="90.5" y2="58"/>
+            </g>
+          </svg>
+
+          <div class="portrait">
+            <img src="../public/sarah-henry-fascinator.jpeg" alt="Sarah Henry" />
+          </div>
+
+          <div class="back-content">
+            <div class="name-block">
+              <h2 class="name">Sarah Henry<span class="amp">— your celebrant —</span></h2>
+              <div class="brand-line">Sarah's Signature Ceremonies</div>
+            </div>
+
+            <div class="contact" aria-label="Contact details">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span class="phone">01355 517037</span>
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span class="tiny">hello@sarahssignatureceremonies.co.uk</span>
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>sarahssignatureceremonies.co.uk</span>
+
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span>@sarahssignatureceremonies</span>
+            </div>
+
+            <div class="back-footer">
+              <span class="location">East Kilbride · Scotland &amp; beyond</span>
+              <span class="monogram">Sh</span>
+            </div>
+          </div>
+        </section>
+        <div class="card-label">Back</div>
+      </div>
+    </div>
+  </body>
+</html>
