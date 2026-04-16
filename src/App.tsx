@@ -11,6 +11,7 @@ import NamingPage from './pages/services/NamingPage';
 import VowRenewalsPage from './pages/services/VowRenewalsPage';
 import FeesPage from './pages/FeesPage';
 import FAQPage from './pages/FAQPage';
+import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { GlobalScrollEffects } from './components/GlobalScrollEffects';
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/services/vow-renewals" element={<VowRenewalsPage />} />
           <Route path="/fees" element={<FeesPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>

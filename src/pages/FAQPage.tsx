@@ -122,13 +122,19 @@ export default function FAQPage() {
           <p className="text-gray-600 text-lg mb-8 leading-relaxed">
             If I have piqued your interest, I would love to have a proper chat with you over the phone or video call. This is a free, no obligation chat and I can tailor packages to fit your specific requirements.
           </p>
-          <Link
-            to="/contact"
-            className="button-lift button-primary"
-          >
-            Get in Touch
-            <ArrowRight size={16} />
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link to="/contact" className="button-lift button-primary">
+              Get in Touch
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/resources"
+              className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-brand-dark border-b-2 border-lilac-800 pb-1 hover:text-lilac-900"
+            >
+              Browse Helpful Links
+              <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

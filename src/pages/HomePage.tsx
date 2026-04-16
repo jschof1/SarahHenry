@@ -16,7 +16,15 @@ import { motion, useReducedMotion } from 'motion/react';
 import { FORMSUBMIT_EMAIL, submitEnquiryForm } from '../lib/formsubmit.js';
 import { MagneticButton } from '../components/MagneticButton';
 
-const packages = [
+type HomePackage = {
+  title: string;
+  subtitle: string;
+  price: string;
+  featured: boolean;
+  fixedPrice?: boolean;
+};
+
+const packages: HomePackage[] = [
   {
     title: 'Weddings',
     subtitle: 'Personalised ceremonies',
@@ -40,6 +48,7 @@ const packages = [
     subtitle: 'Honouring a life lived',
     price: '225',
     featured: false,
+    fixedPrice: true,
   },
 ];
 
@@ -276,6 +285,12 @@ export default function HomePage() {
             <motion.p variants={heroItemVariants} className="hero-tagline mt-0">
               Celebrating, remembering, cherishing &ndash; your way
             </motion.p>
+            <motion.p
+              variants={heroItemVariants}
+              className="mx-auto max-w-2xl text-sm font-light italic leading-relaxed tracking-wide text-white/85 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-base md:text-lg"
+            >
+              Your significant milestone ceremonies curated with love, care and authenticity.
+            </motion.p>
             <motion.div
               variants={heroItemVariants}
               className="mx-auto flex w-full max-w-3xl flex-col gap-2 text-center sm:gap-3 md:max-w-4xl"
@@ -490,9 +505,11 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="flex flex-wrap items-baseline gap-x-2 font-heading text-4xl">
-                      <span className="text-base font-sans font-normal normal-case tracking-normal text-current/60">
-                        from
-                      </span>
+                      {pkg.fixedPrice ? null : (
+                        <span className="text-base font-sans font-normal normal-case tracking-normal text-current/60">
+                          from
+                        </span>
+                      )}
                       <span>&pound;{pkg.price}</span>
                     </p>
                   </div>
