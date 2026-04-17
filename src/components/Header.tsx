@@ -18,21 +18,12 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const location = useLocation();
-  const isHome = location.pathname === '/';
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -40,7 +31,6 @@ export default function Header() {
     setDesktopDropdownOpen(false);
   }, [location.pathname]);
 
-  const showSolid = scrolled || !isHome;
   const closeMobileMenu = () => {
     setMobileOpen(false);
     setMobileServicesOpen(false);
@@ -57,23 +47,15 @@ export default function Header() {
   const isServicePage = location.pathname.startsWith('/services');
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        showSolid
-          ? 'bg-brand-dark/95 backdrop-blur-sm shadow-sm'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div
-          className={`flex items-center justify-between h-20 ${showSolid ? 'border-b-2 border-lilac-brand' : ''}`}
-        >
+        <div className="flex items-center justify-between h-20 border-b-2 border-lilac-brand">
           <Link to="/" className="flex items-center group" onClick={closeMobileMenu}>
             <div className="px-3 py-1.5">
               <img
                 src="/logo.png"
                 alt="Sarah's Signature Ceremonies"
-                className="h-12 w-auto max-h-12 object-contain object-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] brightness-110"
+                className="h-14 w-auto max-h-14 object-contain object-left"
               />
             </div>
           </Link>
@@ -92,8 +74,8 @@ export default function Header() {
                     to={link.to}
                     className={`nav-link inline-flex items-center gap-1 text-lg tracking-wide transition-all duration-300 ${
                       isServicePage
-                        ? 'text-white font-semibold nav-link--active'
-                        : 'text-white/80 hover:text-white'
+                        ? 'text-lilac-700 font-semibold nav-link--active'
+                        : 'text-brand-dark hover:text-lilac-700'
                     }`}
                   >
                     {link.label}
@@ -140,8 +122,8 @@ export default function Header() {
                   to={link.to}
                   className={`nav-link text-lg tracking-wide transition-all duration-300 ${
                     location.pathname === link.to
-                      ? 'text-white font-semibold nav-link--active'
-                      : 'text-white/80 hover:text-white'
+                      ? 'text-lilac-700 font-semibold nav-link--active'
+                      : 'text-brand-dark hover:text-lilac-700'
                   }`}
                 >
                   {link.label}
@@ -152,7 +134,7 @@ export default function Header() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-white transition-colors"
+            className="lg:hidden p-2 text-brand-dark transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}

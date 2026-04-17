@@ -68,10 +68,10 @@ export default function ServicesPage() {
         <ParallaxBackdrop variant="services" />
         <div className="max-w-4xl mx-auto reveal">
           <div className="rounded-brand-lg border-2 border-lilac-300/90 bg-white p-8 text-center shadow-[0_20px_50px_rgba(26,26,26,0.12)] ring-1 ring-black/5 sm:p-10 space-y-6">
-            <p className="text-xl leading-relaxed text-brand-dark">
+            <p className="mx-auto max-w-3xl text-balance text-center text-xl leading-relaxed text-brand-dark">
               Each life story is unique, and I believe life's most precious moments deserve to be celebrated, commemorated, and reflected upon in a way that feels truly right for you.
             </p>
-            <p className="text-xl leading-relaxed text-gray-700">
+            <p className="mx-auto max-w-3xl text-balance text-center text-xl leading-relaxed text-gray-700">
               I approach each ceremony as a genuine collaboration. No templates, no 'one size fits all', just a thoughtfully crafted service that reflects your wishes, your values and your voice.
             </p>
           </div>

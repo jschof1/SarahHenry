@@ -21,7 +21,7 @@ const groups: ResourceGroup[] = [
     kicker: 'Bereavement & Grief Support',
     title: 'Support after loss',
     intro:
-      'If you or someone close to you is struggling with grief, the organisations below offer free, confidential help.',
+      'If you or someone close to you is struggling with grief, the organisations below offer free, confidential\u00a0help.',
     links: [
       {
         name: 'Cruse Bereavement Support Scotland',
@@ -71,27 +71,13 @@ const groups: ResourceGroup[] = [
         name: 'mygov.scot — Marriage & Civil Partnership',
         description:
           'Step-by-step overview of the legal marriage process in Scotland, including fees and notice periods.',
-        href: 'https://www.mygov.scot/marriage-civil-partnership',
+        href: 'https://www.mygov.scot/browse/birth-death-family/marriage-civil-partnership',
       },
       {
-        name: 'South Lanarkshire Council — Registrars',
+        name: 'South Lanarkshire Council — Marriages',
         description:
-          'Local registrar office for East Kilbride and the surrounding area — book appointments to give notice.',
-        href: 'https://www.southlanarkshire.gov.uk/info/200167/births_deaths_and_marriages',
-      },
-    ],
-  },
-  {
-    kicker: 'Professional Accreditation',
-    title: 'About my training and professional body',
-    intro:
-      'I am fully accredited by The Academy of Professional Celebrants and carry full public liability and professional indemnity insurance.',
-    links: [
-      {
-        name: 'The Academy of Professional Celebrants',
-        description:
-          'The professional body I trained and am accredited with, committed to high standards of ceremony delivery.',
-        href: 'https://www.funeralcelebrantacademy.co.uk',
+          'Local marriage information for East Kilbride and the surrounding area — booking appointments and giving notice.',
+        href: 'https://www.southlanarkshire.gov.uk/info/200208/marriages',
       },
     ],
   },
@@ -114,7 +100,7 @@ export default function ResourcesPage() {
               Helpful Links
             </h1>
             <div className="w-16 h-0.5 bg-lilac-brand mx-auto mb-6" />
-            <p className="text-white/90 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white/90 text-lg max-w-2xl mx-auto leading-relaxed text-balance">
               A small, carefully chosen collection of UK organisations and resources
               that may be useful alongside the ceremonies I offer &mdash; whether you
               are grieving, planning a wedding, or simply looking for trusted
@@ -136,7 +122,7 @@ export default function ResourcesPage() {
                     {group.title}
                   </h2>
                   <div className="mt-4 w-12 h-0.5 bg-lilac-brand" />
-                  <p className="mt-5 text-gray-600 leading-relaxed">{group.intro}</p>
+                  <p className="mt-5 text-gray-600 leading-relaxed text-balance">{group.intro}</p>
                 </div>
 
                 <ul className="grid gap-5 md:grid-cols-2">

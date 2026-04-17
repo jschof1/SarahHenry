@@ -20,7 +20,7 @@ const KICKER_ICON: Record<ServiceHeroFloral, LucideIcon> = {
 /** Nano-banana section backgrounds mapped to each service tone (hero + intro band) */
 const SERVICE_PARALLAX: Record<ServiceHeroFloral, ParallaxVariant> = {
   weddings: 'services',
-  funerals: 'quote',
+  funerals: 'fees',
   naming: 'faq',
   'vow-renewals': 'fees',
 };

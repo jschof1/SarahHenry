@@ -101,6 +101,26 @@ export default function Footer() {
 
       <div className="border-t border-white/10 py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-2 text-gray-500 text-xs text-center">
+          <a
+            href="https://www.funeralcelebrantacademy.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mb-2 inline-flex items-center gap-3 text-gray-400 transition-colors hover:text-white"
+            aria-label="Trained and Certified by The Academy of Professional Celebrants"
+          >
+            <img
+              src="/the_academy.png"
+              alt="Academy of Professional Celebrants — Certified Celebrant"
+              className="h-12 w-auto shrink-0 rounded bg-white/95 p-1 shadow-sm"
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="text-left text-[11px] uppercase tracking-[0.18em] sm:text-xs">
+              Trained &amp; Certified by
+              <br className="hidden sm:block" />{' '}
+              The Academy of Professional Celebrants
+            </span>
+          </a>
           <p>
             &copy; {new Date().getFullYear()} Sarah's Signature Ceremonies.
             All rights reserved.

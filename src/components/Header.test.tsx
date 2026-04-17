@@ -32,7 +32,7 @@ describe('Header', () => {
     expect(logo).toHaveAttribute('src', '/logo.png');
   });
 
-  it('shows solid background after scrolling', () => {
+  it('uses a solid white background on the homepage', () => {
     setScrollY(0);
 
     render(
@@ -47,10 +47,10 @@ describe('Header', () => {
     });
 
     const header = screen.getByRole('banner');
-    expect(header.className).toContain('bg-brand-dark');
+    expect(header.className).toContain('bg-white');
   });
 
-  it('shows solid background on inner pages', () => {
+  it('uses a solid white background on inner pages', () => {
     setScrollY(0);
 
     render(
@@ -60,7 +60,7 @@ describe('Header', () => {
     );
 
     const header = screen.getByRole('banner');
-    expect(header.className).toContain('bg-brand-dark');
+    expect(header.className).toContain('bg-white');
   });
 
   it('renders services dropdown links', () => {

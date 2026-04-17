@@ -682,6 +682,12 @@
   color: #2e2e33;
 }
 
+/* Service intro body copy: keep readable on textured light parallax scrims */
+.section-shell.has-parallax.parallax-on-light .prose-service,
+.section-shell.has-parallax.parallax-on-light .prose-service > p {
+  color: #1a1a1a;
+}
+
 .section-shell.has-parallax.parallax-on-light a.text-lilac-600,
 .section-textured.has-parallax.parallax-on-light a.text-lilac-600 {
   color: #3e2f50;
@@ -798,7 +804,7 @@
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 3.75rem;
   line-height: 0.82;
-  margin-right: 0.55rem;
+  margin-right: 0.2rem;
   margin-top: 0.12rem;
   font-weight: 600;
   color: #5e4777;

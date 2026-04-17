@@ -23,7 +23,7 @@ const packages = [
     title: 'Weddings',
     tag: 'Life Milestones',
     price: 'from £500',
-    featured: true,
+    featured: false,
     features: [
       'All phone and email communications',
       'Personal visits to meet you to gather information to design a bespoke ceremony',

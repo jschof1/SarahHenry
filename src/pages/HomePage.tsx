@@ -282,14 +282,14 @@ export default function HomePage() {
                 decoding="async"
               />
             </motion.div>
-            <motion.p variants={heroItemVariants} className="hero-tagline mt-0">
-              Celebrating, remembering, cherishing &ndash; your way
+            <motion.p variants={heroItemVariants} className="hero-tagline mt-0 text-balance">
+              Celebrating, remembering, cherishing &ndash; your&nbsp;way
             </motion.p>
             <motion.p
               variants={heroItemVariants}
-              className="mx-auto max-w-2xl text-sm font-light italic leading-relaxed tracking-wide text-white/85 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-base md:text-lg"
+              className="mx-auto max-w-2xl text-balance text-sm font-light italic leading-relaxed tracking-wide text-white/85 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-base md:text-lg"
             >
-              Your significant milestone ceremonies curated with love, care and authenticity.
+              Your significant milestone ceremonies curated with love, care and&nbsp;authenticity.
             </motion.p>
             <motion.div
               variants={heroItemVariants}
@@ -298,9 +298,9 @@ export default function HomePage() {
               <p className="text-lg font-medium leading-snug text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:text-xl md:text-2xl md:leading-snug">
                 Every story deserves to be beautifully told.
               </p>
-              <p className="text-base leading-relaxed text-white/85 sm:text-lg">
+              <p className="text-balance text-base leading-relaxed text-white/85 sm:text-lg">
                 Independent civil celebrant for East Kilbride, Scotland, and beyond. Weddings, namings,
-                farewells, and vow renewals, shaped with you and for you.
+                farewells, and vow&nbsp;renewals, shaped with you and for you.
               </p>
             </motion.div>
             <motion.div
@@ -551,8 +551,8 @@ export default function HomePage() {
       <RevealSection className="section-shell section-shell--dark text-white quote-section" parallaxBg="parallax-bg--quote" parallaxOverlay="parallax-overlay--dark">
         <div className="quote-scroll-section section-inner text-center">
           <motion.div variants={scaleUp} className="quote-glow-ring mx-auto mb-6 h-24 w-24 rounded-full" />
-          <motion.p variants={scaleUp} className="mx-auto max-w-4xl font-heading text-4xl italic leading-tight text-lilac-100 sm:text-5xl lg:text-6xl">
-            &ldquo;Because your story deserves to be told, Your Way!&rdquo;
+          <motion.p variants={scaleUp} className="mx-auto max-w-4xl text-balance font-heading text-4xl italic leading-tight text-lilac-100 sm:text-5xl lg:text-6xl">
+            &ldquo;Because your story deserves to be told, Your&nbsp;Way!&rdquo;
           </motion.p>
           <motion.div variants={itemVariants} className="quote-divider mx-auto my-8 h-px w-24 bg-lilac-brand/30" />
           <motion.div variants={itemVariants}>

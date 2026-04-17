@@ -7,7 +7,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 const faqs = [
   {
     q: 'What is a Celebrant?',
-    a: 'A funeral celebrant is someone qualified to host and officiate funeral services. As well as conducting the funeral itself (non-religious and semi religious), celebrants are involved in planning the order of service, music, writing the eulogy and creating a meaningful service for the person who has died.',
+    a: 'A funeral celebrant is someone qualified to host and officiate funeral services. As well as conducting the funeral itself (non-religious and semi religious), celebrants are involved in planning the order of service, music, writing the eulogy and creating a meaningful service\u00a0for\u00a0the\u00a0person who died.',
   },
   {
     q: 'What are the benefits of having a celebrant led funeral?',
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'What should I consider for the content of the funeral service?',
-    a: 'As part of the service I will carry out a home visit where I will ask questions to obtain information, stories and memories. Some ideas you may wish to think about include: where the deceased was born and grew up, siblings and family members, school days and childhood stories, partners, children grandchildren and other family members, closest friends, armed forces or national service, career plans and places of work, groups and societies they may have belonged to, interests and achievements, favourite memories, musical tastes, significant events, sayings and stories, what will you most remember them for, did they make any personal requests about their own funeral, will anybody else be speaking at or participating in the service.',
+    a: 'As part of the service I will carry out a home visit where I will ask questions to obtain information, stories and memories. Some ideas you may wish to think about include: where the deceased was born and grew up, siblings and family members, school days and childhood stories, partners, children, grandchildren and other family members, closest friends, armed forces or national service, career plans and places of work, groups and societies they may have belonged to, interests and achievements, favourite memories, musical tastes, significant events, sayings and stories, what will you most remember them for, did they make any personal requests about their own funeral, will anybody else be speaking at or participating in the service.',
   },
   {
     q: 'Who should speak at the funeral?',
@@ -35,15 +35,15 @@ const faqs = [
   },
   {
     q: 'Can a Celebrant legally marry you?',
-    a: 'Choosing a civil celebrant to conduct your wedding means that you will have a much more personalised and bespoke ceremony. It does, however, mean that you will need to complete the legal paperwork separately at the registry office to make the marriage legally binding. This is relatively easy to do and I can talk you through the process in our "getting to know you" meeting or your local registry office for guidance.',
+    a: 'Choosing a civil celebrant to conduct your wedding means that you will have a much more personalised and bespoke ceremony. It does, however, mean that you will need to complete the legal paperwork separately at the registry office to make the marriage legally binding. This is relatively easy to do and I can talk you through the process in our "getting to know you" meeting. Alternatively your local registry office can provide guidance.',
   },
   {
     q: 'Where can I get married?',
-    a: 'Absolutely anywhere! That is the beauty of a celebrant led service. What you do need to consider though is the practicalities of your selected location, such as how do you get your guests there, is there a landowner that you need to seek permission from? You may already have selected your venue and engaged a wedding planner, but if not I will help and advise as much as you need.',
+    a: 'Absolutely anywhere! That is the beauty of a celebrant led service. What you do need to consider though is the practicalities of your selected location, such as how do you get your guests there, is there a landowner that you need to seek permission from? You may already\u00a0have selected your venue and engaged a wedding planner, but if not I will help and advise as\u00a0much\u00a0as you need.',
   },
   {
     q: 'Are there any rituals available that we should consider for our wedding?',
-    a: 'There are so many rituals that can be used to make your wedding day special that it isn\'t possible to list them all here. Some of the more well known ones are Celtic Hand Fasting, Drinking from the Quaich (loving cup), Christian tradition of lighting a unity candle. Whatever you want we can include (as long as it is legal).',
+    a: 'There are so many rituals that can be used to make your wedding day special that it isn\'t possible to list them all here. Some of the more well known ones are Celtic Hand Fasting, Drinking from the Quaich (loving cup), Christian tradition of lighting a unity candle. Whatever you want, we can include (as long as it is legal).',
   },
 ];
 
@@ -101,7 +101,7 @@ export default function FAQPage() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="px-6 pb-6 text-gray-600 leading-relaxed text-base">
+                      <p className="px-6 pb-6 text-gray-600 leading-relaxed text-base text-pretty">
                         {faq.a}
                       </p>
                     </div>

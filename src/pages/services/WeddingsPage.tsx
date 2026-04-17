@@ -45,7 +45,7 @@ export default function WeddingsPage() {
           craft a ceremony that feels authentic, meaningful and completely yours.
         </p>
         <p>
-          If you&apos;d like to write your own vows, I can support and guide you through that
+          If you would like to write your own vows, I can support and guide you through that
           process, helping you find the right words to express what can sometimes feel impossible to
           put into sentences.
         </p>
