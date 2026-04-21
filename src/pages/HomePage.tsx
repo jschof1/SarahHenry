@@ -257,11 +257,13 @@ export default function HomePage() {
           <img
             src="/beach-happy-place.jpeg"
             alt="Beautiful beach setting"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[center_30%]"
           />
         </motion.div>
         <div className="homepage-hero-overlay" />
         <div className="homepage-hero-glow" />
+        {/* Bottom vignette — ensures button row always sits on dark ground regardless of image content */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[5] h-56 bg-gradient-to-t from-[rgba(2,2,6,1)] via-[rgba(4,4,10,0.75)] to-transparent" />
 
         <motion.div
           className="hero-parallax-content homepage-hero-content homepage-hero-content--fill-viewport relative z-10 mx-auto flex flex-col items-center justify-center px-6 pb-10 pt-20 text-center sm:pb-12 sm:pt-24 lg:pt-10 xl:pt-8"
@@ -304,8 +306,10 @@ export default function HomePage() {
               </p>
             </motion.div>
             <motion.div
-              variants={heroItemVariants}
-              className="hero-actions mt-2 flex w-full max-w-xl flex-col gap-3 rounded-[1.35rem] border border-white/18 bg-[rgba(6,6,10,0.58)] px-4 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:mt-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4 sm:px-6 sm:py-5"
+              initial={{ y: 28 }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.55, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="hero-actions mt-2 flex w-full max-w-xl flex-col gap-3 rounded-[1.35rem] border border-white/10 bg-[rgba(6,6,10,0.9)] px-4 py-4 shadow-[0_24px_60px_rgba(0,0,0,0.6)] sm:mt-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4 sm:px-6 sm:py-5"
             >
               <MagneticButton>
                 <Link to="/services" className="button-lift button-primary btn-shimmer">

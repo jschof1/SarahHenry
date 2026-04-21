@@ -125,9 +125,10 @@
 
 .homepage-shell::before {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 0;
   opacity: 0.22;
   background:
     radial-gradient(ellipse 85% 55% at 50% -15%, rgba(255, 255, 255, 0.07), transparent 42%),
@@ -157,10 +158,10 @@
   pointer-events: none;
   background-image: url('/mood-floral-home-about.jpg');
   background-size: cover;
-  background-position: center;
-  opacity: 0.18;
-  filter: blur(42px) saturate(0.85);
-  mix-blend-mode: soft-light;
+  background-position: center top;
+  opacity: 0.12;
+  filter: blur(48px) saturate(0.7);
+  mix-blend-mode: multiply;
 }
 
 /* Film-grain texture on hero for editorial depth */
@@ -214,8 +215,9 @@
       180deg,
       rgba(13, 13, 13, 0.1) 0%,
       rgba(13, 13, 13, 0.42) 50%,
-      rgba(10, 10, 14, 0.78) 82%,
-      rgba(8, 8, 12, 0.88) 100%
+      rgba(10, 10, 14, 0.82) 72%,
+      rgba(6, 6, 10, 0.94) 88%,
+      rgba(4, 4, 8, 0.97) 100%
     ),
     radial-gradient(ellipse 80% 70% at 50% 45%, transparent 28%, rgba(13, 13, 13, 0.45) 100%);
 }
@@ -228,7 +230,7 @@
 
 .homepage-hero-glow {
   background:
-    radial-gradient(circle at bottom right, rgba(168, 142, 197, 0.16), transparent 30%),
+    radial-gradient(circle at top right, rgba(168, 142, 197, 0.16), transparent 30%),
     radial-gradient(circle at center left, rgba(212, 197, 229, 0.1), transparent 32%);
   mix-blend-mode: screen;
   animation: hero-glow-breathe 6s ease-in-out infinite alternate;
