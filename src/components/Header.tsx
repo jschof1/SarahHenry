@@ -55,7 +55,7 @@ export default function Header() {
               <img
                 src="/logo.png"
                 alt="Sarah's Signature Ceremonies"
-                className="h-10 w-auto max-h-10 object-contain object-left sm:h-11 sm:max-h-11"
+                className="h-9 w-auto max-h-9 object-contain object-left sm:h-10 sm:max-h-10"
               />
             </div>
           </Link>

@@ -20,4 +20,24 @@ function cleanPublicFiles() {
 
 export default defineConfig({
   plugins: [cleanPublicFiles(), react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) {
+            return 'react-vendor';
+          }
+          if (id.includes('node_modules/react-router')) {
+            return 'router';
+          }
+          if (id.includes('node_modules/gsap') || id.includes('node_modules/@gsap')) {
+            return 'gsap';
+          }
+          if (id.includes('node_modules/motion')) {
+            return 'motion';
+          }
+        },
+      },
+    },
+  },
 })

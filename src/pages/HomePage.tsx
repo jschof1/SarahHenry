@@ -264,7 +264,7 @@ export default function HomePage() {
         <div className="homepage-hero-glow" />
 
         <motion.div
-          className="hero-parallax-content homepage-hero-content relative z-10 mx-auto flex min-h-screen flex-col items-center justify-center px-6 pb-14 pt-24 text-center sm:pb-16 sm:pt-28 lg:pt-12 xl:pt-10"
+          className="hero-parallax-content homepage-hero-content homepage-hero-content--fill-viewport relative z-10 mx-auto flex flex-col items-center justify-center px-6 pb-10 pt-20 text-center sm:pb-12 sm:pt-24 lg:pt-10 xl:pt-8"
           variants={heroContainerVariants}
           initial="hidden"
           animate="visible"
@@ -278,7 +278,7 @@ export default function HomePage() {
               <img
                 src="/logo.png"
                 alt=""
-                className="h-auto w-full max-w-[min(100%,20rem)] object-contain object-center [filter:drop-shadow(0_4px_28px_rgba(0,0,0,0.35))] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl"
+                className="h-auto w-full max-w-[min(100%,15rem)] object-contain object-center [filter:drop-shadow(0_4px_28px_rgba(0,0,0,0.35))] sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
                 decoding="async"
               />
             </motion.div>

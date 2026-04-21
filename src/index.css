@@ -141,7 +141,9 @@
   position: relative;
   isolation: isolate;
   overflow: clip;
+  /* svh fallback, then dvh so the hero tracks the visible viewport (mobile toolbars) */
   min-height: 100svh;
+  min-height: 100dvh;
   background: #0d0d0d;
   /* Match inner sections so the handoff is one soft rule, not a heavy bar + section border */
   @apply border-b border-lilac-200/70;
@@ -239,6 +241,12 @@
 
 .homepage-hero-content {
   @apply max-w-6xl lg:max-w-7xl 2xl:max-w-[90rem];
+}
+
+/* Fills the visible viewport; svh first for support, dvh tracks dynamic browser chrome */
+.homepage-hero-content--fill-viewport {
+  min-height: 100svh;
+  min-height: 100dvh;
 }
 
 .page-hero {
