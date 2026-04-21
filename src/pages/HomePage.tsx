@@ -29,7 +29,7 @@ const packages: HomePackage[] = [
     title: 'Weddings',
     subtitle: 'Personalised ceremonies',
     price: '500',
-    featured: true,
+    featured: false,
   },
   {
     title: 'Naming Ceremonies',
