@@ -105,20 +105,19 @@ export default function Footer() {
             href="https://www.funeralcelebrantacademy.co.uk"
             target="_blank"
             rel="noopener noreferrer"
-            className="group mb-2 inline-flex items-center gap-3 text-gray-400 transition-colors hover:text-white"
-            aria-label="Trained and Certified by The Academy of Professional Celebrants"
+            className="group mb-2 inline-flex max-w-md items-center gap-3 text-gray-400 transition-colors hover:text-white"
           >
-            <img
-              src="/the_academy.png"
-              alt="Academy of Professional Celebrants — Certified Celebrant"
-              className="h-12 w-auto shrink-0 rounded bg-white/95 p-1 shadow-sm"
-              loading="lazy"
-              decoding="async"
-            />
-            <span className="text-left text-[11px] uppercase tracking-[0.18em] sm:text-xs">
-              Trained &amp; Certified by
-              <br className="hidden sm:block" />{' '}
-              The Academy of Professional Celebrants
+            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded bg-white/95 p-1">
+              <img
+                src="/the_academy.png"
+                alt="Academy of Professional Celebrants certified badge"
+                className="h-full w-full object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span className="min-w-0 text-left text-xs leading-tight break-words text-gray-400 group-hover:text-white">
+              Trained and certified by the Academy of Professional Celebrants
             </span>
           </a>
           <p>
